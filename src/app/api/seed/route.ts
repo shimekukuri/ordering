@@ -18,6 +18,11 @@ export async function GET() {
           'https://m.media-amazon.com/images/I/812RSE2FBHL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
         description: 'Gives you fruit punch Energy',
       },
+      {
+        name: 'Red Bull',
+        description: 'Gives you wings!',
+        image: 'https://m.media-amazon.com/images/I/51lJaotT9PL._SL1000_.jpg',
+      },
     ],
   });
 
