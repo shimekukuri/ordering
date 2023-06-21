@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -66,6 +67,12 @@ export default function RootLayout({
               </li>
               <li>
                 <a>Sidebar Item 2</a>
+              </li>
+              <li>
+                <Link href={'/'}>Test</Link>
+              </li>
+              <li className="flex-1 flex-col-reverse justify-self-end p-4">
+                test
               </li>
             </ul>
           </div>
