@@ -14,9 +14,19 @@ datasource db {
 
 model Item {
   id          String      @id @default(uuid())
+  name        String
   image       String
   description String      @db.Text
   OrderItem   OrderItem[]
+  Category    Category?   @relation(fields: [categoryId], references: [id])
+  categoryId  Int?
+}
+
+model Category {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  products    Item[]
 }
 
 model OrderItem {
