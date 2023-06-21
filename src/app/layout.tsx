@@ -21,7 +21,7 @@ export default function RootLayout({
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col">
             {/* Navbar */}
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 shadow-2xl">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ export default function RootLayout({
                 </svg>
               </label>
               <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">ACCESS</a>
               </div>
               <div className="flex-none">
                 <div className="dropdown dropdown-end">

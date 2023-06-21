@@ -13,7 +13,24 @@ datasource db {
 }
 
 model Item {
-  id String @id @default(uuid())
+  id          String      @id @default(uuid())
+  image       String
+  description String      @db.Text
+  OrderItem   OrderItem[]
+}
+
+model OrderItem {
+  id       String  @id @default(uuid())
+  quantity Int
+  item     Item    @relation(fields: [itemId], references: [id])
+  itemId   String
+  Order    Order?  @relation(fields: [orderId], references: [id])
+  orderId  String?
+}
+
+model Order {
+  id    String      @id @default(uuid())
+  items OrderItem[]
 }
 
 //next auth
