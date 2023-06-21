@@ -1,8 +1,16 @@
+import { prisma } from "@/ulitiles/prisma/db";
+
 interface ProductCardInterface {
   name: string;
   image: string;
   description: string;
   categoryId: string;
+}
+
+const addToCart = async () => {
+  'use server'
+
+  const cart = prisma.order.
 }
 
 export default function ProductCard({
@@ -21,7 +29,9 @@ export default function ProductCard({
         <p>{description}</p>
         <div className="card-actions justify-between items-center">
           <div className="badge badge-secondary">{categoryId}</div>
-          <button className="btn btn-primary">Add To Cart</button>
+          <form>
+            <button className="btn btn-primary">Add To Cart</button>
+          </form>
         </div>
       </div>
     </div>

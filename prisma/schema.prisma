@@ -39,8 +39,10 @@ model OrderItem {
 }
 
 model Order {
-  id    String      @id @default(uuid())
-  items OrderItem[]
+  id        String      @id @default(uuid())
+  items     OrderItem[]
+  account   Account     @relation(fields: [accountId], references: [id])
+  accountId String
 }
 
 //next auth
@@ -58,7 +60,8 @@ model Account {
   id_token          String? @db.Text
   session_state     String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user  User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Order Order[]
 
   @@unique([provider, providerAccountId])
 }
