@@ -1,7 +1,9 @@
-import NextAuth from "next-auth"
+import NextAuth from 'next-auth';
 
-const handler = NextAuth({
-  ...
-})
+console.log('ommited for test');
 
-export { handler as GET, handler as POST }
+// const handler = NextAuth({
+//   console.log('meep')
+// })
+
+// export { handler as GET, handler as POST }

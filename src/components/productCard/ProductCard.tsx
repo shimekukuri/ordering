@@ -1,4 +1,4 @@
-import { prisma } from "@/ulitiles/prisma/db";
+import { prisma } from '@/ulitiles/prisma/db';
 
 interface ProductCardInterface {
   name: string;
@@ -8,10 +8,10 @@ interface ProductCardInterface {
 }
 
 const addToCart = async () => {
-  'use server'
+  'use server';
 
-  const cart = prisma.order.
-}
+  const cart = prisma;
+};
 
 export default function ProductCard({
   name,
