@@ -18,13 +18,13 @@ model Item {
   image       String
   description String      @db.Text
   OrderItem   OrderItem[]
-  Category    Category?   @relation(fields: [categoryId], references: [id])
-  categoryId  Int?
+  Category    Category?   @relation(fields: [categoryId], references: [name])
+  categoryId  String?
 }
 
 model Category {
-  id          Int    @id @default(autoincrement())
-  name        String
+  id          String @id @default(uuid())
+  name        String @unique
   description String
   products    Item[]
 }

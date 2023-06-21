@@ -11,12 +11,13 @@ export default async function Home() {
 
   return (
     <main className="flex flex-wrap justify-center items-center p-4 gap-4">
-      {items.map(({ name, description, image, id }) => (
+      {items.map(({ name, description, image, id, categoryId }) => (
         <ProductCard
           key={id}
           name={name}
           description={description}
           image={image}
+          categoryId={categoryId!}
         />
       ))}
     </main>
