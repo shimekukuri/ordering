@@ -10,12 +10,12 @@ export async function GET() {
         name: 'Spark Watermellon 10.5 0Z',
         description: 'Gives you Energy',
         image:
-          'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAdvoCare-Flavors-Canister-Pouches-Watermelon%2Fdp%2FB00TUBAVO0&psig=AOvVaw3U-qWP7vo4gQBbKZAu2sFJ&ust=1687449141328000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMjE_Ibc1P8CFQAAAAAdAAAAABAE',
+          'https://m.media-amazon.com/images/I/61ZN2AUSrOL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
       },
       {
         name: 'Spark Fruit Punch 10.5 0Z',
         image:
-          'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FAdvoCare-Spark-Canister-Fruit-Punch%2Fdp%2FB0038NEQHO&psig=AOvVaw3U-qWP7vo4gQBbKZAu2sFJ&ust=1687449141328000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMjE_Ibc1P8CFQAAAAAdAAAAABAJ',
+          'https://m.media-amazon.com/images/I/812RSE2FBHL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
         description: 'Gives you fruit punch Energy',
       },
     ],
