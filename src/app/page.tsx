@@ -14,6 +14,7 @@ export default async function Home() {
       {items.map(({ name, description, image, id, categoryId }) => (
         <ProductCard
           key={id}
+          id={id}
           name={name}
           description={description}
           image={image}
