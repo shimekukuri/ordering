@@ -1,5 +1,4 @@
 import { prisma } from '@/ulitiles/prisma/db';
-import { data } from 'autoprefixer';
 
 interface ProductCardInterface {
   name: string;

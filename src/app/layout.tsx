@@ -1,6 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { prisma } from '@/ulitiles/prisma/db';
+import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -9,11 +11,18 @@ export const metadata = {
   description: 'Inter orginizational ordering for Access Pharmacies',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cart = await prisma.order.findFirst();
+  const cartItems = await prisma.orderItem.findMany({
+    where: { orderId: { equals: cart!.id } },
+  });
+
+  console.log(cartItems);
+
   return (
     <html lang="en" data-theme="cupcake">
       <body className={inter.className}>
@@ -58,7 +67,9 @@ export default function RootLayout({
                           d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                         />
                       </svg>
-                      <span className="badge badge-sm indicator-item">8</span>
+                      <span className="badge badge-sm indicator-item">
+                        <CartCount cartItems={cartItems} />
+                      </span>
                     </div>
                   </label>
                   <div
