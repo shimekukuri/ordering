@@ -3,6 +3,6 @@ import { NextResponse } from 'next/server';
 
 export const GET = async () => {
   const users = await prisma.user.findMany();
-  //push 3
+  //push 4
   return NextResponse.json(users);
 };
