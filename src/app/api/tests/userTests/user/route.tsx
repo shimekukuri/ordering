@@ -6,3 +6,5 @@ export const GET = async () => {
   //push 4
   return NextResponse.json(users);
 };
+
+export const dynamic = true;
