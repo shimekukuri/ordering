@@ -15,3 +15,5 @@ export const GET = async (request: Request) => {
   //test
   return NextResponse.json(cartItems);
 };
+
+export const dynamic = true;

@@ -14,3 +14,5 @@ export async function GET() {
 
   return NextResponse.json(orderItems);
 }
+
+export const dynamic = true;
