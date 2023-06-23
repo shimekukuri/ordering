@@ -1,7 +1,7 @@
 import { prisma } from '@/ulitiles/prisma/db';
 import { NextResponse } from 'next/server';
 
-export const GET = async () => {
+export const GET = async (request: Request) => {
   const cart = await prisma.order.findFirst();
   if (!cart) {
     return NextResponse.json({ message: 'Known or missing cart' });
