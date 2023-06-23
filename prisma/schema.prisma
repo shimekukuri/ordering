@@ -43,6 +43,7 @@ model Order {
   items     OrderItem[]
   account   Account     @relation(fields: [accountId], references: [id])
   accountId String
+  submited  Boolean     @default(false)
 }
 
 //next auth

@@ -22,7 +22,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
   );
 
   const onKeyDown = useCallback(
-    (e) => {
+    (e: any) => {
       if (e.key === 'Escape') onDismiss();
     },
     [onDismiss]

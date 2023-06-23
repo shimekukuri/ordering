@@ -1,4 +1,6 @@
+import { options } from '@/app/api/auth/[...nextauth]/route';
 import { prisma } from '@/ulitiles/prisma/db';
+import { getServerSession } from 'next-auth';
 
 interface ProductCardInterface {
   name: string;
@@ -14,10 +16,27 @@ const addToCart = async (data: FormData) => {
   if (!id) {
     return;
   }
+
+  const session = await getServerSession(options);
+  if (!session) {
+    return;
+  }
+  const user = await prisma.user.findFirst({
+    where: { email: { equals: session.user?.email } },
+  });
+  const account = await prisma.account.findFirst({
+    where: { userId: { equals: user?.id } },
+  });
+
+  console.log(session);
+
   const cart =
     (await prisma.order.findFirst()) ??
     (await prisma.order.create({
-      data: { items: { create: { quantity: 1, itemId: id } } },
+      data: {
+        items: { create: { quantity: 1, itemId: id } },
+        accountId: account?.id as string,
+      },
     }));
 
   const cartItems = await prisma.orderItem.findMany({
@@ -37,7 +56,7 @@ const addToCart = async (data: FormData) => {
   console.log(id);
   console.log(cart.id);
   console.log(cartItems);
-  // prisma.orderItem.update({where: {id}, data: {}})
+  prisma.orderItem.update({ where: { id }, data: {} });
 };
 
 export default function ProductCard({
