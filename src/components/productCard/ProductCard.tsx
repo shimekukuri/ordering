@@ -58,7 +58,12 @@ export default function ProductCard({
         <div className="card-actions justify-between items-center">
           <div className="badge badge-secondary">{categoryId}</div>
           <form action={addToCart}>
-            <input className="hidden" type={'text'} name="id" value={id} />
+            <input
+              className="hidden"
+              type={'text'}
+              name="id"
+              defaultValue={id}
+            />
             <button type="submit" className="btn btn-primary">
               Add To Cart
             </button>

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { prisma } from '@/ulitiles/prisma/db';
 import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
+import { getServerSession } from 'next-auth';
+import { options } from './api/auth/[...nextauth]/route';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,15 +15,13 @@ export const metadata = {
 
 export default async function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
-  const cart = await prisma.order.findFirst();
-  const cartItems = await prisma.orderItem.findMany({
-    where: { orderId: { equals: cart!.id } },
-  });
-
-  console.log(cartItems);
+  const session = await getServerSession(options);
+  console.log(session);
 
   return (
     <html lang="en" data-theme="cupcake">
@@ -47,9 +47,12 @@ export default async function RootLayout({
                 </svg>
               </label>
               <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">ACCESS</a>
+                <Link className="btn btn-ghost normal-case text-xl" href={'/'}>
+                  ACCESS
+                </Link>
               </div>
               <div className="flex-none">
+                <Link href={'/login'}>Login</Link>
                 <div className="dropdown dropdown-end">
                   <label tabIndex={0} className="btn btn-ghost btn-circle">
                     <div className="indicator">
@@ -67,8 +70,9 @@ export default async function RootLayout({
                           d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                         />
                       </svg>
+
                       <span className="badge badge-sm indicator-item">
-                        <CartCount cartItems={cartItems} />
+                        {/* <CartCount cartItems={cartItems} /> */} 9
                       </span>
                     </div>
                   </label>
@@ -118,6 +122,7 @@ export default async function RootLayout({
             </div>
             {/* Page content here */}
             {children}
+            {modal}
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay"></label>

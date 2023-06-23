@@ -1,9 +1,28 @@
-import NextAuth from 'next-auth';
+import { randomBytes, randomUUID } from 'crypto';
+import NextAuth, { NextAuthOptions } from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import { prisma } from '@/ulitiles/prisma/db';
+import { Adapter } from 'next-auth/adapters';
 
-console.log('ommited for test');
+export const options: NextAuthOptions = {
+  adapter: PrismaAdapter(prisma) as Adapter<boolean>,
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID as string,
+      clientSecret: process.env.GOOGLE_SECRET as string,
+    }),
+  ],
+  session: {
+    strategy: 'database',
+    maxAge: 30 * 24 * 60 * 60,
+    generateSessionToken: () => {
+      return randomUUID?.() ?? randomBytes(32).toString('hex');
+    },
+  },
+  secret: process.env.SECRET,
+};
 
-// const handler = NextAuth({
-//   console.log('meep')
-// })
+const handler = NextAuth(options);
 
-// export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };
