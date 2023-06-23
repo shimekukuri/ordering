@@ -7,4 +7,4 @@ export const GET = async () => {
   return NextResponse.json(users);
 };
 
-export const dynamic = true;
+export const dynamic = 'force-dynamic';
