@@ -2,9 +2,6 @@ import { prisma } from '@/ulitiles/prisma/db';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  await prisma.item.deleteMany();
-  await prisma.category.deleteMany();
-
   const category = await prisma.category.createMany({
     data: [
       {
