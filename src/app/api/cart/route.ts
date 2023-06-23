@@ -15,4 +15,4 @@ export async function GET() {
   return NextResponse.json(orderItems);
 }
 
-export const dynamic = true;
+export const dynamic = 'force-dynamic';
