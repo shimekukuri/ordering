@@ -5,7 +5,7 @@ export async function GET() {
   const id = await prisma.order.findFirst();
   console.log(id);
   if (!id) {
-    return;
+    return NextResponse.json({ message: 'Uknown or Missing ID' });
   }
 
   const orderItems = await prisma.orderItem.findMany({
