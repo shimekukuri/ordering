@@ -9,6 +9,6 @@ export const GET = async () => {
   const cartItems = await prisma.orderItem.findMany({
     where: { orderId: { equals: cart!.id } },
   });
-
+  //test
   return NextResponse.json(cartItems);
 };
