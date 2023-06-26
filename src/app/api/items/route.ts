@@ -7,4 +7,10 @@ export async function GET(request: NextRequest) {
   return NextResponse.json(items);
 }
 
+export async function POST(request: NextRequest, response: NextResponse) {
+  const body = request.body;
+
+  return NextResponse.json({ message: 'Items Route' });
+}
+
 export const dynamic = 'force-dynamic';

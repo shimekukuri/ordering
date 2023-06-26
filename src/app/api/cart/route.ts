@@ -38,8 +38,12 @@ export async function GET() {
   return NextResponse.json(orderItems);
 }
 
-export async function POST() {
+export async function POST(request: NextRequest, response: NextResponse) {
   const session = await getServerSession();
+  //@ts-expect-error
+  const { item, quantity } = request.body;
+
+  return NextResponse.json({ message: { item, quantity } });
 }
 
 export const dynamic = 'force-dynamic';
