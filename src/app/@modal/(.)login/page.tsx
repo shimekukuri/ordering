@@ -10,6 +10,7 @@ export default function LoginModal() {
         <button className="btn btn-primary" onClick={() => signIn()}>
           Sign In
         </button>
+        <button onClick={() => signOut()}>signOut</button>
       </div>
     </Modal>
   );

@@ -3,8 +3,6 @@ import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 
 export const GET = async (request: Request) => {
-  const useHeaders = headers();
-  const header = useHeaders.get('content-type');
   const cart = await prisma.order.findFirst();
   if (!cart) {
     return NextResponse.json({ message: 'Known or missing cart' });
