@@ -21,9 +21,8 @@ export default function Page() {
         <h1 className="text-3xl">Cart: </h1>
         <div className="flex flex-col gap-4">
           {cart.length > 0 ? (
-            cart.map((item) => {
+            cart.map((item: any) => {
               //@ts-ignore
-              console.log(item);
               return (
                 <div
                   key={`${item.id}`}
