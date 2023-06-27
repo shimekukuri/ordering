@@ -21,7 +21,6 @@ export default async function RootLayout({
   modal: React.ReactNode;
 }) {
   const session = await getServerSession(options);
-  console.log(session);
 
   return (
     <html lang="en" data-theme="cupcake">

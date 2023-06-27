@@ -18,7 +18,7 @@ export async function GET() {
   }
 
   const id = await prisma.account.findFirst({ where: { userId: user.id } });
-  console.log(id);
+
   if (!id) {
     return NextResponse.json({ message: 'Uknown or Missing ID' });
   }
@@ -39,11 +39,17 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest, response: NextResponse) {
-  const session = await getServerSession();
-  //@ts-expect-error
-  const { item, quantity } = request.body;
+  const session = await getServerSession(options);
 
-  return NextResponse.json({ message: { item, quantity } });
+  const { orderItemId, quantity } = await request.json();
+  console.log(orderItemId, quantity);
+  //@ts-ignore
+  const updatedItem = await prisma.orderItem.update({
+    where: { id: orderItemId },
+    data: { quantity: quantity },
+  });
+
+  return NextResponse.json({ message: { updatedItem } });
 }
 
 export const dynamic = 'force-dynamic';

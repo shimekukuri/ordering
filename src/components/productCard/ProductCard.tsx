@@ -28,8 +28,6 @@ const addToCart = async (data: FormData) => {
     where: { userId: { equals: user?.id } },
   });
 
-  console.log(session);
-
   const cart =
     (await prisma.order.findFirst({ where: { accountId: account?.id } })) ??
     (await prisma.order.create({
@@ -53,9 +51,7 @@ const addToCart = async (data: FormData) => {
       data: { quantity: { increment: 1 } },
     });
   }
-  console.log(id);
-  console.log(cart.id);
-  console.log(cartItems);
+
   prisma.orderItem.update({ where: { id }, data: {} });
 };
 

@@ -2,9 +2,7 @@
 import { useEffect } from 'react';
 
 export default function CartCount({ cartItems }: { cartItems: any }) {
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  useEffect(() => {}, [cartItems]);
 
   return (
     <span className="badge badge-sm indicator-item">
