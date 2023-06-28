@@ -44,7 +44,7 @@ export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
 
   console.log('Mailer Order Items');
   if (!orderItems) {
-    return new Error();
+    return new Error('orderItems Not Found');
   }
   const extendedOptions = extendMailType(options);
 
