@@ -4,13 +4,12 @@ import { prisma } from '../prisma/db';
 console.log(process.env.NODEMAILER_USERNAME, process.env.NODEMAILER_PASSWORD);
 
 export const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  port: 465,
   auth: {
     user: process.env.NODEMAILER_USERNAME,
     pass: process.env.NODEMAILER_PASSWORD,
   },
   host: 'smtp.gmail.com',
-  port: 465,
   secure: true,
 });
 
