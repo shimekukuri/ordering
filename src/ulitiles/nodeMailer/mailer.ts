@@ -19,6 +19,8 @@ type extendedMailOptions = mailOptions & {
   from?: string;
   subject?: string;
   text?: string;
+  port: number;
+  secure: boolean;
 };
 
 const extendMailType = (options: mailOptions): extendedMailOptions => {
@@ -26,6 +28,8 @@ const extendMailType = (options: mailOptions): extendedMailOptions => {
     ...options,
     subject: undefined,
     text: undefined,
+    port: 465,
+    secure: true,
   };
 };
 
