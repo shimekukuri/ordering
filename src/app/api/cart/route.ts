@@ -1,6 +1,5 @@
 import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
-import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { options } from '../auth/[...nextauth]/route';
 
@@ -42,7 +41,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
   const session = await getServerSession(options);
 
   const { orderItemId, quantity } = await request.json();
-  console.log(orderItemId, quantity);
   //@ts-ignore
   const updatedItem = await prisma.orderItem.update({
     where: { id: orderItemId },

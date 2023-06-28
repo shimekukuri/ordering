@@ -5,11 +5,10 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]) as any;
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const updateQuantity = (orderItemId: any, quantity: number) => {
-    console.log(orderItemId, quantity);
     setIsLoading(true);
     return fetch('/api/cart', {
       method: 'POST',
@@ -25,7 +24,7 @@ export default function Page() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        return data;
       })
       .then(() => {
         fetch('api/cart')
@@ -38,6 +37,21 @@ export default function Page() {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const submitCart = (orderId: string) => {
+    console.log('submit cart', orderId);
+
+    return fetch('api/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ orderId }),
+    })
+      .then((response) => response.json())
+      .then((x) => x)
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -55,7 +69,6 @@ export default function Page() {
         <div className="flex flex-col gap-4">
           {cart.length > 0 && !isLoading ? (
             cart.map((item: any) => {
-              console.log('this', item);
               //@ts-ignore
               return (
                 <div
@@ -92,7 +105,10 @@ export default function Page() {
             <div className="loading loading-lg loading-ring justify-self-center self-center scale-150"></div>
           )}
         </div>
-        <button className="absolute btn btn-primary right-5 bottom-5">
+        <button
+          className="absolute btn btn-primary right-5 bottom-5"
+          onClick={() => submitCart(cart[0].orderId)}
+        >
           Submit
         </button>
       </div>

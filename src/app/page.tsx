@@ -1,6 +1,5 @@
 import ProductCard from '@/components/productCard/ProductCard';
 import { prisma } from '@/ulitiles/prisma/db';
-import Image from 'next/image';
 
 const getItems = () => {
   return prisma.item.findMany();

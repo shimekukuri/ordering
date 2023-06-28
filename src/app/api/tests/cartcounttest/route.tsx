@@ -1,6 +1,5 @@
 import { prisma } from '@/ulitiles/prisma/db';
 import { NextResponse } from 'next/server';
-import { headers } from 'next/headers';
 
 export const GET = async (request: Request) => {
   const cart = await prisma.order.findFirst();
@@ -10,7 +9,6 @@ export const GET = async (request: Request) => {
   const cartItems = await prisma.orderItem.findMany({
     where: { orderId: { equals: cart!.id } },
   });
-  //test
   return NextResponse.json(cartItems);
 };
 
