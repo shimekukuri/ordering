@@ -53,14 +53,19 @@ export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
   extendedOptions.subject = date.toLocaleDateString() + `::${orderId}`;
   extendedOptions.text = JSON.stringify(body);
 
-  transporter.sendMail(extendedOptions, async (error, info) => {
-    if (error) {
-      console.error('Mailer ERROR', error);
-      return new Error(`${error}`);
-    }
-    console.log(info);
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(extendedOptions, async (error, info) => {
+      if (error) {
+        console.error('Mailer ERROR', error);
+        reject(error);
+      }
+      console.log(info);
 
-    await prisma.orderItem.deleteMany({ where: { orderId: orderId } });
-    await prisma.order.delete({ where: { id: orderId } });
+      await prisma.orderItem.deleteMany({ where: { orderId: orderId } });
+      await prisma.order.delete({ where: { id: orderId } });
+    });
+    resolve(true);
   });
+
+  return 'executed';
 };
