@@ -55,6 +55,24 @@ export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
   extendedOptions.subject = date.toLocaleDateString() + `::${orderId}`;
   extendedOptions.text = JSON.stringify(body);
 
+  try {
+    await new Promise((resolve, reject) => {
+      // verify connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+          reject(error);
+        } else {
+          console.log('Server is ready to take our messages');
+          resolve(success);
+        }
+      });
+    });
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+
   await new Promise((resolve, reject) => {
     transporter.sendMail(extendedOptions, async (error, info) => {
       if (error) {
@@ -65,8 +83,8 @@ export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
 
       await prisma.orderItem.deleteMany({ where: { orderId: orderId } });
       await prisma.order.delete({ where: { id: orderId } });
+      resolve(true);
     });
-    resolve(true);
   });
 
   return 'executed';
