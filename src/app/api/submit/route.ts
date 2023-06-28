@@ -6,11 +6,11 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
   console.log(req.orderId);
 
   try {
-    const meep = await sendOrderEmail(
+    const emailReponse = await sendOrderEmail(
       { to: 'james.t.hutchinson@icloud.com' },
       req.orderId
     );
-    console.log('Send Order Email', meep);
+    console.log('Send Order Email', emailReponse);
     return NextResponse.json('meep');
   } catch (error) {
     console.error(error);
