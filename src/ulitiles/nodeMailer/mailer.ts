@@ -46,13 +46,11 @@ export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
   if (!orderItems) {
     return new Error('orderItems Not Found');
   }
-  const extendedOptions = extendMailType(options);
-
-  extendedOptions.from = process.env.NODEMAILER_USERNAME;
 
   const date = new Date();
+  const extendedOptions = extendMailType(options);
+  extendedOptions.from = process.env.NODEMAILER_USERNAME;
   extendedOptions.subject = date.toLocaleDateString() + `::${orderId}`;
-
   extendedOptions.text = JSON.stringify(body);
 
   transporter.sendMail(extendedOptions, async (error, info) => {
