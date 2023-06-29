@@ -37,6 +37,27 @@ export async function GET() {
         image: 'https://m.media-amazon.com/images/I/51lJaotT9PL._SL1000_.jpg',
         categoryId: 'drinks',
       },
+      {
+        name: 'Red Bull Tropical',
+        description: 'Gives you tropical wings!',
+        image: 'https://m.media-amazon.com/images/I/51SRGpgFL0L._SY879_.jpg',
+        categoryId: 'drinks',
+      },
+      {
+        name: 'Biolyte Mixed Pack',
+        description: 'MEGA HYDRAAAAATION',
+        image:
+          'https://m.media-amazon.com/images/I/51QUIvVQd9L._SX300_SY300_QL70_FMwebp_.jpg',
+        categoryId: 'drinks',
+      },
+      {
+        name: 'Coke Zero Sugar',
+        description:
+          'Just like coke, just without the thing that makes it good',
+        image:
+          'https://m.media-amazon.com/images/I/71XuArFYdvL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg',
+        categoryId: 'drinks',
+      },
     ],
   });
 

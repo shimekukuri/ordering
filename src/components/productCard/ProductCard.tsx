@@ -55,13 +55,15 @@ const addToCart = async (data: FormData) => {
   prisma.orderItem.update({ where: { id }, data: {} });
 };
 
-export default function ProductCard({
+export default async function ProductCard({
   name,
   image,
   description,
   categoryId,
   id,
 }: ProductCardInterface) {
+  const session = await getServerSession(options);
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl p-4">
       <figure>
@@ -79,7 +81,10 @@ export default function ProductCard({
               name="id"
               defaultValue={id}
             />
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className={`btn ${session ? 'btn-primary' : 'btn-disabled'}`}
+            >
               Add To Cart
             </button>
           </form>

@@ -5,6 +5,8 @@ import { prisma } from '@/ulitiles/prisma/db';
 import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
 import { getServerSession } from 'next-auth';
 import { options } from './api/auth/[...nextauth]/route';
+import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
+import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +23,7 @@ export default async function RootLayout({
   modal: React.ReactNode;
 }) {
   const session = await getServerSession(options);
+  console.log(session);
 
   return (
     <html lang="en" data-theme="cupcake">
@@ -51,7 +54,8 @@ export default async function RootLayout({
                 </Link>
               </div>
               <div className="flex-none">
-                <Link href={'/login'}>Login</Link>
+                {!session ? <LoginButton /> : ''}
+
                 <div className="dropdown dropdown-end">
                   <label tabIndex={0} className="btn btn-ghost btn-circle">
                     <div className="indicator">
@@ -93,14 +97,19 @@ export default async function RootLayout({
                   </div>
                 </div>
                 <div className="dropdown dropdown-end">
-                  <label
-                    tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
-                  >
-                    <div className="w-10 rounded-full">
-                      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
-                  </label>
+                  {session ? (
+                    <label
+                      tabIndex={0}
+                      className="btn btn-ghost btn-circle avatar"
+                    >
+                      <div className="w-10 rounded-full">
+                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                      </div>
+                    </label>
+                  ) : (
+                    ''
+                  )}
+
                   <ul
                     tabIndex={0}
                     className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
@@ -115,7 +124,7 @@ export default async function RootLayout({
                       <a>Settings</a>
                     </li>
                     <li>
-                      <a>Logout</a>
+                      <LogoutButton />
                     </li>
                   </ul>
                 </div>

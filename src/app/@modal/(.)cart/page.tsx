@@ -1,12 +1,13 @@
 'use client';
 
 import Modal from '@/components/modal/Modal';
-import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [cart, setCart] = useState([]) as any;
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   const updateQuantity = (orderItemId: any, quantity: number) => {
     setIsLoading(true);
@@ -41,7 +42,7 @@ export default function Page() {
 
   const submitCart = (orderId: string) => {
     console.log('submit cart', orderId);
-
+    setIsLoading(true);
     return fetch('api/submit', {
       method: 'POST',
       headers: {
@@ -50,8 +51,14 @@ export default function Page() {
       body: JSON.stringify({ orderId }),
     })
       .then((response) => response.json())
-      .then((x) => x)
-      .catch((error) => console.error(error));
+      .then((x) => {
+        console.log(x);
+        router.push('/status/cartStatus/cartStatusSuccess');
+      })
+      .catch((error) => {
+        console.error(error);
+        router.push('/status/cartStatus/cartStatusFailed');
+      });
   };
 
   useEffect(() => {
@@ -65,15 +72,15 @@ export default function Page() {
   return (
     <Modal>
       <div className="bg-white w-full rounded-2xl shadow-2xl h-[80vh] md:h-[50vh] p-4 overflow-y-scroll relative">
-        <h1 className="text-3xl">Cart: </h1>
-        <div className="flex flex-col gap-4">
+        {cart.length > 0 ? <h1 className="text-3xl">Cart: </h1> : ''}
+        <div className="flex flex-col-reverse gap-4">
           {cart.length > 0 && !isLoading ? (
             cart.map((item: any) => {
               //@ts-ignore
               return (
                 <div
                   key={`${item.id}`}
-                  className="bg-secondary bg-opacity-50 p-4 flex flex-col items-center md:flex-row md:justify-between md:items-start rounded-2xl shadow-xl"
+                  className="bg-secondary bg-opacity-50 p-4 flex flex-col items-center md:flex-row md:justify-between rounded-2xl shadow-xl"
                 >
                   <img
                     src={`${item.item.image}`}
@@ -105,12 +112,16 @@ export default function Page() {
             <div className="loading loading-lg loading-ring justify-self-center self-center scale-150"></div>
           )}
         </div>
-        <button
-          className="absolute btn btn-primary right-5 bottom-5"
-          onClick={() => submitCart(cart[0].orderId)}
-        >
-          Submit
-        </button>
+        {cart.length > 0 && !isLoading ? (
+          <button
+            className="absolute btn btn-primary right-5 bottom-5"
+            onClick={() => submitCart(cart[0].orderId)}
+          >
+            Submit
+          </button>
+        ) : (
+          ''
+        )}
       </div>
     </Modal>
   );
