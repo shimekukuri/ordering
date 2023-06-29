@@ -1,5 +1,6 @@
 import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { options } from '../auth/[...nextauth]/route';
 

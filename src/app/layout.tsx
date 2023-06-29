@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { prisma } from '@/ulitiles/prisma/db';
 import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
-import { getServerSession } from 'next-auth';
+import { getServerSession, Session } from 'next-auth';
 import { options } from './api/auth/[...nextauth]/route';
 import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
 import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
@@ -15,6 +15,17 @@ export const metadata = {
   description: 'Inter orginizational ordering for Access Pharmacies',
 };
 
+const getCart = async (session: Session | null) => {
+  if (!session) {
+    return [];
+  }
+  const userData = await prisma.user.findFirst({
+    where: { email: session?.user?.email },
+    include: { accounts: { include: { Order: { include: { items: {} } } } } },
+  });
+  return userData?.accounts[0]?.Order[0]?.items ?? [];
+};
+
 export default async function RootLayout({
   children,
   modal,
@@ -23,6 +34,12 @@ export default async function RootLayout({
   modal: React.ReactNode;
 }) {
   const session = await getServerSession(options);
+  const cartData = await getCart(session);
+  const cartQuantity =
+    cartData?.reduce((t, c) => {
+      return (t += c.quantity);
+    }, 0) ?? 0;
+
   console.log(session);
 
   return (
@@ -74,8 +91,8 @@ export default async function RootLayout({
                         />
                       </svg>
 
-                      <span className="badge badge-sm indicator-item">
-                        {/* <CartCount cartItems={cartItems} /> */} 9
+                      <span className="indicator-item">
+                        {cartQuantity > 0 ? '🔴' : ''}
                       </span>
                     </div>
                   </label>
@@ -83,17 +100,7 @@ export default async function RootLayout({
                     tabIndex={0}
                     className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
                   >
-                    <div className="card-body">
-                      <span className="font-bold text-lg">8 Items</span>
-                      <span className="text-info">Subtotal: $999</span>
-                      <div className="card-actions">
-                        <Link href={'/cart'}>
-                          <button className="btn btn-primary btn-block">
-                            View cart
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
+                    <CartCount session={session} />
                   </div>
                 </div>
                 <div className="dropdown dropdown-end">

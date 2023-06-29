@@ -1,14 +1,35 @@
-'use client';
-import { useEffect } from 'react';
+import { getServerSession, Session } from 'next-auth';
+import { prisma } from '@/ulitiles/prisma/db';
+import { options } from '@/app/api/auth/[...nextauth]/route';
+import Link from 'next/link';
 
-export default function CartCount({ cartItems }: { cartItems: any }) {
-  useEffect(() => {}, [cartItems]);
+const getCart = async (session: Session | null) => {
+  if (!session) {
+    return [];
+  }
+  const cartData = await prisma.user.findFirst({
+    where: { email: session?.user?.email },
+    include: { accounts: { include: { Order: { include: { items: {} } } } } },
+  });
+  return cartData?.accounts[0]?.Order[0]?.items ?? [];
+};
+
+export default async function CartCount() {
+  const session = await getServerSession(options);
+  const cartData = await getCart(session);
+  const cartQuantity = cartData.reduce((t, c) => {
+    return (t += c.quantity);
+  }, 0);
 
   return (
-    <span className="badge badge-sm indicator-item">
-      {cartItems.reduce((t: number, c: any) => {
-        return (t += c.quantity);
-      }, 0)}
-    </span>
+    <div className="card-body">
+      <span className="font-bold text-lg">{cartQuantity} Items</span>
+      <span className="text-info">Subtotal: $0</span>
+      <div className="card-actions">
+        <Link href={'/cart'}>
+          <button className="btn btn-primary btn-block">View cart</button>
+        </Link>
+      </div>
+    </div>
   );
 }
