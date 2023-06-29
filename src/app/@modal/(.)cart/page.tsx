@@ -50,13 +50,22 @@ export default function Page() {
       },
       body: JSON.stringify({ orderId }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((x) => {
         console.log(x);
-        router.push('/status/cartStatus/cartStatusSuccess');
+        router.back();
+        setTimeout(() => {
+          router.push('/status/cartStatus/cartStatusSuccess');
+        }, 1000);
       })
       .catch((error) => {
         console.error(error);
+        router.back();
+        setTimeout(() => {
+          router.push('/status/cartStatus/cartStatusSuccess');
+        }, 1000);
         router.push('/status/cartStatus/cartStatusFailed');
       });
   };
