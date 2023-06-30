@@ -31,7 +31,11 @@ const extendMailType = (options: mailOptions): extendedMailOptions => {
   };
 };
 
-export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
+export const sendOrderEmail = async (
+  options: mailOptions,
+  orderId: string,
+  location: string
+) => {
   const orderItems = await prisma.orderItem.findMany({
     where: { orderId: orderId },
   });
@@ -52,7 +56,8 @@ export const sendOrderEmail = async (options: mailOptions, orderId: string) => {
   const date = new Date();
   const extendedOptions = extendMailType(options);
   extendedOptions.from = process.env.NODEMAILER_USERNAME;
-  extendedOptions.subject = date.toLocaleDateString() + `::${orderId}`;
+  extendedOptions.subject =
+    location + '::' + date.toLocaleDateString() + `::${orderId}`;
   extendedOptions.text = JSON.stringify(body);
 
   try {

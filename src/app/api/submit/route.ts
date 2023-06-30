@@ -8,7 +8,8 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
   try {
     const emailReponse = await sendOrderEmail(
       { to: 'james.t.hutchinson@icloud.com' },
-      req.orderId
+      req.orderId,
+      req.location
     );
     console.log('Send Order Email', emailReponse);
     return NextResponse.json('meep');

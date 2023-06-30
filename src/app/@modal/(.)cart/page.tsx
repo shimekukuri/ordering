@@ -4,9 +4,12 @@ import Modal from '@/components/modal/Modal';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+type location = 'Select' | 'Access' | 'Whitwell' | 'Jasper';
+
 export default function Page() {
   const [cart, setCart] = useState([]) as any;
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [locationState, setLocationState] = useState<location>('Select');
   const router = useRouter();
 
   const updateQuantity = (orderItemId: any, quantity: number) => {
@@ -36,14 +39,14 @@ export default function Page() {
       .catch((error) => console.error(error));
   };
 
-  const submitCart = (orderId: string) => {
+  const submitCart = (orderId: string, location: string) => {
     setIsLoading(true);
     return fetch('api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ orderId }),
+      body: JSON.stringify({ orderId, location }),
     })
       .then((response) => {
         return response.json();
@@ -115,16 +118,28 @@ export default function Page() {
             <div className="loading loading-lg loading-ring justify-self-center self-center scale-150"></div>
           )}
         </div>
-        {cart.length > 0 && !isLoading ? (
+        <div className="fixed join join-horizontal right-0 bottom-0 p-4">
+          <select
+            className="select-primary join-item px-4"
+            value={locationState}
+            onChange={(e) => setLocationState(() => e.target.value as location)}
+          >
+            <option>Select</option>
+            <option>Access</option>
+            <option>Whitwell</option>
+            <option>Jasper</option>
+          </select>
           <button
-            className="absolute btn btn-primary right-5 bottom-5"
-            onClick={() => submitCart(cart[0].orderId)}
+            className={`btn join-item ${
+              cart.length > 0 && !isLoading && locationState !== 'Select'
+                ? 'btn-primary'
+                : 'btn-disabled'
+            }`}
+            onClick={() => submitCart(cart[0].orderId, locationState)}
           >
             Submit
           </button>
-        ) : (
-          ''
-        )}
+        </div>
       </div>
     </Modal>
   );
