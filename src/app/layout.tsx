@@ -100,7 +100,7 @@ export default async function RootLayout({
                     tabIndex={0}
                     className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
                   >
-                    <CartCount session={session} />
+                    <CartCount />
                   </div>
                 </div>
                 <div className="dropdown dropdown-end">

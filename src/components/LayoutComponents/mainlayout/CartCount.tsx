@@ -3,7 +3,7 @@ import { prisma } from '@/ulitiles/prisma/db';
 import { options } from '@/app/api/auth/[...nextauth]/route';
 import Link from 'next/link';
 
-const getCart = async (session: Session | null) => {
+const getCart = async ({ session }: { session: Session | null }) => {
   if (!session) {
     return [];
   }
