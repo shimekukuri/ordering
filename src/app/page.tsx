@@ -23,11 +23,13 @@ export default async function Home() {
           />
         ))}
       </main>
-      <div className="join join-vertical lg:join-horizontal fixed bottom-0 w-full justify-center p-4">
+      <div className="join join-horizontal fixed bottom-0 w-full justify-center p-4">
         <Link href={'cartSearch/drinks'} className="btn join-item">
           Drinks
         </Link>
-        <button className="btn join-item">Button</button>
+        <Link href={'cartSearch/specialty'} className="btn join-item">
+          Special
+        </Link>
         <button className="btn join-item">Button</button>
       </div>
     </>
