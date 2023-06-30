@@ -10,7 +10,6 @@ export default function Page() {
   const router = useRouter();
 
   const updateQuantity = (orderItemId: any, quantity: number) => {
-    setIsLoading(true);
     return fetch('/api/cart', {
       method: 'POST',
       headers: {
@@ -34,14 +33,10 @@ export default function Page() {
             setCart(x);
           });
       })
-      .catch((error) => console.error(error))
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .catch((error) => console.error(error));
   };
 
   const submitCart = (orderId: string) => {
-    console.log('submit cart', orderId);
     setIsLoading(true);
     return fetch('api/submit', {
       method: 'POST',
@@ -54,18 +49,17 @@ export default function Page() {
         return response.json();
       })
       .then((x) => {
-        console.log(x);
         router.back();
         setTimeout(() => {
           router.push('/status/cartStatus/cartStatusSuccess');
-        }, 1000);
+        }, 500);
       })
       .catch((error) => {
         console.error(error);
         router.back();
         setTimeout(() => {
           router.push('/status/cartStatus/cartStatusSuccess');
-        }, 1000);
+        }, 500);
         router.push('/status/cartStatus/cartStatusFailed');
       });
   };
