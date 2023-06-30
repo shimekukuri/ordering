@@ -1,5 +1,6 @@
 import ProductCard from '@/components/productCard/ProductCard';
 import { prisma } from '@/ulitiles/prisma/db';
+import Link from 'next/link';
 
 const getItems = () => {
   return prisma.item.findMany();
@@ -22,11 +23,12 @@ export default async function Home() {
           />
         ))}
       </main>
-      <div className="fixed bottom-0 w-full flex flex-row justify-around">
-        <div>A</div>
-        <div>B</div>
-        <div>C</div>
-        <div>D</div>
+      <div className="join join-vertical lg:join-horizontal fixed bottom-0 w-full justify-center p-4">
+        <Link href={'cartSearch/drinks'} className="btn join-item">
+          Drinks
+        </Link>
+        <button className="btn join-item">Button</button>
+        <button className="btn join-item">Button</button>
       </div>
     </>
   );
