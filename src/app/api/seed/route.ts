@@ -12,6 +12,10 @@ export async function GET() {
         name: 'specialty',
         description: 'Anything that doesnt fit neatly',
       },
+      {
+        name: 'snacks',
+        description: 'PUT IT IN YOUR FACE HOLE',
+      },
     ],
   });
 
@@ -57,6 +61,42 @@ export async function GET() {
         image:
           'https://m.media-amazon.com/images/I/71XuArFYdvL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg',
         categoryId: 'drinks',
+      },
+      {
+        name: 'Assorted Pringles',
+        description: 'Pringles that are sorted',
+        image:
+          'https://m.media-amazon.com/images/I/91eqI6SxrpL._SX679_PIbundle-60,TopRight,0,0_SX679SY509SH20_.jpg',
+        categoryId: 'snacks',
+      },
+      {
+        name: 'Assorted Skinny Pop',
+        description: 'The superior form of bagged popcorn',
+        image:
+          'https://m.media-amazon.com/images/I/91trs-s3C5L._AC_UL800_FMwebp_QL65_.jpg',
+        categoryId: 'snacks',
+      },
+      {
+        name: 'Gold Fish Packs',
+        description: 'The snack that fights back...',
+        image:
+          'https://m.media-amazon.com/images/I/51ieFoeg-rL._SX300_SY300_QL70_FMwebp_.jpg',
+        categoryId: 'snacks',
+      },
+      {
+        name: 'Cheese It Packs',
+        description: 'Its cheese',
+        image:
+          'https://m.media-amazon.com/images/I/41dviaIX8KL._SX300_SY300_QL70_FMwebp_.jpg',
+        categoryId: 'snacks',
+      },
+      {
+        name: 'Assorted Lays',
+        description:
+          'They barely have flavor but hey they are still pretty good',
+        image:
+          'https://m.media-amazon.com/images/I/81mABE1sNhL._SX679_PIbundle-40,TopRight,0,0_AA679SH20_.jpg',
+        categoryId: 'snacks',
       },
     ],
   });

@@ -65,7 +65,8 @@ export default async function ProductCard({
   const session = await getServerSession(options);
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl p-4">
+    <div className="card w-96 bg-base-100 shadow-xl p-4 relative">
+      {/* <div className=" absolute right-0 left-0 bottom-0 top-0 bg-black bg-opacity-50"></div> */}
       <figure>
         <img src={image} alt="Shoes" className="h-40" />
       </figure>
