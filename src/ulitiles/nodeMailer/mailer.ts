@@ -3,6 +3,14 @@ import { prisma } from '../prisma/db';
 
 console.log(process.env.NODEMAILER_USERNAME, process.env.NODEMAILER_PASSWORD);
 
+enum locations {
+  access,
+  whitwell,
+  jasper,
+  cates,
+  null,
+}
+
 export const transporter = nodemailer.createTransport({
   port: 465,
   auth: {
@@ -86,8 +94,10 @@ export const sendOrderEmail = async (
       }
       console.log(info);
 
-      await prisma.orderItem.deleteMany({ where: { orderId: orderId } });
-      await prisma.order.delete({ where: { id: orderId } });
+      await prisma.order.update({
+        where: { id: orderId },
+        data: { submited: true, location: location },
+      });
       resolve(true);
     });
   });

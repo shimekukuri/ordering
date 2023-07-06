@@ -24,7 +24,7 @@ export async function GET() {
   }
 
   const order = await prisma.order.findFirst({
-    where: { accountId: id.id },
+    where: { accountId: id.id, submited: false },
   });
   if (!order) {
     return NextResponse.json({ message: 'Uknown Order' });

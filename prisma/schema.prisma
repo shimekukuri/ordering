@@ -39,11 +39,13 @@ model OrderItem {
 }
 
 model Order {
-  id        String      @id @default(uuid())
-  items     OrderItem[]
-  account   Account     @relation(fields: [accountId], references: [id])
-  accountId String
-  submited  Boolean     @default(false)
+  id         String      @id @default(uuid())
+  items      OrderItem[]
+  account    Account     @relation(fields: [accountId], references: [id])
+  accountId  String
+  submited   Boolean     @default(false)
+  fullfilled Boolean     @default(false)
+  location   locations   @default(null)
 }
 
 //next auth
@@ -91,4 +93,12 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+enum locations {
+  access
+  whitwell
+  jasper
+  cates
+  null
 }

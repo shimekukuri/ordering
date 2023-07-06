@@ -75,11 +75,16 @@ export default function Page() {
       });
   }, []);
 
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
   return (
     <Modal>
       <div className="bg-white w-full rounded-2xl shadow-2xl h-[80vh] md:h-[50vh] p-4 overflow-y-scroll relative">
         {cart.length > 0 ? <h1 className="text-3xl">Cart: </h1> : ''}
         <div className="flex flex-col-reverse gap-4">
+          <div className="h-16"></div>
           {cart.length > 0 && !isLoading ? (
             cart.map((item: any) => {
               //@ts-ignore
@@ -117,6 +122,11 @@ export default function Page() {
           ) : (
             <div className="loading loading-lg loading-ring justify-self-center self-center scale-150"></div>
           )}
+          {cart.length === 0 ? (
+            <h2 className="text-3xl">No Items In Cart</h2>
+          ) : (
+            ''
+          )}
         </div>
         <div className="fixed join join-horizontal right-0 bottom-0 p-4">
           <select
@@ -125,9 +135,9 @@ export default function Page() {
             onChange={(e) => setLocationState(() => e.target.value as location)}
           >
             <option>Select</option>
-            <option>Access</option>
-            <option>Whitwell</option>
-            <option>Jasper</option>
+            <option value={'access'}>Access</option>
+            <option value={'whitwell'}>Whitwell</option>
+            <option value={'jasper'}>Jasper</option>
           </select>
           <button
             className={`btn join-item ${

@@ -29,7 +29,9 @@ const addToCart = async (data: FormData) => {
   });
 
   const cart =
-    (await prisma.order.findFirst({ where: { accountId: account?.id } })) ??
+    (await prisma.order.findFirst({
+      where: { accountId: account?.id, submited: false },
+    })) ??
     (await prisma.order.create({
       data: {
         items: { create: { quantity: 1, itemId: id } },
