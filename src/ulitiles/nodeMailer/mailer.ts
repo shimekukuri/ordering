@@ -96,6 +96,7 @@ export const sendOrderEmail = async (
 
       await prisma.order.update({
         where: { id: orderId },
+        //@ts-expect-error
         data: { submited: true, location: location },
       });
       resolve(true);
