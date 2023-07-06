@@ -86,7 +86,7 @@ export default async function ProductCard({
               type="submit"
               className={`btn ${
                 session ? 'btn-primary' : 'btn-disabled'
-              } active:animate-none focus:animate-ping`}
+              } active:animate-none focus:animate-cart-confirm-200`}
             >
               Add To Cart
             </button>

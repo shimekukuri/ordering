@@ -12,6 +12,15 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      keyframes: {
+        cartConfirm: {
+          '0%': {},
+          '100%': { backgroundColor: '#7CFC00' },
+        },
+      },
+      animation: {
+        'cart-confirm-200': 'cartConfirm 200ms ease-in-out forwards',
+      },
     },
   },
   plugins: [require('daisyui')],
