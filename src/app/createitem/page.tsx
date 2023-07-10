@@ -22,14 +22,29 @@ export default async function Page() {
       return;
     }
 
-    await fetch(url as string, { method: 'HEAD' }).then((res) => {
+    console.log(productName, cateogry, url, description);
+
+    await fetch(url as string, { method: 'HEAD' }).then(async (res) => {
       if (typeof res === null) {
         return;
       }
       //@ts-ignore
       if (res?.headers?.get('Content-Type').startsWith('image')) {
         //put main logic here
-        redirect('./success');
+        try {
+          const createItemStatus = await prisma.item.create({
+            data: {
+              description: description as string,
+              categoryId: cateogry as string,
+              name: productName as string,
+              image: url as string,
+            },
+          });
+          redirect('./success');
+        } catch (err) {
+          console.error(err);
+          redirect('./failure');
+        }
       } else {
         //put failer logic here
         redirect('./failure');
