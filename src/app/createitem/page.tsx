@@ -11,8 +11,11 @@ async function getCategories() {
 }
 
 export default async function Page() {
+  const categories = await getCategories();
+
   const createItem = async (data: FormData) => {
     'use server';
+
     const productName = data.get('productName');
     const cateogry = data.get('category');
     const url = data.get('url');
@@ -22,38 +25,28 @@ export default async function Page() {
       return;
     }
 
-    console.log(productName, cateogry, url, description);
-
-    await fetch(url as string, { method: 'HEAD' }).then(async (res) => {
-      if (typeof res === null) {
-        return;
-      }
+    const res = await fetch(url as string, { method: 'HEAD' });
+    if (
+      typeof res === null ||
       //@ts-ignore
-      if (res?.headers?.get('Content-Type').startsWith('image')) {
-        //put main logic here
-        try {
-          const createItemStatus = await prisma.item.create({
-            data: {
-              description: description as string,
-              categoryId: cateogry as string,
-              name: productName as string,
-              image: url as string,
-            },
-          });
-        } catch (err) {
-          console.error(err);
-          redirect('./failure');
-        }
-        redirect('./success');
-      } else {
-        //put failer logic here
-        redirect('./failure');
-      }
-    });
+      !res?.headers?.get('Content-Type').startsWith('image')
+    ) {
+      redirect('./failure');
+    }
+    try {
+      await prisma.item.create({
+        data: {
+          description: description as string,
+          categoryId: cateogry as string,
+          name: productName as string,
+          image: url as string,
+        },
+      });
+    } catch (err) {
+      redirect('./failure');
+    }
+    redirect('./success');
   };
-
-  const categories = await getCategories();
-  console.log(categories);
 
   return (
     <div className="flex-1 flex justify-center items-center p-4">
