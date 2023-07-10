@@ -40,11 +40,11 @@ export default async function Page() {
               image: url as string,
             },
           });
-          redirect('./success');
         } catch (err) {
           console.error(err);
           redirect('./failure');
         }
+        redirect('./success');
       } else {
         //put failer logic here
         redirect('./failure');
