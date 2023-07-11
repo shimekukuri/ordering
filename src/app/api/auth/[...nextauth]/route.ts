@@ -5,7 +5,7 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/ulitiles/prisma/db';
 import { Adapter } from 'next-auth/adapters';
 
-export const options: NextAuthOptions = {
+export const OPTIONS: NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter<boolean>,
   providers: [
     GoogleProvider({
@@ -23,6 +23,6 @@ export const options: NextAuthOptions = {
   secret: process.env.SECRET,
 };
 
-const handler = NextAuth(options);
+const handler = NextAuth(OPTIONS);
 
 export { handler as GET, handler as POST };

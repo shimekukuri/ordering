@@ -2,10 +2,10 @@ import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
 
 import { NextRequest, NextResponse } from 'next/server';
-import { options } from '../auth/[...nextauth]/route';
+import { OPTIONS } from '../auth/[...nextauth]/route';
 
 export async function GET() {
-  const session = await getServerSession(options);
+  const session = await getServerSession(OPTIONS);
   if (!session || !session?.user?.email) {
     return NextResponse.json({ message: 'No valid session' });
   }
@@ -39,7 +39,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest, response: NextResponse) {
-  const session = await getServerSession(options);
+  const session = await getServerSession(OPTIONS);
 
   const { orderItemId, quantity } = await request.json();
   //@ts-ignore

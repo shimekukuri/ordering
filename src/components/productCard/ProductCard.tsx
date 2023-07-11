@@ -1,4 +1,4 @@
-import { options } from '@/app/api/auth/[...nextauth]/route';
+import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
 
@@ -17,7 +17,7 @@ const addToCart = async (data: FormData) => {
     return;
   }
 
-  const session = await getServerSession(options);
+  const session = await getServerSession(OPTIONS);
   if (!session) {
     return;
   }
@@ -64,7 +64,7 @@ export default async function ProductCard({
   categoryId,
   id,
 }: ProductCardInterface) {
-  const session = await getServerSession(options);
+  const session = await getServerSession(OPTIONS);
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl p-4 relative">

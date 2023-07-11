@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { prisma } from '@/ulitiles/prisma/db';
 import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
 import { getServerSession, Session } from 'next-auth';
-import { options } from './api/auth/[...nextauth]/route';
+import { OPTIONS } from './api/auth/[...nextauth]/route';
 import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
 import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
 
@@ -33,7 +33,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
-  const session = await getServerSession(options);
+  const session = await getServerSession(OPTIONS);
   const cartData = await getCart(session);
   const cartQuantity =
     cartData?.reduce((t, c) => {
