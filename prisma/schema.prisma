@@ -51,21 +51,23 @@ model Order {
 
 //next auth
 model Account {
-  id                String  @id @default(cuid())
+  id                String      @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?     @db.Text
+  access_token      String?     @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?     @db.Text
   session_state     String?
+  permissions       Permissions @relation(fields: [permissionsId], references: [id])
 
-  user  User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  Order Order[]
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Order         Order[]
+  permissionsId String
 
   @@unique([provider, providerAccountId])
 }
@@ -94,6 +96,18 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Permissions {
+  id            String    @id @default(cuid())
+  createItem    Boolean   @default(false)
+  deleteItem    Boolean   @default(false)
+  deleteUser    Boolean   @default(false)
+  changeUser    Boolean   @default(false)
+  viewOrder     Boolean   @default(false)
+  completeOrder Boolean   @default(false)
+  changeOrder   Boolean   @default(false)
+  Account       Account[]
 }
 
 enum locations {
