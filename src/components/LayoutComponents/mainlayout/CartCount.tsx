@@ -1,6 +1,6 @@
 import { getServerSession, Session } from 'next-auth';
 import { prisma } from '@/ulitiles/prisma/db';
-import { options } from '@/app/api/auth/[...nextauth]/route';
+import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import Link from 'next/link';
 
 const getCart = async (session: Session | null) => {
@@ -25,7 +25,7 @@ const getCart = async (session: Session | null) => {
 };
 
 export default async function CartCount() {
-  const session = await getServerSession(options);
+  const session = await getServerSession(OPTIONS);
   const cartData = await getCart(session);
   const cartQuantity = cartData.reduce((t, c) => {
     return (t += c.quantity);
