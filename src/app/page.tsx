@@ -2,7 +2,8 @@ import ProductCard from '@/components/productCard/ProductCard';
 import { prisma } from '@/ulitiles/prisma/db';
 import Link from 'next/link';
 
-const getItems = () => {
+const getItems = async () => {
+  await prisma.$connect();
   return prisma.item.findMany();
 };
 

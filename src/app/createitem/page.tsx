@@ -1,6 +1,6 @@
 import { prisma } from '@/ulitiles/prisma/db';
 import InputUrlValidator from '@/components/pageComponents/inputs/createItemUrlValidator/inputImageValidate';
-import { redirect, useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 async function getCategories() {
   const categories = await prisma.category.findMany();
