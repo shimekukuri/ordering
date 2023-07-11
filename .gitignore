@@ -38,3 +38,4 @@ next-env.d.ts
 
 # env Tests
 /src/app/api/tests/**
+/src/app/middleware.ts

@@ -79,13 +79,15 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  permissions   Permissions? @relation(fields: [permissionsId], references: [id])
+  permissionsId String?
 }
 
 model VerificationToken {
@@ -94,6 +96,18 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Permissions {
+  id            String  @id @default(cuid())
+  createItem    Boolean @default(false)
+  deleteItem    Boolean @default(false)
+  deleteUser    Boolean @default(false)
+  changeUser    Boolean @default(false)
+  viewOrder     Boolean @default(false)
+  completeOrder Boolean @default(false)
+  changeOrder   Boolean @default(false)
+  User          User[]
 }
 
 enum locations {
