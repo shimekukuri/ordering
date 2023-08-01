@@ -1,59 +1,56 @@
-import ProductCard from '@/components/productCard/ProductCard';
-import { prisma } from '@/ulitiles/prisma/db';
-import Link from 'next/link';
-
-const getItems = async () => {
-  await prisma.$connect();
-  return prisma.item.findMany();
-};
-
-export default async function Home() {
-  const items = await getItems();
-
+export default function Page() {
   return (
-    <>
-      <main className="flex flex-wrap justify-center items-center p-4 gap-4">
-        {items.map(({ name, description, image, id, categoryId }) => (
-          <ProductCard
-            key={id}
-            id={id}
-            name={name}
-            description={description}
-            image={image}
-            categoryId={categoryId!}
-          />
-        ))}
-      </main>
-      <div className="join join-horizontal fixed bottom-0 w-full justify-center p-4">
-        <Link href={'cartSearch/drinks'} className="btn join-item">
-          Drinks
-        </Link>
-        <Link href={'cartSearch/specialty'} className="btn join-item">
-          Special
-        </Link>
-        <Link href={'Search'} className="btn join-item bg-secondary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+    <div className="flex flex-1 flex-col">
+      <div className="flex md:flex-1 md:flex-col flex-col-reverse p-4 m-4 rounded-2xl shadow-2xl bg-[url('https://wehco.media.clients.ellingtoncms.com/imports/adg/photos/102418843_0901-EDGE-Champions-Access_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d')] bg-auto bg-center bg-no-repeat md:bg-cover">
+        <section className="flex-1"></section>
+        <div className="md:flex-1"></div>
+        <div className="flex justify-center items-center flex-col">
+          <img src={"./result.png"} className="w-[25dvh]" />
+          <h1 className="text-5xl text-center text-slate-600">
+            Access Family Pharmacy
+          </h1>
+        </div>
+        <section className="hidden md:flex flex-1 justify-around items-center gap-4 p-4">
+          <div className="flex-1 rounded-full bg-red-300 bg-opacity-40 p-4 aspect-square backdrop-blur-md opacity-0 animate-fade-in-200 hover:opacity-100">
+            <img
+              className="hover:animate-scale-200"
+              src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png"
             />
-          </svg>
-        </Link>
-        <Link href={'cartSearch/snacks'} className="btn join-item">
-          Snacks
-        </Link>
-        <Link href={'cartSearch/other'} className="btn join-item">
-          Other
-        </Link>
+          </div>
+          <div className="flex-1 rounded-full bg-blue-300 bg-opacity-40 p-4 aspect-square backdrop-blur-md opacity-0 animate-fade-in-400">
+            <img
+              className="hover:animate-scale-200"
+              src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png"
+            />
+          </div>
+          <div className="flex-1 rounded-full bg-yellow-300 bg-opacity-40 p-4 aspect-square backdrop-blur-md opacity-0 animate-fade-in-600">
+            <img
+              className="hover:animate-scale-200"
+              src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png"
+            />
+          </div>
+          <div className="flex-1 rounded-full bg-green-300 bg-opacity-40 p-4 aspect-square backdrop-blur-md opacity-0 animate-fade-in-800">
+            <img
+              className="hover:animate-scale-200"
+              src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png"
+            />
+          </div>
+        </section>
       </div>
-    </>
+      <div className="flex flex-1 md:hidden justify-around flex-wrap items-center p-4">
+        <div className="min-w-[45%] max-w-[45%] md:min-w-0 bg-red-300 backdrop-blur-md opacity-0 animate-fade-in-200 p-2 rounded-full shadow-2xl">
+          <img src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png" />
+        </div>
+        <div className="min-w-[45%] max-w-[45%] md:min-w-0 bg-blue-300 backdrop-blur-md opacity-0 animate-fade-in-400 p-2 rounded-full shadow-2xl">
+          <img src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png" />
+        </div>
+        <div className="min-w-[45%] max-w-[45%] md:min-w-0 bg-yellow-300 backdrop-blur-md opacity-0 animate-fade-in-600 p-2 rounded-full shadow-2xl">
+          <img src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png" />
+        </div>
+        <div className="min-w-[45%] max-w-[45%] md:min-w-0 bg-green-300 backdrop-blur-md opacity-0 animate-fade-in-800 p-2 rounded-full shadow-2xl">
+          <img src="https://static.wixstatic.com/media/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png/v1/fill/w_410,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8f9d9b_82034209dc04459c9cd9c8b28f8da30e~mv2.png" />
+        </div>
+      </div>
+    </div>
   );
 }

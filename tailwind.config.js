@@ -17,9 +17,22 @@ module.exports = {
           '0%': {},
           '100%': { backgroundColor: '#7CFC00' },
         },
+        fadeIn: {
+          '0%': {transform: 'translate(0px, 50px)'},
+          '100%': {opacity: '1', transform: 'translate(0px, 0px)'}
+        },
+        scale: {
+          '0%': { transform: 'scale(1.0)' },
+          '100%': {transform: 'scale(1.1)'}
+        }
       },
       animation: {
         'cart-confirm-200': 'cartConfirm 200ms ease-in-out forwards',
+        'fade-in-200': 'fadeIn 200ms ease-in-out forwards',
+        'fade-in-400': 'fadeIn 400ms ease-in-out forwards',
+        'fade-in-600': 'fadeIn 600ms ease-in-out forwards',
+        'fade-in-800': 'fadeIn 800ms ease-in-out forwards',
+        'scale-200': 'scale 200ms ease-in-out forwards'
       },
     },
   },
