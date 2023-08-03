@@ -1,6 +1,18 @@
-export default function NewsCard({ id }: { id: string }) {
+import { RefObject } from "react";
+
+export default function NewsCard({
+  id,
+  reference,
+}: {
+  id: string;
+  reference: RefObject<HTMLDivElement>;
+}) {
   return (
-    <div id={id} className="min-w-[100vw] snap-center text-center">
+    <div
+      id={id}
+      className="min-w-[100vw] snap-center text-center newscard"
+      ref={reference}
+    >
       test {id}
     </div>
   );
