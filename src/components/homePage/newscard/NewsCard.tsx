@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject } from 'react';
 
 export default function NewsCard({
   id,
@@ -10,8 +10,7 @@ export default function NewsCard({
   return (
     <div
       id={id}
-      className="min-w-[100vw] snap-center text-center newscard"
-      ref={reference}
+      className={`min-w-[100vw] snap-center text-center newscard${id}`}
     >
       test {id}
     </div>
