@@ -10,7 +10,8 @@ export default function NewsCard({
   return (
     <div
       id={id}
-      className={`min-w-[100vw] snap-center text-center newscard${id}`}
+      className={`min-w-[100vw] snap-center text-center newscard$`}
+      ref={reference}
     >
       test {id}
     </div>
