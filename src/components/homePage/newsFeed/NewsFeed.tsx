@@ -1,20 +1,8 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
-import NewsCard from "../newscard/NewsCard";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import NewsCard from '../newscard/NewsCard';
 
 export default function NewsFeed() {
-  let ref1 = useRef<HTMLDivElement>(null);
-  let ref2 = useRef<HTMLDivElement>(null);
-  let ref3 = useRef<HTMLDivElement>(null);
-  let ref4 = useRef<HTMLDivElement>(null);
-  let ref5 = useRef<HTMLDivElement>(null);
-  let ref6 = useRef<HTMLDivElement>(null);
-  let ref7 = useRef<HTMLDivElement>(null);
-  let ref8 = useRef<HTMLDivElement>(null);
-  let ref9 = useRef<HTMLDivElement>(null);
-  let ref10 = useRef<HTMLDivElement>(null);
-  let refArray = [ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10];
-
   const disable = useState<boolean>(false);
   const [loader, setLoader] = useState<boolean>(true);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -33,7 +21,7 @@ export default function NewsFeed() {
           }
         }
       },
-      { threshold: 0.99 }
+      { threshold: 0.9 }
     );
 
     if (reff.current) {
@@ -64,7 +52,7 @@ export default function NewsFeed() {
 
       let timer = setTimeout(() => {
         x.current?.scrollIntoView({
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }, (i + 1) * 3000);
 
