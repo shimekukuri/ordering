@@ -1,15 +1,35 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import NewsCard from '../newscard/NewsCard';
 
 export default function NewsFeed2() {
   const [loader, setLoader] = useState<boolean>(true);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
     }, 1000);
-  });
+  }, []);
+
+  useEffect(() => {
+    if (containerRef?.current) {
+      let val = containerRef.current.clientWidth;
+
+      let counter = val;
+      let timer = setInterval(() => {
+        containerRef?.current?.scrollTo({ left: counter, behavior: 'smooth' });
+        counter = counter + val;
+        if (counter > val * 4) {
+          counter = 0;
+        }
+      }, 3000);
+
+      return () => {
+        clearInterval(timer);
+      };
+    }
+  }, [loader]);
 
   return (
     <>
@@ -20,7 +40,10 @@ export default function NewsFeed2() {
             <div className="loading loading-lg loading-ring"></div>
           </div>
         ) : (
-          <div className="carousel w-full rounded-2xl shadow-2xl">
+          <div
+            className="carousel w-full rounded-2xl shadow-2xl"
+            ref={containerRef}
+          >
             <div
               id="slide1"
               className="carousel-item relative w-full bg-red-500"
