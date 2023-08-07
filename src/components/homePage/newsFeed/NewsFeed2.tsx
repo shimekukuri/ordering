@@ -4,6 +4,7 @@ import NewsCard from '../newscard/NewsCard';
 
 export default function NewsFeed2() {
   const [loader, setLoader] = useState<boolean>(true);
+  const [reset, setReset] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function NewsFeed2() {
   }, []);
 
   useEffect(() => {
-    if (containerRef?.current) {
+    if (containerRef?.current && !reset) {
       let val = containerRef.current.clientWidth;
 
       let counter = val;
@@ -29,7 +30,7 @@ export default function NewsFeed2() {
         clearInterval(timer);
       };
     }
-  }, [loader]);
+  }, [loader, reset]);
 
   return (
     <>
@@ -43,6 +44,12 @@ export default function NewsFeed2() {
           <div
             className="carousel w-full rounded-2xl shadow-2xl"
             ref={containerRef}
+            onPointerEnter={() => setReset(true)}
+            onPointerLeave={() => setReset(false)}
+            tabIndex={0}
+            onFocus={() => setReset(true)}
+            onBlur={() => setReset(false)}
+            onClick={() => setReset(true)}
           >
             <div
               id="slide1"
