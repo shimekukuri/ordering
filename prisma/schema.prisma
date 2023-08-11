@@ -110,10 +110,25 @@ model Permissions {
   User          User[]
 }
 
+model Ticket {
+  id       String    @id @default(cuid())
+  status   status    @default(new)
+  date     DateTime? @default(now())
+  location locations
+  subject  String    @db.VarChar(200)
+  text     String    @db.VarChar(500)
+}
+
 enum locations {
   access
   whitwell
   jasper
   cates
   null
+}
+
+enum status {
+  new
+  inProgress
+  completed
 }
