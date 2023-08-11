@@ -111,12 +111,13 @@ model Permissions {
 }
 
 model Ticket {
-  id       String    @id @default(cuid())
-  status   status    @default(new)
-  date     DateTime? @default(now())
+  id       String     @id @default(cuid())
+  status   status     @default(new)
+  date     DateTime?  @default(now())
   location locations
-  subject  String    @db.VarChar(200)
-  text     String    @db.VarChar(500)
+  subject  String     @db.VarChar(200)
+  text     String     @db.VarChar(500)
+  type     ticketType @default(null)
 }
 
 enum locations {
@@ -131,4 +132,10 @@ enum status {
   new
   inProgress
   completed
+}
+
+enum ticketType {
+  maintenance
+  IT
+  null
 }
