@@ -19,7 +19,7 @@ export default function Page() {
           location: location as locations,
           subject: subject as string,
           text: description as string,
-          type: 'maintenance' as ticketType,
+          type: 'IT' as ticketType,
         },
       });
     } catch (error) {
@@ -35,7 +35,9 @@ export default function Page() {
         className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
         action={createTicket}
       >
-        <h1 className="text-3xl text-center">Submit New Maintenance Ticket</h1>
+        <h1 className="text-3xl text-center">
+          Submit New Technical Support Ticket
+        </h1>
         <div className="divider"></div>
         <input
           required
