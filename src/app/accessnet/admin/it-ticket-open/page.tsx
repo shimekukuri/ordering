@@ -11,6 +11,7 @@ const getTicket = async () => {
   let access = [];
   let jasper = [];
   let cates = [];
+  let uniformShop = [];
 
   for (let ticket of tickets) {
     switch (ticket.location.toString()) {
@@ -30,10 +31,17 @@ const getTicket = async () => {
         whitwell.push(ticket);
         break;
       }
+      case 'uniformshop': {
+        uniformShop.push(ticket);
+        break;
+      }
     }
   }
 
-  return [whitwell, access, cates, jasper];
+  return {
+    pharmacies: [whitwell, access, cates, jasper],
+    other: [uniformShop],
+  };
 };
 
 export default async function Page() {
@@ -44,11 +52,15 @@ export default async function Page() {
   return (
     <div className="flex-1 p-4 flex flex-wrap overflow-y-scroll gap-4 snap-y snap-mandatory">
       <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full snap-center">
-        {tickets.map((x) => {
+        {tickets.pharmacies.map((x) => {
           return <LocationCard key={x[0].location} locationData={x} />;
         })}
       </div>
-      <div className="h-full bg-blue-500 w-full snap-center rounded-2xl shadow-2xl"></div>
+      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full snap-center">
+        {tickets.other.map((x) => {
+          return <LocationCard key={x[0].location} locationData={x} />;
+        })}
+      </div>
     </div>
   );
 }

@@ -13,13 +13,17 @@ export default function Page() {
       return;
     }
 
+    if (!Object.values(locations).includes(location as locations)) {
+      return;
+    }
+
     try {
       let resp = await prisma.ticket.create({
         data: {
           location: location as locations,
           subject: subject as string,
           text: description as string,
-          type: 'maintenance' as ticketType,
+          type: 'IT' as ticketType,
         },
       });
     } catch (error) {
@@ -53,6 +57,7 @@ export default function Page() {
           <option>whitwell</option>
           <option>jasper</option>
           <option>cates</option>
+          <option value={'uniformshop'}> Uniform Shop</option>
         </select>
         <textarea
           required

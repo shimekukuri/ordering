@@ -21,6 +21,7 @@ model Item {
   Category    Category?   @relation(fields: [categoryId], references: [name])
   categoryId  String?
   tags        String[]    @default([])
+  department  department  @default(undefined)
 }
 
 model Category {
@@ -125,6 +126,7 @@ enum locations {
   whitwell
   jasper
   cates
+  uniformshop
   null
 }
 
@@ -138,4 +140,18 @@ enum ticketType {
   maintenance
   IT
   null
+}
+
+enum department {
+  dme
+  access
+  uniformshop
+  cates
+  whitwell
+  farm
+  jasper
+  standefer
+  pikeville
+  laser
+  undefined
 }

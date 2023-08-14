@@ -13,13 +13,17 @@ export default function Page() {
       return;
     }
 
+    if (!Object.values(locations).includes(location as locations)) {
+      return;
+    }
+
     try {
       let resp = await prisma.ticket.create({
         data: {
           location: location as locations,
           subject: subject as string,
           text: description as string,
-          type: 'IT' as ticketType,
+          type: 'maintenance' as ticketType,
         },
       });
     } catch (error) {
