@@ -49,13 +49,21 @@ export default async function page({
             })}
           </div>
         </div>
-        <div className="h-full w-full flex flex-col p-4 rounded-2xl shadow-2xl glass bg-teal-400">
-          <div className="card-title">In Progress Tickets For {location}:</div>
-          <div className="flex-1"></div>
-        </div>
         <div className="h-full w-full flex flex-col p-4 rounded-2xl shadow-2xl glass bg-amber-400">
-          <div className="card-title">Completed Tickets For {location}:</div>
-          <div className="flex-1"></div>
+          <div className="card-title">In Progress for {location}:</div>
+          <div className="flex-1 overflow-y-scroll p-2 bg-slate-100 bg-opacity-20 rounded-2xl shadow-2xl flex gap-4 flex-col">
+            {inProgress.map((x) => {
+              return <CaseCard key={x.id} ticket={x} />;
+            })}
+          </div>
+        </div>
+        <div className="h-full w-full flex flex-col p-4 rounded-2xl shadow-2xl glass bg-green-400">
+          <div className="card-title">Completed Tickets for {location}:</div>
+          <div className="flex-1 overflow-y-scroll p-2 bg-slate-100 bg-opacity-20 rounded-2xl shadow-2xl flex gap-4 flex-col">
+            {completed.map((x) => {
+              return <CaseCard key={x.id} ticket={x} />;
+            })}
+          </div>
         </div>
       </div>
     </>

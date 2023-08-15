@@ -28,11 +28,6 @@ export default function CaseCard({ ticket }: { ticket: Ticket }) {
         </div>
       </div>
       <div className="divider sm:divider-vertical md:divider-horizontal m-0"></div>
-      <div className="flex-1 flex flex-col">
-        <div className="text-center lg:text-left underline">Detail</div>
-        <div className="flex-1 overflow-scroll">{ticket.text}</div>
-      </div>
-      <div className="divider sm:divider-vertical md:divider-horizontal m-0"></div>
       <Link
         href={`/accessnet/admin/it-ticket-open/${ticket.id}`}
         className="flex justify-center items-center"
