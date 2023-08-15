@@ -148,7 +148,7 @@ export default async function RootLayout({
               </div>
             </div>
             {/* Page content here */}
-            <div className=" flex flex-col">
+            <div className="min-h-screen flex flex-col">
               {children}
               {modal}
             </div>

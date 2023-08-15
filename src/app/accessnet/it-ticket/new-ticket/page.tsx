@@ -34,7 +34,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex-1 flex justify-center items-center p-4">
+    <div className="h-full flex-1 flex justify-center items-center p-4">
       <form
         className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
         action={createTicket}
