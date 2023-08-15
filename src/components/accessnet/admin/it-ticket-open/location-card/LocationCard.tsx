@@ -1,4 +1,5 @@
 import { Ticket } from '@prisma/client';
+import Link from 'next/link';
 
 export default function LocationCard({
   locationData,
@@ -11,7 +12,11 @@ export default function LocationCard({
         <h2 className="text-2xl">{`${locationData[0].location
           .toString()[0]
           .toUpperCase()}${locationData[0].location.toString().slice(1)}`}</h2>
-        <button className="btn btn-info">See More</button>
+        <Link
+          href={`/accessnet/admin/it-ticket-open/location/${locationData[0].location}`}
+        >
+          <button className="btn btn-info">See More</button>
+        </Link>
       </div>
       <div className="divider mt-0 mb-0"></div>
       <div className="flex flex-row justify-center">

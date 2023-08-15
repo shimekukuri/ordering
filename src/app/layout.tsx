@@ -1,18 +1,18 @@
-import "./globals.css";
-import { Inter } from "next/font/google";
-import Link from "next/link";
-import { prisma } from "@/ulitiles/prisma/db";
-import CartCount from "@/components/LayoutComponents/mainlayout/CartCount";
-import { getServerSession, Session } from "next-auth";
-import { OPTIONS } from "./api/auth/[...nextauth]/route";
-import LogoutButton from "@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton";
-import LoginButton from "@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton";
+import './globals.css';
+import { Inter } from 'next/font/google';
+import Link from 'next/link';
+import { prisma } from '@/ulitiles/prisma/db';
+import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
+import { getServerSession, Session } from 'next-auth';
+import { OPTIONS } from './api/auth/[...nextauth]/route';
+import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
+import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "Access Pharm Ordering",
-  description: "Inter orginizational ordering for Access Pharmacies",
+  title: 'Access Pharm Ordering',
+  description: 'Inter orginizational ordering for Access Pharmacies',
 };
 
 const getCart = async (session: Session | null) => {
@@ -44,10 +44,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en" data-theme="cupcake">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <div className="drawer">
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content flex flex-col min-h-screen">
+          <div className="drawer-content">
             {/* Navbar */}
             <div className="navbar bg-base-100 shadow-2xl">
               <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -66,12 +66,12 @@ export default async function RootLayout({
                 </svg>
               </label>
               <div className="flex-1">
-                <Link className="btn btn-ghost normal-case text-xl" href={"/"}>
+                <Link className="btn btn-ghost normal-case text-xl" href={'/'}>
                   ACCESS
                 </Link>
               </div>
               <div className="flex-none">
-                {!session ? <LoginButton /> : ""}
+                {!session ? <LoginButton /> : ''}
 
                 {session ? (
                   <div className="dropdown dropdown-end">
@@ -93,7 +93,7 @@ export default async function RootLayout({
                         </svg>
 
                         <span className="indicator-item">
-                          {cartQuantity > 0 ? "🔴" : ""}
+                          {cartQuantity > 0 ? '🔴' : ''}
                         </span>
                       </div>
                     </label>
@@ -105,7 +105,7 @@ export default async function RootLayout({
                     </div>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
                 <div className="dropdown dropdown-end">
                   {session ? (
@@ -118,13 +118,13 @@ export default async function RootLayout({
                           src={
                             session.user?.image
                               ? session.user.image
-                              : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                              : 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
                           }
                         />
                       </div>
                     </label>
                   ) : (
-                    ""
+                    ''
                   )}
 
                   <ul
@@ -148,8 +148,10 @@ export default async function RootLayout({
               </div>
             </div>
             {/* Page content here */}
-            {children}
-            {modal}
+            <div className=" flex flex-col">
+              {children}
+              {modal}
+            </div>
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
@@ -162,7 +164,7 @@ export default async function RootLayout({
                 <a>Sidebar Item 2</a>
               </li>
               <li>
-                <Link href={"/"}>Test</Link>
+                <Link href={'/'}>Test</Link>
               </li>
               <li className="flex-1 flex-col-reverse justify-self-end p-4">
                 test

@@ -50,13 +50,13 @@ export default async function Page() {
   console.log(tickets);
 
   return (
-    <div className="flex-1 p-4 flex flex-wrap overflow-y-scroll gap-4 snap-y snap-mandatory">
-      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full snap-center">
+    <div className="flex-1 p-4 flex flex-wrap overflow-y-scroll gap-4 ">
+      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full">
         {tickets.pharmacies.map((x) => {
           return <LocationCard key={x[0].location} locationData={x} />;
         })}
       </div>
-      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full snap-center">
+      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full">
         {tickets.other.map((x) => {
           return <LocationCard key={x[0].location} locationData={x} />;
         })}

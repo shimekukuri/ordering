@@ -39,23 +39,25 @@ export default async function page({
   }
 
   return (
-    <div className="flex-1 p-4 flex flex-wrap overflow-y-scroll gap-4 snap-y snap-mandatory">
-      <div className="h-full w-full snap-center flex flex-col p-4 rounded-2xl shadow-2xl glass bg-blue-400">
-        <div className="card-title">New Tickets for {location}:</div>
-        <div className="flex-1 overflow-y-scroll p-2 bg-slate-100 bg-opacity-20 rounded-2xl shadow-2xl flex gap-4 flex-col">
-          {newTicket.map((x) => {
-            return <CaseCard key={x.id} ticket={x} />;
-          })}
+    <>
+      <div className="flex-1 p-4 flex flex-wrap gap-4 w-screen">
+        <div className="h-full w-full flex flex-col p-4 rounded-2xl shadow-2xl glass bg-blue-400">
+          <div className="card-title">New Tickets for {location}:</div>
+          <div className="flex-1 overflow-y-scroll p-2 bg-slate-100 bg-opacity-20 rounded-2xl shadow-2xl flex gap-4 flex-col">
+            {newTicket.map((x) => {
+              return <CaseCard key={x.id} ticket={x} />;
+            })}
+          </div>
+        </div>
+        <div className="h-full w-full flex flex-col p-4 rounded-2xl shadow-2xl glass bg-teal-400">
+          <div className="card-title">In Progress Tickets For {location}:</div>
+          <div className="flex-1"></div>
+        </div>
+        <div className="h-full w-full flex flex-col p-4 rounded-2xl shadow-2xl glass bg-amber-400">
+          <div className="card-title">Completed Tickets For {location}:</div>
+          <div className="flex-1"></div>
         </div>
       </div>
-      <div className="h-full w-full snap-center flex flex-col p-4 rounded-2xl shadow-2xl glass bg-teal-400">
-        <div className="card-title">In Progress Tickets For {location}:</div>
-        <div className="flex-1"></div>
-      </div>
-      <div className="h-full w-full snap-center flex flex-col p-4 rounded-2xl shadow-2xl glass bg-amber-400">
-        <div className="card-title">Completed Tickets For {location}:</div>
-        <div className="flex-1"></div>
-      </div>
-    </div>
+    </>
   );
 }
