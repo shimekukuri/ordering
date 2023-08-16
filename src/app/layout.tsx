@@ -158,10 +158,10 @@ export default async function RootLayout({
             <ul className="menu p-4 w-80 h-full bg-base-200">
               {/* Sidebar content here */}
               <li>
-                <a>Sidebar Item 1</a>
+                <Link href={'/shop'}>Shop</Link>
               </li>
               <li>
-                <a>Sidebar Item 2</a>
+                <Link href={'/accessnet/admin/it-ticket-open'}>It Tickets</Link>
               </li>
               <li>
                 <Link href={'/'}>Test</Link>

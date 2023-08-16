@@ -74,8 +74,8 @@ export default function Page() {
                     key={x.id}
                     className="w-full flex-col-reverse h-32 lg:flex-row lg:h-16 flex items-center justify-between border rounded-lg px-2 shadow-md"
                   >
-                    <div>{x.description}</div>
                     <div>{x.name}</div>
+                    <div>{x.description}</div>
                     <div className="flex-1 md:flex-[0]">image</div>
                   </div>
                 );
