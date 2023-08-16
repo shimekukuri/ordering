@@ -34,7 +34,7 @@ export default function NewsFeed2() {
 
   return (
     <>
-      <div className="relative flex flex-1 max-h-[85dvh] max-w-[100vw] p-4">
+      <div className="relative flex flex-1 min-h-[85dvh] max-h-[85dvh] max-w-[100vw] p-4">
         {loader ? (
           <div className="flex-1 flex justify-center items-center">
             {' '}
