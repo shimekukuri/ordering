@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const getItems = async () => {
   await prisma.$connect();
-  return prisma.item.findMany();
+  return prisma.item.findMany({ where: { department: 'dme' } });
 };
 
 export default async function Home() {
@@ -25,13 +25,13 @@ export default async function Home() {
         ))}
       </main>
       <div className="join join-horizontal fixed bottom-0 w-full justify-center p-4">
-        <Link href={'cartSearch/drinks'} className="btn join-item">
-          Drinks
+        <Link href={'/dme'} className="btn join-item">
+          Home
         </Link>
         <Link href={'cartSearch/specialty'} className="btn join-item">
           Special
         </Link>
-        <Link href={'Search'} className="btn join-item bg-secondary">
+        <Link href={'/search'} className="btn join-item bg-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
