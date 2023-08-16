@@ -1,4 +1,5 @@
 import { prisma } from '@/ulitiles/prisma/db';
+import { FieldRef } from '@prisma/client/runtime/library';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
@@ -10,12 +11,17 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest, response: NextResponse) {
   const body = await request.json();
   const { tags } = body;
+  console.log(tags);
 
-  if (!tags) {
+  if (tags === undefined) {
     return NextResponse.json({ message: 'Bad Request', status: 400 });
   }
 
-  return NextResponse.json({ message: 'Items Route' });
+  let items = await prisma.item.findMany({
+    where: { tags: { hasSome: tags } },
+  });
+
+  return NextResponse.json({ items });
 }
 
 export const dynamic = 'force-dynamic';

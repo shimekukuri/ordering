@@ -1,5 +1,6 @@
 'use client';
 import Modal from '@/components/modal/Modal';
+import { Item } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -8,14 +9,49 @@ export default function Page() {
   const [searchVal, setSearchVal] = useState<
     string | number | readonly string[] | undefined
   >('');
-  const [timeoutBounce, setTimeoutBounce] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [searchResults, SetSearchResults] = useState<Item[]>();
 
   const onDismiss = useCallback(() => {
+    setLoading(false);
     router.back();
   }, [router]);
 
-  useEffect(() => {}, [searchVal]);
+  useEffect(() => {
+    if (searchVal === undefined || searchVal === '') {
+      console.log('check fired');
+      return;
+    }
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      fetch('api/find-items/departments/dme', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tags: searchVal.toString().split(' '),
+        }),
+      })
+        .then((res) => res.json())
+        .then((x) => {
+          if (x === undefined) {
+            console.log('udefined');
+            setLoading(false);
+            return;
+          } else {
+            console.log(x.items);
+            SetSearchResults(x.items);
+            setLoading(false);
+          }
+        });
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchVal]);
 
   return (
     <Modal>
@@ -27,17 +63,19 @@ export default function Page() {
         />
         {loading ? (
           <div>Loading</div>
+        ) : searchResults === undefined || searchResults.length === 0 ? (
+          <div>No Result</div>
         ) : (
           <div className="flex-1 max-h-full overflow-y-scroll rounded-2xl shadow-2xl bg-opacity-50 bg-white p-2">
             <div className="p-2 flex flex-col gap-2">
-              {[...Array(40)].map((_, i) => {
+              {searchResults.map((x) => {
                 return (
                   <div
-                    key={i}
+                    key={x.id}
                     className="w-full flex-col-reverse h-32 lg:flex-row lg:h-16 flex items-center justify-between border rounded-lg px-2 shadow-md"
                   >
-                    <div>Description</div>
-                    <div>Product</div>
+                    <div>{x.description}</div>
+                    <div>{x.name}</div>
                     <div className="flex-1 md:flex-[0]">image</div>
                   </div>
                 );
@@ -57,4 +95,23 @@ export default function Page() {
       </div>
     </Modal>
   );
+}
+
+{
+  /* <div className="flex-1 max-h-full overflow-y-scroll rounded-2xl shadow-2xl bg-opacity-50 bg-white p-2">
+  <div className="p-2 flex flex-col gap-2">
+    {[...Array(40)].map((_, i) => {
+      return (
+        <div
+          key={i}
+          className="w-full flex-col-reverse h-32 lg:flex-row lg:h-16 flex items-center justify-between border rounded-lg px-2 shadow-md"
+        >
+          <div>Description</div>
+          <div>Product</div>
+          <div className="flex-1 md:flex-[0]">image</div>
+        </div>
+      );
+    })}
+  </div>
+</div>; */
 }
