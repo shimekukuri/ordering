@@ -14,12 +14,36 @@ export default function page() {
         }}
       >
         <Observer className="flex-1 justify-center items-center">
-          <div className="h-full flex items-center">
-            <div className="card w-96 glass animate-fade-in-600 opacity-0">
+          <div className="h-full flex items-center flex-col lg:flex-row justify-around w-full gap-4 lg:gap-0">
+            <div className="card min-w-96 lg:w-96 glass animate-fade-in-400 opacity-0">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   What are Compounded Rx?
                 </h2>
+                <div className="divider"></div>
+                <p className="">
+                  Compounded Rx's are unique, specially made for every
+                  individual. Unlike more standard offerings, Compounded
+                  medications can be tailored to your specifc needs and are
+                  cheaper than more traditional Rx's!
+                </p>
+              </div>
+            </div>
+            <div className="card min-w-96 lg:w-96 glass animate-fade-in-600 opacity-0">
+              <div className="card-body">
+                <h2 className="card-title font-extrabold">Is it safe?</h2>
+                <div className="divider"></div>
+                <p className="">
+                  Compounded Rx's are unique, specially made for every
+                  individual. Unlike more standard offerings, Compounded
+                  medications can be tailored to your specifc needs and are
+                  cheaper than more traditional Rx's!
+                </p>
+              </div>
+            </div>
+            <div className="card min-w-96 lg:w-96 glass animate-fade-in-800 opacity-0">
+              <div className="card-body">
+                <h2 className="card-title font-extrabold">Is It New?</h2>
                 <div className="divider"></div>
                 <p className="">
                   Compounded Rx's are unique, specially made for every
