@@ -39,12 +39,12 @@ export default function Observer({
 
   return (
     <div
-      className={`flex-1 parent-flex flex ${
-        className ? className : ''
-      } obersver`}
+      className={`flex-1 parent-flex flex ${className ? className : ''} ${
+        inView || once ? 'group inview' : ''
+      }`}
       ref={observed}
     >
-      {inView || once ? children : ''}
+      {children}
     </div>
   );
 }
