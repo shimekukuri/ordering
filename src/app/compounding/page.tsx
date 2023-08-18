@@ -7,7 +7,7 @@ export default function page() {
       <CompoundingHero />
 
       <div
-        className="bg-fixed bg-cover p-4 flex min-h-[65vh] lg:min-h-[25vh]"
+        className="bg-fixed bg-cover p-4 flex min-h-[100vh] lg:min-h-[25vh]"
         style={{
           backgroundImage:
             'url(https://media.istockphoto.com/id/1217974135/photo/close-up-of-unrecognizable-scientist-pouring-purple-paint-into-a-beaker.jpg?s=612x612&w=0&k=20&c=DQcuunwho9Jh1yxJsdx32a4y2x6dooF31sp1W0QybNk=)',
