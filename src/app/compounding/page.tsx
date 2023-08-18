@@ -1,4 +1,5 @@
 import CompoundingHero from '@/components/compounding/hero/CompoundingHero';
+import Questions from '@/components/compounding/questions/Questions';
 import Observer from '@/components/utility/observer/Observer';
 
 export default function page() {
@@ -13,58 +14,54 @@ export default function page() {
             'url(https://media.istockphoto.com/id/1217974135/photo/close-up-of-unrecognizable-scientist-pouring-purple-paint-into-a-beaker.jpg?s=612x612&w=0&k=20&c=DQcuunwho9Jh1yxJsdx32a4y2x6dooF31sp1W0QybNk=)',
         }}
       >
-        <Observer className="flex-1 justify-center items-center">
-          <div className="h-full flex items-center flex-col lg:flex-row justify-around w-full gap-4 lg:gap-0">
-            <div className="card min-w-96 lg:w-96 glass group-[.inview]:animate-fade-in-400 opacity-0 h-full">
-              <div className="card-body">
-                <h2 className="card-title font-extrabold">
-                  What are Compounded Rx?
-                </h2>
-                <div className="divider"></div>
-                <p className="">
-                  Compounded Rx&aposs are unique, specially made for every
-                  individual. Unlike more standard offerings, Compounded
-                  medications can be tailored to your specifc needs and are
-                  cheaper than more traditional Rx&aposs!
-                </p>
-              </div>
-            </div>
-            <div className="card min-w-96 lg:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full">
-              <div className="card-body">
-                <h2 className="card-title font-extrabold">
-                  Are Compounded Rx Safe?
-                </h2>
-                <div className="divider"></div>
-                <p className="">
-                  Skillfully formulated by our expert pharmacists we adhere to
-                  the most rigorous quality and sterile protocols, and stand by
-                  our effective and personalized options, underscoring their
-                  intrinsic safety. As an accredited compounding pharmacy, we
-                  prioritize the highest safety standards, ensuring
-                  uncompromising quality and reliability.
-                </p>
-              </div>
-            </div>
-            <div className="card min-w-96 lg:w-96 glass group-[.inview]:animate-fade-in-800 opacity-0 h-full">
-              <div className="card-body">
-                <h2 className="card-title font-extrabold">
-                  Are Compounded Rx New?
-                </h2>
-                <div className="divider"></div>
-                <p className="">
-                  Compounded prescriptions are not new; in fact, they have a
-                  long history dating back centuries. Before the development of
-                  mass-produced pharmaceuticals, pharmacists would custom mix
-                  medications to suit individual patient needs. In recent years,
-                  compounded prescriptions have gained renewed attention due to
-                  their potential to provide personalized treatments.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Observer>
+        <Questions />
       </div>
-      <div className="h-screen">test</div>
+      <div className=" flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+        <div className="card min-w-96 lg:max-w-[50%] glass">
+          <div className="card-body">
+            <h2 className="card-title text-5xl font-extrabold">
+              What we can Compound for you!
+            </h2>
+            <div className="divider"></div>
+
+            <Observer className="text-2xl flex gap-2 flex-col">
+              <div className="opacity-0 group-[.inview]:animate-fade-in-200">
+                Bio-Identical Hormone Replacement
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-400">
+                Sterile Compounding
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-600">
+                Verterinary
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-800">
+                Pediatric
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-1000">
+                Topical Pain Management
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-1200">
+                Men&aposs Health
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-1400">
+                Womenes&apos Health
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-1600">
+                Eye Drops
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-1800">
+                Weight Loss
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-2000">
+                Cosmetic
+              </div>
+              <div className="opacity-0 group-[.inview]:animate-fade-in-2200">
+                Other Speciality
+              </div>
+            </Observer>
+          </div>
+        </div>
+      </div>
       <div
         className="h-[50vh] bg-fixed bg-cover"
         style={{
