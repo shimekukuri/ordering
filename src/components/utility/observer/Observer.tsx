@@ -23,7 +23,7 @@ export default function Observer({
           }
         }
       },
-      { threshold: 0.99 }
+      { threshold: 0.6 }
     );
 
     if (reff.current) {
