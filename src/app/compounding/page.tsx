@@ -22,10 +22,10 @@ export default function page() {
                 </h2>
                 <div className="divider"></div>
                 <p className="">
-                  Compounded Rx's are unique, specially made for every
+                  Compounded Rx&aposs are unique, specially made for every
                   individual. Unlike more standard offerings, Compounded
                   medications can be tailored to your specifc needs and are
-                  cheaper than more traditional Rx's!
+                  cheaper than more traditional Rx&aposs!
                 </p>
               </div>
             </div>
