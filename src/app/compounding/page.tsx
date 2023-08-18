@@ -7,18 +7,18 @@ export default function page() {
       <CompoundingHero />
 
       <div
-        className="bg-fixed bg-cover p-4 flex"
+        className="bg-fixed bg-cover p-4 flex min-h-[25vh]"
         style={{
           backgroundImage:
             'url(https://media.istockphoto.com/id/1217974135/photo/close-up-of-unrecognizable-scientist-pouring-purple-paint-into-a-beaker.jpg?s=612x612&w=0&k=20&c=DQcuunwho9Jh1yxJsdx32a4y2x6dooF31sp1W0QybNk=)',
         }}
       >
-        <Observer className=" flex-1 justify-center items-center">
+        <Observer className="flex-1 justify-center items-center">
           <div className="h-full flex items-center">
             <div className="card w-96 glass animate-fade-in-600 opacity-0">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
-                  What is Compounded Rx?
+                  What are Compounded Rx?
                 </h2>
                 <div className="divider"></div>
                 <p className="">
