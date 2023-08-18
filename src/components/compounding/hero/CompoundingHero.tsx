@@ -1,7 +1,7 @@
 export default function CompoundingHero() {
   return (
     <div
-      className="hero min-h-screen shadow-2xl"
+      className="hero min-h-screen"
       style={{
         backgroundImage:
           'url(https://media.istockphoto.com/id/624034258/photo/flask-in-scientist-hand-with-laboratory-background.jpg?s=612x612&w=0&k=20&c=7_ZB_rY1FZvXga5EvpvpbVzlLu7FlQJb1tS4OL7cV98=)',
@@ -18,24 +18,28 @@ export default function CompoundingHero() {
           <p className="mb-5 md:text-4xl opacity-0 animate-fade-in-600">
             The Science of Personalized
             <span>{` `}</span>
-            <span className="text-sky-300 font-extrabold animate-pulse">M</span>
-            <span className="text-[#E57DFC] font-extrabold animate-pulse">
+            <span className="text-sky-300 font-extrabold animate-pulse-1000">
+              M
+            </span>
+            <span className="text-[#E57DFC] font-extrabold animate-pulse-1200">
               e
             </span>
-            <span className="text-[#FCA57D] font-extrabold animate-pulse">
+            <span className="text-[#FCA57D] font-extrabold animate-pulse-1400">
               d
             </span>
-            <span className="text-[#94FC7D] font-extrabold animate-pulse">
+            <span className="text-[#94FC7D] font-extrabold animate-pulse-1600">
               i
             </span>
-            <span className="text-sky-300 font-extrabold animate-pulse">c</span>
+            <span className="text-sky-300 font-extrabold animate-pulse-1800">
+              c
+            </span>
             <span className="text-[#E57DFC] font-extrabold animate-pulse">
               i
             </span>
-            <span className="text-[#FCA57D] font-extrabold animate-pulse">
+            <span className="text-[#FCA57D] font-extrabold animate-pulse-2200">
               n
             </span>
-            <span className="text-[#94FC7D] font-extrabold animate-pulse">
+            <span className="text-[#94FC7D] font-extrabold animate-pulse-2400">
               e
             </span>
           </p>
