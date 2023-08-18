@@ -10,12 +10,12 @@ export default function CompoundingHero() {
       <div className="hero-overlay bg-opacity-60  opacity-0 animate-fade-in-800"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="">
-          <h1 className="mb-5 text-5xl lg:text-9xl font-bold opacity-0 animate-fade-in-400 text-white">
+          <h1 className="mb-5 text-5xl md:text-9xl font-bold opacity-0 animate-fade-in-400 text-white">
             Compound
             <span>{` `}</span>
             <span className="text-red-500 underline">Rx</span>
           </h1>
-          <p className="mb-5 lg:text-4xl opacity-0 animate-fade-in-600">
+          <p className="mb-5 md:text-4xl opacity-0 animate-fade-in-600">
             The Science of Personalized
             <span>{` `}</span>
             <span className="text-sky-300 font-extrabold animate-pulse">M</span>

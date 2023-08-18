@@ -1,4 +1,5 @@
 import CompoundingHero from '@/components/compounding/hero/CompoundingHero';
+import Observer from '@/components/utility/observer/Observer';
 
 export default function page() {
   return (
@@ -6,13 +7,30 @@ export default function page() {
       <CompoundingHero />
 
       <div
-        className="h-[50vh] bg-fixed bg-cover"
+        className="bg-fixed bg-cover p-4 flex"
         style={{
           backgroundImage:
             'url(https://media.istockphoto.com/id/1217974135/photo/close-up-of-unrecognizable-scientist-pouring-purple-paint-into-a-beaker.jpg?s=612x612&w=0&k=20&c=DQcuunwho9Jh1yxJsdx32a4y2x6dooF31sp1W0QybNk=)',
         }}
       >
-        test
+        <Observer className=" flex-1 justify-center items-center">
+          <div className="h-full flex items-center">
+            <div className="card w-96 glass animate-fade-in-600 opacity-0">
+              <div className="card-body">
+                <h2 className="card-title font-extrabold">
+                  What is Compounded Rx?
+                </h2>
+                <div className="divider"></div>
+                <p className="">
+                  Compounded Rx's are unique, specially made for every
+                  individual. Unlike more standard offerings, Compounded
+                  medications can be tailored to your specifc needs and are
+                  cheaper than more traditional Rx's!
+                </p>
+              </div>
+            </div>
+          </div>
+        </Observer>
       </div>
       <div className="h-screen">test</div>
       <div
