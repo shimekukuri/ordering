@@ -16,51 +16,155 @@ export default function page() {
       >
         <Questions />
       </div>
-      <div className=" flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
-        <div className="card min-w-96 lg:max-w-[50%] glass">
-          <div className="card-body">
-            <h2 className="card-title text-5xl font-extrabold">
-              What we can Compound for you!
-            </h2>
-            <div className="divider"></div>
+      <div className=" flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% flex-col lg:flex-row">
+        <h2 className="card-title text-5xl font-extrabold flex-1 lg:underline p-4 text-center">
+          What we can Compound for you!
+        </h2>
+        <div className="divider"></div>
 
-            <Observer className="text-2xl flex gap-2 flex-col">
-              <div className="opacity-0 group-[.inview]:animate-fade-in-200">
+        <Observer className="flex-col flex">
+          <div className="join join-vertical w-full glass">
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Bio-Identical Hormone Replacement
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-400">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Sterile Compounding
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-600">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Verterinary
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-800">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Pediatric
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-1000">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Topical Pain Management
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-1200">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
+                {`Mens Health`}
+              </div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Men&aposs Health
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-1400">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Womenes&apos Health
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-1600">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Eye Drops
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-1800">
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Weight Loss
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-2000">
-                Cosmetic
+              <div className="collapse-content">
+                <p>hello</p>
               </div>
-              <div className="opacity-0 group-[.inview]:animate-fade-in-2200">
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">Cosmetic</div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border border-base-300">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium">
                 Other Speciality
               </div>
-            </Observer>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
           </div>
-        </div>
+          {/* <div className="opacity-0 group-[.inview]:animate-fade-in-200">
+              Bio-Identical Hormone Replacement
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-300">
+              Sterile Compounding
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-400">
+              Verterinary
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-500">
+              Pediatric
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-600">
+              Topical Pain Management
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-700">
+              Men&aposs Health
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-800">
+              Womenes&apos Health
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-900">
+              Eye Drops
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-1000">
+              Weight Loss
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-1100">
+              Cosmetic
+            </div>
+            <div className="opacity-0 group-[.inview]:animate-fade-in-1200">
+              Other Speciality
+            </div> */}
+        </Observer>
       </div>
       <div
         className="h-[50vh] bg-fixed bg-cover"
