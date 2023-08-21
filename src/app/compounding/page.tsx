@@ -17,44 +17,46 @@ export default function page() {
         <Questions />
       </div>
       <div className=" flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% flex-col lg:flex-row">
-        <h2 className="card-title text-5xl font-extrabold flex-1 p-4 flex-col">
-          What we can
-          <div>
-            <span className="text-sky-300 font-extrabold animate-pulse-1000">
-              C
-            </span>
-            <span className="text-[#E57DFC] font-extrabold animate-pulse-1200">
-              o
-            </span>
-            <span className="text-[#FCA57D] font-extrabold animate-pulse-1400">
-              m
-            </span>
-            <span className="text-[#94FC7D] font-extrabold animate-pulse-1600">
-              p
-            </span>
-            <span className="text-sky-300 font-extrabold animate-pulse-1800">
-              o
-            </span>
-            <span className="text-[#E57DFC] font-extrabold animate-pulse">
-              u
-            </span>
-            <span className="text-[#FCA57D] font-extrabold animate-pulse-2200">
-              n
-            </span>
-            <span className="text-[#94FC7D] font-extrabold animate-pulse-2400">
-              d
-            </span>
-            {` `}
-          </div>
-          for you!
-        </h2>
+        <Observer>
+          <h2 className="card-title text-5xl font-extrabold flex-1 p-4 flex-col group-[.inview]:animate-fade-in-800 opacity-0">
+            What we can
+            <div>
+              <span className="text-sky-300 font-extrabold animate-pulse-1000">
+                C
+              </span>
+              <span className="text-[#E57DFC] font-extrabold animate-pulse-1200">
+                o
+              </span>
+              <span className="text-[#FCA57D] font-extrabold animate-pulse-1400">
+                m
+              </span>
+              <span className="text-[#94FC7D] font-extrabold animate-pulse-1600">
+                p
+              </span>
+              <span className="text-sky-300 font-extrabold animate-pulse-1800">
+                o
+              </span>
+              <span className="text-[#E57DFC] font-extrabold animate-pulse">
+                u
+              </span>
+              <span className="text-[#FCA57D] font-extrabold animate-pulse-2200">
+                n
+              </span>
+              <span className="text-[#94FC7D] font-extrabold animate-pulse-2400">
+                d
+              </span>
+              {` `}
+            </div>
+            for you!
+          </h2>
+        </Observer>
         <div className="divider"></div>
 
         <Observer className="flex-col flex">
           <div className="join join-vertical w-full glass">
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Bio-Identical Hormone Replacement
               </div>
               <div className="collapse-content">
@@ -74,7 +76,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Sterile Compounding
               </div>
               <div className="collapse-content">
@@ -83,7 +85,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Verterinary
               </div>
               <div className="collapse-content">
@@ -92,7 +94,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Pediatric
               </div>
               <div className="collapse-content">
@@ -101,7 +103,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Topical Pain Management
               </div>
               <div className="collapse-content">
@@ -110,7 +112,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 {`Mens Health`}
               </div>
               <div className="collapse-content">
@@ -119,7 +121,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Men&aposs Health
               </div>
               <div className="collapse-content">
@@ -128,7 +130,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Womenes&apos Health
               </div>
               <div className="collapse-content">
@@ -137,7 +139,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Eye Drops
               </div>
               <div className="collapse-content">
@@ -146,7 +148,7 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Weight Loss
               </div>
               <div className="collapse-content">
@@ -155,14 +157,16 @@ export default function page() {
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">Cosmetic</div>
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
+                Cosmetic
+              </div>
               <div className="collapse-content">
                 <p>hello</p>
               </div>
             </div>
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
                 Other Speciality
               </div>
               <div className="collapse-content">
