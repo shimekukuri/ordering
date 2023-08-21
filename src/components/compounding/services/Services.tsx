@@ -97,31 +97,23 @@ export default function Services() {
               <p>{`Compounded topical pain management involves the creation of customized pain-relief formulations by compounding pharmacists to address specific pain issues and provide localized relief. These compounded medications can include a variety of active ingredients, such as analgesics, anti-inflammatories, and muscle relaxants, tailored to an individual's needs. Topical preparations, such as creams, gels, or patches, allow the medication to be applied directly to the site of pain, minimizing systemic side effects and offering a targeted approach. While compounded topical pain management can be effective for certain conditions, collaboration between patients and healthcare providers is essential to determine the appropriate ingredients, dosages, and potential interactions. Quality control measures and regulatory oversight ensure the safety and efficacy of these compounded formulations, making them a valuable option for individuals seeking personalized pain relief strategies.`}</p>
             </div>
           </div>
+
           <div className="collapse collapse-arrow join-item border border-base-300">
             <input type="radio" name="my-accordion-4" />
             <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
-              {`Mens Health`}
+              {`Men's Health`}
             </div>
             <div className="collapse-content">
-              <p>hello</p>
+              <p>{`Compounded men's health medications encompass a range of personalized formulations tailored to address specific health concerns affecting men. These medications can include testosterone replacement therapy, aimed at addressing low testosterone levels and related symptoms such as fatigue, low libido, and reduced muscle mass. Additionally, compounded medications can target erectile dysfunction by combining various vasodilators like sildenafil or tadalafil with other supportive agents to enhance blood flow. Prostate health can also benefit from compounded formulations containing ingredients like saw palmetto, pygeum, and beta-sitosterol to manage urinary symptoms associated with benign prostatic hyperplasia. Compounded men's health medications offer a customizable approach, allowing healthcare providers to adjust dosages, ingredients, and delivery methods to suit individual needs. However, collaboration between patients and medical professionals is crucial to ensure proper dosing, efficacy, and safety. Regulatory oversight guarantees the quality and integrity of these personalized medications, making them a valuable option for addressing men's health concerns comprehensively.`}</p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border border-base-300">
             <input type="radio" name="my-accordion-4" />
             <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
-              Men&aposs Health
+              {`Women's Health`}
             </div>
             <div className="collapse-content">
-              <p>hello</p>
-            </div>
-          </div>
-          <div className="collapse collapse-arrow join-item border border-base-300">
-            <input type="radio" name="my-accordion-4" />
-            <div className="collapse-title text-xl font-medium group-[.inview]:animate-fade-in-800 opacity-0">
-              Womenes&apos Health
-            </div>
-            <div className="collapse-content">
-              <p>hello</p>
+              <p>{`Compounded women's health medications offer personalized solutions to address a range of specific health concerns. These formulations can include hormone replacement therapy, customized to alleviate symptoms of menopause such as hot flashes, mood swings, and vaginal dryness through the use of bio-identical hormones like estradiol and progesterone. Compounded medications can also target conditions like polycystic ovary syndrome (PCOS), providing combinations of medications to regulate menstrual cycles and manage associated symptoms. Women struggling with sexual dysfunction may benefit from compounded medications containing vasodilators or other agents to enhance sexual arousal and satisfaction. Additionally, compounded medications can cater to individual allergies or sensitivities, creating allergen-free or preservative-free options. Close collaboration between healthcare providers and compounding pharmacists is essential to ensure accurate dosing, safety, and efficacy, and regulatory oversight ensures the quality and reliability of these personalized women's health medications, offering tailored solutions for diverse needs.`}</p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border border-base-300">
@@ -130,7 +122,7 @@ export default function Services() {
               Eye Drops
             </div>
             <div className="collapse-content">
-              <p>hello</p>
+              <p>{`Compounded eye drop medications provide specialized solutions for various ocular conditions, offering tailored formulations that may not be available in standard commercially manufactured eye drops. These preparations can include medications to treat conditions such as glaucoma, where combinations of different ocular hypotensive agents can be compounded to enhance efficacy while minimizing side effects. Compounded eye drops can also target dry eye syndrome by incorporating lubricating agents, anti-inflammatories, and tear-stimulating components to provide relief and improve ocular comfort. In cases of inflammation or infections, compounded eye drops can contain antibiotics, corticosteroids, or antiviral agents, adjusted to the specific needs of the patient. Collaboration between ophthalmologists and compounding pharmacists is crucial to ensure appropriate ingredients, concentrations, and sterility, as well as to address patient preferences. Regulatory oversight ensures the quality and safety of these customized eye drop medications, offering patients an effective and tailored approach to managing a variety of eye-related conditions.`}</p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border border-base-300">
@@ -139,7 +131,7 @@ export default function Services() {
               Weight Loss
             </div>
             <div className="collapse-content">
-              <p>hello</p>
+              <p>{`Compounded weight loss medications offer individualized approaches to assist individuals in their weight management efforts. These formulations can include combinations of FDA-approved medications, vitamins, amino acids, and other compounds tailored to a patient's specific needs and goals. Compounded weight loss medications may aim to suppress appetite, boost metabolism, or enhance fat breakdown. Common ingredients might include phentermine, topiramate, bupropion, or other medications that have shown potential for weight loss. Compounded weight loss medications can be prepared in various forms, such as capsules, tablets, or even sublingual drops, making adherence more convenient. Collaboration between patients and healthcare providers is essential to determine the most suitable approach, and close monitoring ensures safety and effectiveness. Regulatory oversight ensures the quality and consistency of these customized medications, offering a personalized strategy for those seeking to manage their weight with the guidance of healthcare professionals.`}</p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border border-base-300">
@@ -148,7 +140,7 @@ export default function Services() {
               Cosmetic
             </div>
             <div className="collapse-content">
-              <p>hello</p>
+              <p>{`Compounded cosmetic medications encompass a range of personalized formulations designed to address various aesthetic concerns. These formulations often include topical creams, serums, and gels, tailored to individual needs and skin types. Compounded cosmetic medications may include ingredients such as retinoids, hyaluronic acid, peptides, and antioxidants, targeting concerns like wrinkles, hyperpigmentation, and acne. These customized formulations can be adjusted to meet specific preferences, such as incorporating allergen-free or preservative-free options. Compounded cosmetic medications also extend to hair care, where specialized shampoos, conditioners, and serums can be developed to promote hair growth, reduce hair loss, or improve scalp health. Collaboration between dermatologists or aesthetic professionals and compounding pharmacists ensures the selection of appropriate ingredients and concentrations, as well as personalized recommendations for application. Regulatory oversight ensures the quality and safety of these tailored cosmetic medications, offering individuals a unique approach to enhancing their appearance while working closely with healthcare experts.`}</p>
             </div>
           </div>
           <div className="collapse collapse-arrow join-item border border-base-300">
@@ -157,7 +149,7 @@ export default function Services() {
               Other Speciality
             </div>
             <div className="collapse-content">
-              <p>hello</p>
+              <p>{`Specialty compounded medications encompass a diverse array of personalized formulations that cater to unique patient needs that cannot be met by standard commercial medications. These formulations cover a wide range of medical conditions and requirements, such as rare diseases, complex medication regimens, and specific patient sensitivities. Specialty compounded medications can include preparations for pain management, hormone replacement therapy, dermatological conditions, and even veterinary care. They might involve customized combinations of active pharmaceutical ingredients, unique dosage forms, and individualized strengths. Collaboration between healthcare providers, compounding pharmacists, and patients is paramount to ensuring that the formulations meet the precise requirements of the condition or situation at hand. Regulatory oversight guarantees the quality, safety, and effectiveness of these specialized medications, making them an invaluable resource for addressing complex medical scenarios that demand tailored solutions.`}</p>
             </div>
           </div>
         </div>
