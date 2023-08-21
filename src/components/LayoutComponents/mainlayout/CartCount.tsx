@@ -7,10 +7,6 @@ const getCart = async (session: Session | null) => {
   if (!session) {
     return [];
   }
-  // const cartData = await prisma.user.findFirst({
-  //   where: { email: session?.user?.email },
-  //   include: { accounts: { include: { Order: { include: { items: {} } } } } },
-  // });
   const cartData = await prisma.user.findFirst({
     where: { email: session?.user?.email },
     include: {

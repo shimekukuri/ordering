@@ -1,8 +1,6 @@
 import nodemailer from 'nodemailer';
 import { prisma } from '../prisma/db';
 
-console.log(process.env.NODEMAILER_USERNAME, process.env.NODEMAILER_PASSWORD);
-
 enum locations {
   access,
   whitwell,
@@ -56,7 +54,6 @@ export const sendOrderEmail = async (
     })
   );
 
-  console.log('Mailer Order Items');
   if (!orderItems) {
     return new Error('orderItems Not Found');
   }
@@ -99,6 +96,46 @@ export const sendOrderEmail = async (
         //@ts-expect-error
         data: { submited: true, location: location },
       });
+      resolve(true);
+    });
+  });
+
+  return 'executed';
+};
+
+export const sendGenericEmail = async (
+  options: mailOptions,
+  subject: string
+) => {
+  const extendedOptions = extendMailType(options);
+  extendedOptions.from = process.env.NODEMAILER_USERNAME;
+  extendedOptions.subject = subject;
+
+  try {
+    await new Promise((resolve, reject) => {
+      // verify connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+          reject(error);
+        } else {
+          console.log('Server is ready to take our messages');
+          resolve(success);
+        }
+      });
+    });
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(extendedOptions, async (error, info) => {
+      if (error) {
+        console.error('Mailer ERROR', error);
+        reject(error);
+      }
+      console.log(info);
       resolve(true);
     });
   });
