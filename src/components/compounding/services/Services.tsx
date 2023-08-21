@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <div className=" flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% flex-col lg:flex-row">
       <Observer>
-        <h2 className="card-title text-5xl lg:text-8xl font-extrabold flex-1 p-4 flex-col text-white group-[.inview]:animate-fade-in-800 opacity-0">
+        <h2 className="card-title text-3xl text-center lg:text-8xl font-extrabold flex-1 p-4 flex-col text-white group-[.inview]:animate-fade-in-800 opacity-0">
           What we can
           <div>
             <span className="text-sky-300 font-extrabold animate-pulse-1000">
