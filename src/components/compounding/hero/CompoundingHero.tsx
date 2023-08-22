@@ -1,13 +1,13 @@
 export default function CompoundingHero() {
   return (
     <div
-      className="hero min-h-screen"
+      className="hero min-h-screen rounded-b-2xl shadow-2xl overflow-clip"
       style={{
         backgroundImage:
           'url(https://media.istockphoto.com/id/624034258/photo/flask-in-scientist-hand-with-laboratory-background.jpg?s=612x612&w=0&k=20&c=7_ZB_rY1FZvXga5EvpvpbVzlLu7FlQJb1tS4OL7cV98=)',
       }}
     >
-      <div className="hero-overlay bg-opacity-60  opacity-0 animate-fade-in-800"></div>
+      <div className="hero-overlay bg-opacity-60  opacity-0 animate-fade-in-800 rounded-b-2xl"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="">
           <h1 className="mb-5 text-5xl md:text-9xl font-bold opacity-0 animate-fade-in-400 text-white">

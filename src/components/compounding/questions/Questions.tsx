@@ -3,24 +3,18 @@ import Observer from '@/components/utility/observer/Observer';
 
 export default function Questions() {
   return (
-    <div
-      className="bg-fixed bg-cover p-4 flex min-h-[25vh]"
-      style={{
-        backgroundImage:
-          'url(https://media.istockphoto.com/id/1217974135/photo/close-up-of-unrecognizable-scientist-pouring-purple-paint-into-a-beaker.jpg?s=612x612&w=0&k=20&c=DQcuunwho9Jh1yxJsdx32a4y2x6dooF31sp1W0QybNk=)',
-      }}
-    >
-      <div className="flex flex-1 justify-center items-center max-w-[100vw]">
+    <div className="flex min-h-[25vh] w-full">
+      <div className="flex flex-1 justify-center items-center max-w-[100vw] lg:bg-opacity-0 shadow-inner p-4">
         <div className="h-full flex items-center flex-col xl:flex-row justify-around w-full gap-4 xl:gap-0">
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-400 opacity-0 h-full">
+            <div className="card w-full xl:w-96 glass shadow-2xl group-[.inview]:animate-fade-in-400 opacity-0 h-full shadow-2xl bg-rose-500">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   What are Compounded Rx?
                 </h2>
                 <div className="divider"></div>
                 <p className="">
-                  Compounded Rx&aposs are unique, specially made for every
+                  Compounded {`Rx`} are unique, specially made for every
                   individual. Unlike more standard offerings, Compounded
                   medications can be tailored to your specifc needs and are
                   cheaper than more traditional Rx&aposs!
@@ -29,7 +23,7 @@ export default function Questions() {
             </div>
           </Observer>
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full">
+            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full bg-emerald-500 shadow-2xl">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   Are Compounded Rx Safe?
@@ -47,7 +41,7 @@ export default function Questions() {
             </div>
           </Observer>
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-800 opacity-0 h-full">
+            <div className="card w-full xl:w-96 glass shadow-2xl group-[.inview]:animate-fade-in-800 opacity-0 h-full">
               <div className="card-body">
                 <h2 className="card-title">Are Compounded Rx New?</h2>
                 <div className="divider"></div>
