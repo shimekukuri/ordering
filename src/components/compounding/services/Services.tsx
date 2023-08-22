@@ -10,28 +10,28 @@ export default function Services() {
             <h2 className="text-3xl text-center lg:text-left lg:text-8xl font-extrabold flex-1 p-4 flex-col text-white group-[.inview]:animate-fade-in-800 opacity-0 relative">
               What we can
               <div>
-                <span className="text-sky-300 font-extrabold animate-pulse-1000">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-1000">
                   C
                 </span>
-                <span className="text-[#E57DFC] font-extrabold animate-pulse-1200">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-1200">
                   o
                 </span>
-                <span className="text-[#FCA57D] font-extrabold animate-pulse-1400">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-1400">
                   m
                 </span>
-                <span className="text-[#94FC7D] font-extrabold animate-pulse-1600">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-1600">
                   p
                 </span>
-                <span className="text-sky-300 font-extrabold animate-pulse-1800">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-1800">
                   o
                 </span>
-                <span className="text-[#E57DFC] font-extrabold animate-pulse">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse">
                   u
                 </span>
-                <span className="text-[#FCA57D] font-extrabold animate-pulse-2200">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-2200">
                   n
                 </span>
-                <span className="text-[#94FC7D] font-extrabold animate-pulse-2400">
+                <span className="text-[#c4e1f2] font-extrabold animate-pulse-2400">
                   d
                 </span>
                 {` `}

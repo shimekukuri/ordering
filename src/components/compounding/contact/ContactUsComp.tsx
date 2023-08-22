@@ -5,7 +5,7 @@ const Cursive = Pacifico({ weight: '400', subsets: ['latin'] });
 
 export default function ContactUsComp() {
   return (
-    <div className="flex flex-col p-4 lg:flex-row lg:justify-around items-center w-full">
+    <div className="flex flex-col p-4 lg:flex-row lg:justify-around items-center w-full gap-4">
       <div className="">
         <div className="mockup-phone">
           <div className="camera"></div>
@@ -34,8 +34,8 @@ export default function ContactUsComp() {
         </div>
       </div>
       <div>
-        <Observer className="justify-center items-center">
-          <form className="max-w-5xl w-full flex flex-col items-center gap-2 glass p-4 rounded-2xl shadow-2xl overflow-clip justify-around w-72">
+        <Observer className="justify-center items-center w-96">
+          <form className="max-w-5xl flex flex-col items-center gap-2 glass p-4 rounded-2xl shadow-2xl overflow-clip justify-around w-full">
             <h2 className="text-3xl">Contact Us</h2>
             <label htmlFor="firstName" className="sr-only">
               First Name

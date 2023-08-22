@@ -18,28 +18,28 @@ export default function CompoundingHero() {
           <p className="mb-5 md:text-4xl opacity-0 animate-fade-in-600">
             The Science of Personalized
             <span>{` `}</span>
-            <span className="text-sky-300 font-extrabold animate-pulse-1000">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-200">
               M
             </span>
-            <span className="text-[#E57DFC] font-extrabold animate-pulse-1200">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-300">
               e
             </span>
-            <span className="text-[#FCA57D] font-extrabold animate-pulse-1400">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-300">
               d
             </span>
-            <span className="text-[#94FC7D] font-extrabold animate-pulse-1600">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-400">
               i
             </span>
-            <span className="text-sky-300 font-extrabold animate-pulse-1800">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-500">
               c
             </span>
-            <span className="text-[#E57DFC] font-extrabold animate-pulse">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-600">
               i
             </span>
-            <span className="text-[#FCA57D] font-extrabold animate-pulse-2200">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-700">
               n
             </span>
-            <span className="text-[#94FC7D] font-extrabold animate-pulse-2400">
+            <span className="text-[#c4e1f2] font-extrabold animate-fade-in-800">
               e
             </span>
           </p>
