@@ -11,9 +11,9 @@ export default function Questions() {
       }}
     >
       <div className="flex flex-1 justify-center items-center max-w-[100vw]">
-        <div className="h-full flex items-center flex-col xl:flex-row justify-around w-full gap-4 lg:gap-0">
+        <div className="h-full flex items-center flex-col xl:flex-row justify-around w-full gap-4 xl:gap-0">
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card lg:w-96 glass group-[.inview]:animate-fade-in-400 opacity-0 h-full">
+            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-400 opacity-0 h-full">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   What are Compounded Rx?
@@ -29,7 +29,7 @@ export default function Questions() {
             </div>
           </Observer>
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card lg:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full">
+            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   Are Compounded Rx Safe?
@@ -47,7 +47,7 @@ export default function Questions() {
             </div>
           </Observer>
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card lg:w-96 glass group-[.inview]:animate-fade-in-800 opacity-0 h-full">
+            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-800 opacity-0 h-full">
               <div className="card-body">
                 <h2 className="card-title">Are Compounded Rx New?</h2>
                 <div className="divider"></div>
