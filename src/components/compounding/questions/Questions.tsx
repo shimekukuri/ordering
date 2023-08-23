@@ -7,7 +7,7 @@ export default function Questions() {
       <div className="flex flex-1 justify-center items-center max-w-[100vw] lg:bg-opacity-0 shadow-inner p-4">
         <div className="h-full flex items-center flex-col xl:flex-row justify-around w-full gap-4 xl:gap-0">
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full bg-emerald-500 shadow-2xl">
+            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-400 opacity-0 h-full bg-emerald-500 shadow-2xl">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   Are Compounded Rx Safe?
@@ -25,7 +25,7 @@ export default function Questions() {
             </div>
           </Observer>
           <Observer className="flex-1 justify-center items-center h-full">
-            <div className="card w-full xl:w-96 glass shadow-2xl group-[.inview]:animate-fade-in-400 opacity-0 h-full shadow-2xl bg-rose-500">
+            <div className="card w-full xl:w-96 glass group-[.inview]:animate-fade-in-600 opacity-0 h-full shadow-2xl bg-rose-500">
               <div className="card-body">
                 <h2 className="card-title font-extrabold">
                   What are Compounded Rx?

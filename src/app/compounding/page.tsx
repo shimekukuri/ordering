@@ -1,3 +1,4 @@
+import Articles from '@/components/compounding/articles/Articles';
 import ContactUsComp from '@/components/compounding/contact/ContactUsComp';
 import CompoundingHero from '@/components/compounding/hero/CompoundingHero';
 import Questions from '@/components/compounding/questions/Questions';
@@ -17,6 +18,7 @@ export default function page() {
         <CompoundingHero />
         <Questions />
         <Services />
+        <Articles />
         <ContactUsComp />
       </div>
     </>
