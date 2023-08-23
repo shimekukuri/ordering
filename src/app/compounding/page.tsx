@@ -1,11 +1,33 @@
-import Articles from '@/components/compounding/articles/Articles';
+import Articles, { articles } from '@/components/compounding/articles/Articles';
 import ContactUsComp from '@/components/compounding/contact/ContactUsComp';
 import CompoundingHero from '@/components/compounding/hero/CompoundingHero';
 import Questions from '@/components/compounding/questions/Questions';
 import Services from '@/components/compounding/services/Services';
-import Observer from '@/components/utility/observer/Observer';
 
 export default function page() {
+  let test: articles[] = [
+    {
+      image: './jake_small.jpeg',
+      body: 'TEST TEST TEST',
+      title: 'THIS IS A TEST DARNIT',
+    },
+    {
+      image: './jake_small.jpeg',
+      body: 'TEST TEST TEST',
+      title: 'THIS IS A TEST DARNIT',
+    },
+    {
+      image: './jake_small.jpeg',
+      body: 'TEST TEST TEST',
+      title: 'THIS IS A TEST DARNIT',
+    },
+    {
+      image: './jake_small.jpeg',
+      body: 'TEST TEST TEST',
+      title: 'THIS IS A TEST DARNIT',
+    },
+  ];
+
   return (
     <>
       <div
@@ -18,7 +40,7 @@ export default function page() {
         <CompoundingHero />
         <Questions />
         <Services />
-        <Articles />
+        <Articles articles={test} />
         <ContactUsComp />
       </div>
     </>

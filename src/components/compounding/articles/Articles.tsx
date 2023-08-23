@@ -1,15 +1,23 @@
 import Observer from '@/components/utility/observer/Observer';
 import { ReactNode } from 'react';
 
-export default function Articles() {
+export interface articles {
+  image: string;
+  title: string;
+  body: string;
+  link?: string;
+}
+
+export default function Articles({ articles }: { articles: articles[] }) {
   const arr = [1, 2, 3, 4, 5];
+  console.log(articles[0].image);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4">
-      {arr.map((_, i) => {
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4 w-full">
+      {articles.map((x, i) => {
         return (
           <div key={`article${i}`}>
-            <Article delayFade={Boolean(i % 2 == 1)} />
+            <Article article={x} delayFade={Boolean(i % 2 == 1)} />
           </div>
         );
       })}
@@ -20,30 +28,37 @@ export default function Articles() {
 const Article = ({
   className = '',
   delayFade = false,
+  article,
   key = '',
 }: {
   className?: string;
   delayFade?: boolean;
   key?: string;
+  article: articles;
 }): ReactNode => {
   return (
-    <Observer key={key} className={`${className} overflow-y-clip`}>
+    <Observer
+      key={key}
+      className={`${className} overflow-y-clip justify-center items-center`}
+    >
       <div
-        className={`flex justify-center items-center opacity-0 group-[.inview]:animate-fade-in-${
+        className={`flex w-full justify-center items-center opacity-0 group-[.inview]:animate-fade-in-${
           delayFade ? '600' : '400'
         }`}
       >
-        <div className="">
-          <div className="card lg:card-side bg-base-100 shadow-xl">
-            <figure>
+        <div className="w-full">
+          <div className="card w-full lg:card-side bg-base-100 shadow-xl p-4">
+            <figure className="">
               <img
-                src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+                loading="lazy"
+                className="rounded-2xl"
+                src={article.image}
                 alt="Album"
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">New album is released!</h2>
-              <p>Click the button to listen on Spotiwhy app.</p>
+              <h2 className="card-title">{article.title}</h2>
+              <p>{article.body}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Listen</button>
               </div>
