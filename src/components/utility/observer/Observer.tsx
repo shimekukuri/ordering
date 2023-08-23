@@ -4,9 +4,11 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 export default function Observer({
   children,
   className,
+  key,
 }: {
   children: ReactNode;
   className?: string;
+  key?: string;
 }) {
   const [inView, setInView] = useState<boolean>(false);
   const observed = useRef(null);
@@ -39,6 +41,7 @@ export default function Observer({
 
   return (
     <div
+      key={key}
       className={`flex-1 parent-flex flex ${className ? className : ''} ${
         inView || once ? 'group inview' : ''
       }`}

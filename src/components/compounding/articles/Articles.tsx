@@ -20,12 +20,14 @@ export default function Articles() {
 const Article = ({
   className = '',
   delayFade = false,
+  key = '',
 }: {
   className?: string;
   delayFade?: boolean;
+  key?: string;
 }): ReactNode => {
   return (
-    <Observer className={`${className} overflow-y-clip`}>
+    <Observer key={key} className={`${className} overflow-y-clip`}>
       <div
         className={`flex justify-center items-center opacity-0 group-[.inview]:animate-fade-in-${
           delayFade ? '600' : '400'
