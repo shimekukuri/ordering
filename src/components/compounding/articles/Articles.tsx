@@ -47,7 +47,7 @@ const Article = ({
         }`}
       >
         <div className="w-full">
-          <div className="card w-full lg:card-side bg-base-100 shadow-xl p-4">
+          <div className="card w-full lg:card-side bg-base-100 shadow-2xl p-4 bg-gradient-to-r from-emerald-300 via-white to-neutral-100">
             <figure className="">
               <img
                 loading="lazy"
