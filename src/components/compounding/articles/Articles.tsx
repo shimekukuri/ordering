@@ -9,7 +9,7 @@ export default function Articles() {
       {arr.map((_, i) => {
         return (
           <div>
-            <Article key={`Article-${i}`} delayFade={Boolean(i % 2 == 1)} />
+            <Article key={`article${i}`} delayFade={Boolean(i % 2 == 1)} />
           </div>
         );
       })}
