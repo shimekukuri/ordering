@@ -8,8 +8,8 @@ export default function Articles() {
     <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4">
       {arr.map((_, i) => {
         return (
-          <div>
-            <Article key={`article${i}`} delayFade={Boolean(i % 2 == 1)} />
+          <div key={`article${i}`}>
+            <Article delayFade={Boolean(i % 2 == 1)} />
           </div>
         );
       })}
