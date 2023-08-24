@@ -11,5 +11,5 @@ export const getUserPermissions = async () => {
     where: { email: session.user.email },
     include: { permissions: {} },
   });
-  console.log(userPermissions?.permissions);
+  console.log(userPermissions);
 };
