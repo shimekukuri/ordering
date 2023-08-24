@@ -10,7 +10,7 @@ export async function middleware(request: NextRequest) {
   ) as unknown as Session | undefined;
 
   if (!session) {
-    return NextResponse.rewrite(new URL('/', request.url));
+    return;
   }
 
   let user = await prisma.session.findFirst({
