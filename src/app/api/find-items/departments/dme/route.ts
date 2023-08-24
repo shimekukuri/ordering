@@ -1,5 +1,4 @@
 import { prisma } from '@/ulitiles/prisma/db';
-import { FieldRef } from '@prisma/client/runtime/library';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
