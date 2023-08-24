@@ -6,7 +6,7 @@ export default async function AdminPage() {
   let val = await getUserPermissions(permissions.admin);
 
   if (!val) {
-    redirect('/api/auth/');
+    redirect('/unauthorized');
     return;
   }
 
