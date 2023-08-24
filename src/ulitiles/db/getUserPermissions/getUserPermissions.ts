@@ -26,7 +26,7 @@ export const getUserPermissions = async (permission: perms[]) => {
 
   for (let val of permission) {
     //@ts-expect-error
-    if (!userPermissions?.permissions[val]) {
+    if (!userPermissions?.permissions[val] ?? false) {
       return false;
     }
   }
