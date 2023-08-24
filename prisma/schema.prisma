@@ -108,6 +108,8 @@ model Permissions {
   viewOrder     Boolean @default(false)
   completeOrder Boolean @default(false)
   changeOrder   Boolean @default(false)
+  acessnet      Boolean @default(false)
+  admin         Boolean @default(false)
   User          User[]
 }
 

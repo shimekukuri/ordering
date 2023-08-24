@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import NewsCard from '../newscard/NewsCard';
 
 export default function NewsFeed2() {
   const [loader, setLoader] = useState<boolean>(true);
@@ -24,7 +23,7 @@ export default function NewsFeed2() {
         if (counter > val * 4) {
           counter = 0;
         }
-      }, 3000);
+      }, 4000);
 
       return () => {
         clearInterval(timer);
