@@ -1,7 +1,14 @@
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
+import { permissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
+import { redirect } from 'next/navigation';
 
 export default async function AdminPage() {
-  await getUserPermissions();
+  let val = await getUserPermissions(permissions.admin);
+
+  if (!val) {
+    redirect('/api/auth/');
+    return;
+  }
 
   return <div>Admin page</div>;
 }
