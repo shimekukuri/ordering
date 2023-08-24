@@ -1,6 +1,5 @@
 import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import { prisma } from '@/ulitiles/prisma/db';
-import { Permissions } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 
 type perms =
@@ -14,7 +13,7 @@ type perms =
   | 'acessnet'
   | 'admin';
 
-export const getUserPermissions = async (permission: perms) => {
+export const getUserPermissions = async (permission: perms[]) => {
   const session = await getServerSession(OPTIONS);
   if (!session?.user?.email) {
     return false;
@@ -25,6 +24,12 @@ export const getUserPermissions = async (permission: perms) => {
     include: { permissions: {} },
   });
 
-  //@ts-expect-error
-  return userPermissions?.permissions[permission];
+  for (let val of permission) {
+    //@ts-expect-error
+    if (!userPermissions?.permissions[val]) {
+      return false;
+    }
+  }
+
+  return true;
 };
