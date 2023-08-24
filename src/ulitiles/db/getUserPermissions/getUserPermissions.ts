@@ -16,7 +16,6 @@ export enum permissions {
 
 export const getUserPermissions = async (permission: permissions) => {
   const session = await getServerSession(OPTIONS);
-  console.log('session', session);
   if (!session?.user?.email) {
     return false;
   }
@@ -27,6 +26,5 @@ export const getUserPermissions = async (permission: permissions) => {
   });
 
   //@ts-expect-error
-  return userPermissions?.permissions[permissions];
-  console.log('user permissions', '=>', userPermissions);
+  return userPermissions?.permissions[permission];
 };
