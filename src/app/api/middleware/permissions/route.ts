@@ -8,6 +8,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
   let session = request.cookies.get(
     '__Secure-next-auth.session-token'
   ) as unknown as Session | undefined;
+  console.log(session);
 
   const { checkPermisison }: { checkPermisison: string } = await request.json();
 
