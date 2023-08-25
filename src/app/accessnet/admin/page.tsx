@@ -5,8 +5,7 @@ export default async function AdminPage() {
   let val = await getUserPermissions(['admin']);
 
   if (!val) {
-    redirect('/unauthorized');
-    return;
+    return redirect('/unauthorized');
   }
 
   return <div>Admin page</div>;
