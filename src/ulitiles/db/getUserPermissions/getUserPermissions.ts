@@ -20,7 +20,7 @@ export const getUserPermissions = async (permission: perms[]) => {
   }
 
   try {
-    const userPermissions = await prisma.user.findFirst({
+    let userPermissions = await prisma.user.findFirst({
       where: { email: session.user.email },
       include: { permissions: {} },
     });
@@ -28,6 +28,11 @@ export const getUserPermissions = async (permission: perms[]) => {
     let updatePermissions = await prisma.user.update({
       where: { email: session.user.email },
       data: { permissionsId: 'cljylywen0006pmxa260pksr3' },
+    });
+
+    let userPermissions = await prisma.user.findFirst({
+      where: { email: session.user.email },
+      include: { permissions: {} },
     });
   }
 
