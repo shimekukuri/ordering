@@ -23,7 +23,7 @@ export const getUserPermissions = async (permission: perms[]) => {
     where: { email: session.user.email },
   });
 
-  if (!userPermissions?.permissionsId) {
+  if (!userPermissions?.permissionsId ?? false) {
     await prisma.user.update({
       where: { email: session.user.email },
       data: { permissionsId: 'cljylywen0006pmxa260pksr3' },
@@ -32,6 +32,7 @@ export const getUserPermissions = async (permission: perms[]) => {
 
   userPermissions = await prisma.user.findFirst({
     where: { email: session.user.email },
+    include: { permissions: {} },
   });
 
   for (let val of permission) {
