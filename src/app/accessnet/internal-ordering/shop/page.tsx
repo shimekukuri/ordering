@@ -9,10 +9,10 @@ const getItems = async () => {
 };
 
 export default async function Home() {
-  // const permissionCheck = await getUserPermissions(['acessnet']);
-  // if (!permissionCheck) {
-  //   return redirect('/unauthorized');
-  // }
+  const permissionCheck = await getUserPermissions(['acessnet']);
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
 
   const items = await getItems();
 
@@ -31,13 +31,13 @@ export default async function Home() {
         ))}
       </main>
       <div className="join join-horizontal fixed bottom-0 w-full justify-center p-4">
-        <Link href={'cartSearch/drinks'} className="btn join-item">
+        <Link href={'./shop/drinks'} className="btn join-item">
           Drinks
         </Link>
-        <Link href={'cartSearch/specialty'} className="btn join-item">
+        <Link href={'./shop/specialty'} className="btn join-item">
           Special
         </Link>
-        <Link href={'Search'} className="btn join-item bg-secondary">
+        <Link href={'/Search'} className="btn join-item bg-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -53,10 +53,10 @@ export default async function Home() {
             />
           </svg>
         </Link>
-        <Link href={'cartSearch/snacks'} className="btn join-item">
+        <Link href={'./shop/snacks'} className="btn join-item">
           Snacks
         </Link>
-        <Link href={'cartSearch/other'} className="btn join-item">
+        <Link href={'./shop/other'} className="btn join-item">
           Other
         </Link>
       </div>

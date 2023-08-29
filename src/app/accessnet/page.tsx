@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 export default async function page() {
-  // const permissionCheck = await getUserPermissions(['acessnet']);
+  const permissionCheck = await getUserPermissions(['acessnet']);
 
-  // if (!permissionCheck) {
-  //   return redirect('/unauthorized');
-  // }
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
 
   return (
     <div className="flex-1 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4">

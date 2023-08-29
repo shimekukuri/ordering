@@ -1,11 +1,12 @@
+import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default async function page() {
-  // const permissionCheck = await getUserPermissions(['acessnet']);
-
-  // if (!permissionCheck) {
-  //   return redirect('/unauthorized');
-  // }
+  const permissionCheck = await getUserPermissions(['acessnet']);
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
 
   return (
     <>
