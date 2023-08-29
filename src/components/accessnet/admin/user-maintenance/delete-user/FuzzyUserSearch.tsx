@@ -54,8 +54,8 @@ export default function FuzzyUserSearch() {
         <div>loading</div>
       ) : (
         <div>
-          {searchResults.map(() => (
-            <div>f</div>
+          {searchResults.map((_, i) => (
+            <div key={`deleteUserFuzzy${i}`}>f</div>
           ))}
         </div>
       )}
