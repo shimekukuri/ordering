@@ -14,6 +14,9 @@ type perms =
   | 'admin';
 
 export const getUserPermissions = async (permission: perms[]) => {
+  if (process.env.ENV === 'DEVELOPMENT') {
+    return true;
+  }
   const session = await getServerSession(OPTIONS);
   if (!session?.user?.email) {
     return false;
