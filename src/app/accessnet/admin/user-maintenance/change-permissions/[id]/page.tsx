@@ -7,7 +7,6 @@ export default async function page() {
     'changeUser',
     'deleteUser',
   ]);
-
   if (!permissionCheck) {
     return redirect('/unauthorized');
   }

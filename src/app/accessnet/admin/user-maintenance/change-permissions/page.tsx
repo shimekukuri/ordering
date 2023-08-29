@@ -1,15 +1,21 @@
-'use client';
-
-import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
-import { getServerSession } from 'next-auth';
-import { getSession } from 'next-auth/react';
+import FuzzyUserSearch from '@/components/accessnet/admin/user-maintenance/delete-user/FuzzyUserSearch';
+import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
+import { redirect } from 'next/navigation';
 
 export default async function page() {
-  const session = getServerSession(OPTIONS);
+  const permissionCheck = await getUserPermissions([
+    'admin',
+    'changeUser',
+    'deleteUser',
+  ]);
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
 
   return (
     <div className="w-screen flex justify-center items-center min-h-screen overflow-clip">
-      <form className="h-1/2 bg-red-50 ">d</form>
+      <form className="h-1/2 bg-red-50 "></form>
+      <FuzzyUserSearch />
     </div>
   );
 }
