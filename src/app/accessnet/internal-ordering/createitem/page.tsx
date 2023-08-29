@@ -1,6 +1,7 @@
 import { prisma } from '@/ulitiles/prisma/db';
 import InputUrlValidator from '@/components/pageComponents/inputs/createItemUrlValidator/inputImageValidate';
 import { redirect } from 'next/navigation';
+import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 
 async function getCategories() {
   const categories = await prisma.category.findMany();
@@ -11,6 +12,11 @@ async function getCategories() {
 }
 
 export default async function Page() {
+  const permissionCheck = await getUserPermissions(['acessnet', 'createItem']);
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
+
   const categories = await getCategories();
 
   const createItem = async (data: FormData) => {
