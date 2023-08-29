@@ -16,7 +16,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     'deleteUser',
   ]);
   if (!permCheck) {
-    NextResponse.json({ message: 'Unauthorized' });
+    NextResponse.json({ message: 'NAHAHAHAHA' });
   }
 
   const body = await request.json();
