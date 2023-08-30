@@ -18,6 +18,14 @@ export const getUserPermissions = async (permission: perms[]) => {
     return true;
   }
   const session = await getServerSession(OPTIONS);
+  if (!session) {
+    return false;
+  }
+
+  if (!session?.user) {
+    return false;
+  }
+
   if (!session?.user?.email) {
     return false;
   }
