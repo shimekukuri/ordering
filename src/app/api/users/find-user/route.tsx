@@ -2,12 +2,6 @@ import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPerm
 import { prisma } from '@/ulitiles/prisma/db';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
-  const items = await prisma.item.findMany();
-
-  return NextResponse.json(items);
-}
-
 export async function POST(request: NextRequest, response: NextResponse) {
   let permCheck = await getUserPermissions([
     'admin',
@@ -16,8 +10,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     'deleteUser',
   ]);
   if (!permCheck) {
-    NextResponse.json({ message: 'NAHAHAHAHA_NOPE' });
-    return;
+    return NextResponse.json({ message: 'NAHAHAHAHA_NOPE' });
   } else {
     const body = await request.json();
     const { user } = body;
