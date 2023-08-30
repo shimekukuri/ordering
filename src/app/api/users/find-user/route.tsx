@@ -16,7 +16,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     'deleteUser',
   ]);
   if (!permCheck) {
-    NextResponse.json({ message: 'NAHAHAHAHA' });
+    NextResponse.json({ message: 'NAHAHAHAHA_NOPE' });
   }
 
   const body = await request.json();
