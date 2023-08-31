@@ -1,7 +1,6 @@
 import RouterBackButton from '@/components/utility/routerBackButton/RouterBackButton';
 
-export default function Page({ path }: { path: string }) {
-  console.log(path);
+export default function Page() {
   return (
     <div className="flex-1 flex items-center justify-center flex-col">
       <svg
