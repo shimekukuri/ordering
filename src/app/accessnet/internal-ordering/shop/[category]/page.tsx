@@ -26,7 +26,7 @@ export default async function page({
   });
 
   return (
-    <main className="flex flex-wrap justify-center items-center p-4 gap-4">
+    <main className="flex flex-wrap justify-center items-center p-4 gap-4 w-screen">
       {items.map(({ name, description, image, id, categoryId }) => (
         <ProductCard
           key={id}

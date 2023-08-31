@@ -7,6 +7,8 @@ import { getServerSession, Session } from 'next-auth';
 import { OPTIONS } from './api/auth/[...nextauth]/route';
 import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
 import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -149,7 +151,7 @@ export default async function RootLayout({
             </div>
             {/* Page content here */}
             <div className="min-h-screen flex flex-col">
-              {children}
+              <Suspense fallback={<Loading />}>{children}</Suspense>
               {modal}
             </div>
           </div>
