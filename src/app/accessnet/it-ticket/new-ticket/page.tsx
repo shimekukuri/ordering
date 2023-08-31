@@ -1,8 +1,14 @@
+import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { prisma } from '@/ulitiles/prisma/db';
 import { locations, ticketType } from '@prisma/client';
 import { redirect } from 'next/navigation';
 
-export default function Page() {
+export default async function Page() {
+  const permissionCheck = await getUserPermissions(['acessnet']);
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
+
   const createTicket = async (data: FormData) => {
     'use server';
     const subject = data.get('subject');

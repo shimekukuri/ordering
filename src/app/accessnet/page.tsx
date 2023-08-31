@@ -17,10 +17,28 @@ export default async function page() {
       >
         Order For Your Store
       </Link>
+      <Link
+        href={'./accessnet/admin'}
+        className="aspect-square w-full bg-red-500 rounded-2xl shadow-2xl text-3xl glass text-center flex justify-center items-center"
+      >
+        Administration
+      </Link>
+      <Link
+        href={'./accessnet/it-ticket/new-ticket'}
+        className="aspect-square w-full bg-red-500 rounded-2xl shadow-2xl text-3xl glass text-center flex justify-center items-center"
+      >
+        New IT Ticket
+      </Link>
+      <Link
+        href={'./accessnet/maintenance-ticket/new-ticket'}
+        className="aspect-square w-full bg-red-500 rounded-2xl shadow-2xl text-3xl glass text-center flex justify-center items-center"
+      >
+        New Maintenance Ticket
+      </Link>
       <div>test</div>
       <div>test</div>
       <div>test</div>
-      <div>test</div>
+      <div></div>
     </div>
   );
 }
