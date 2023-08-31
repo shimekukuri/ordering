@@ -110,6 +110,7 @@ model Permissions {
   changeOrder   Boolean @default(false)
   acessnet      Boolean @default(false)
   admin         Boolean @default(false)
+  dme           Boolean @default(false)
   User          User[]
 }
 
