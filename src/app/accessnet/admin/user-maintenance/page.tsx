@@ -15,7 +15,7 @@ export default async function page() {
 
   return (
     <>
-      <h1 className="text-3xl text-center p-4">Internal Ordering</h1>
+      <h1 className="text-3xl text-center p-4">User Maintenance</h1>
       <div className="w-full flex items-center justify-center">
         <div className="divider w-3/4"></div>
       </div>
