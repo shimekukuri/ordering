@@ -2,7 +2,8 @@ import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPerm
 import { prisma } from '@/ulitiles/prisma/db';
 import { redirect } from 'next/navigation';
 
-export default async function page({ id }: { id: string }) {
+export default async function page(props: any) {
+  const { id } = props;
   const permissionCheck = await getUserPermissions([
     'admin',
     'changeUser',
