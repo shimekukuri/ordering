@@ -67,6 +67,7 @@ export default async function page({ params }: { params: { id: string } }) {
             if (i === 0) {
               return (
                 <input
+                  key={Object.keys(x).toString()}
                   className="hidden"
                   name="id"
                   readOnly
