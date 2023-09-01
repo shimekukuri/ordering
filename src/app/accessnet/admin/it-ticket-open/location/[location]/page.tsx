@@ -1,4 +1,4 @@
-import CaseCard from '@/components/accessnet/admin/it-ticket-open/CaseCard.tsx/CaseCard';
+import CaseCard from '@/components/accessnet/admin/it-ticket-open/CaseCard/CaseCard';
 import { prisma } from '@/ulitiles/prisma/db';
 import { locations } from '@prisma/client';
 
