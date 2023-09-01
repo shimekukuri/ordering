@@ -45,7 +45,7 @@ export default async function Page() {
         className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
         action={createTicket}
       >
-        <h1 className="text-3xl text-center">Submit New Maintenance Ticket</h1>
+        <h1 className="text-3xl text-center">Submit New IT Ticket</h1>
         <div className="divider"></div>
         <input
           required
