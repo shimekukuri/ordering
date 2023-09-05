@@ -63,6 +63,7 @@ const changePermissions = async (data: FormData) => {
       where: { id: usr?.id },
     });
     console.log('try ended', updateUser);
+    return redirect('./success');
   } catch {
     console.log('caught');
     //@ts-ignore
@@ -72,7 +73,10 @@ const changePermissions = async (data: FormData) => {
       data: { permissionsId: createPerm.id },
       where: { id: usr?.id },
     });
+    console.log(createPerm);
+    console.log(updateUser);
     console.log('caught finished');
+    return redirect('./success');
   }
 
   //needed function params: userID, form submittion including the permissions
