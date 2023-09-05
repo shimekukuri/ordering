@@ -13,7 +13,7 @@ export default async function page() {
   }
 
   return (
-    <div className="w-screen flex justify-center items-center min-h-screen overflow-clip">
+    <div className="w-screen flex justify-center items-center min-h-screen max-w-[100vw]">
       <form className="h-1/2 bg-red-50 "></form>
       <FuzzyUserSearch />
     </div>

@@ -47,7 +47,7 @@ export default function FuzzyUserSearch() {
   }, [searchVal]);
 
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className="flex justify-center items-center flex-col gap-4">
       <input
         type="email"
         value={searchVal}
@@ -61,12 +61,12 @@ export default function FuzzyUserSearch() {
       ) : (
         <Link
           href={`./change-permissions/${searchResults.id}`}
-          className="hover:bg-blue-500"
+          className="hover:bg-blue-500 p-2 rounded-2xl"
         >
-          <div className="">
+          <div className="flex flex-col items-center justify-center p-4 rounded-2xl shadow-2xl glass bg-secondary">
             <div>{`${searchResults.email}`}</div>
-            <div>{searchResults.id}</div>
-            <div>{searchResults.image}</div>
+            {/* @ts-expect-error */}
+            <img src={searchResults.image} />
             <div>{searchResults.name}</div>
           </div>
         </Link>
