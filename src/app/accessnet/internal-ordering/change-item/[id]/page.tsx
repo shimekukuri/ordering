@@ -13,6 +13,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const categoryId = data.get('input-category-id') as string;
 
     if (!id || !name || !description || !department || !categoryId) {
+      console.log('missing field');
       return;
     }
 
