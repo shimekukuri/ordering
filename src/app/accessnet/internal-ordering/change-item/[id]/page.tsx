@@ -2,33 +2,33 @@ import { prisma } from '@/ulitiles/prisma/db';
 import { department } from '@prisma/client';
 import { redirect } from 'next/navigation';
 
+const submitForm = async (data: FormData) => {
+  'use server';
+  const id = data.get('id') as string;
+  const name = data.get('input-name') as string;
+  const description = data.get('input-description') as string;
+  const department = data.get('input-department') as department;
+  const categoryId = data.get('input-category-id') as string;
+
+  if (!id || !name || !description || !department || !categoryId) {
+    console.log('missing field');
+    return;
+  }
+
+  try {
+    await prisma.item.update({
+      where: { id: id },
+      data: { name: name, department: department, categoryId: categoryId },
+    });
+
+    redirect('./success');
+  } catch {
+    redirect('./failure');
+  }
+};
+
 export default async function Page({ params }: { params: { id: string } }) {
   let item = await prisma.item.findFirst({ where: { id: params.id } });
-
-  const submitForm = async (data: FormData) => {
-    'use server';
-    const id = data.get('id') as string;
-    const name = data.get('input-name') as string;
-    const description = data.get('input-description') as string;
-    const department = data.get('input-department') as department;
-    const categoryId = data.get('input-category-id') as string;
-
-    if (!id || !name || !description || !department || !categoryId) {
-      console.log('missing field');
-      return;
-    }
-
-    try {
-      await prisma.item.update({
-        where: { id: id },
-        data: { name: name, department: department, categoryId: categoryId },
-      });
-
-      redirect('./success');
-    } catch {
-      redirect('./failure');
-    }
-  };
 
   return (
     <div className="flex justify-center items-center flex-1 p-4 w-screen shadow-2xl">
