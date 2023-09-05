@@ -99,6 +99,8 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+//Permission
+
 model Permissions {
   id            String  @id @default(cuid())
   createItem    Boolean @default(false)
@@ -114,6 +116,8 @@ model Permissions {
   User          User[]
 }
 
+//Issue Ticket
+
 model Ticket {
   id       String     @id @default(cuid())
   status   status     @default(new)
@@ -123,6 +127,8 @@ model Ticket {
   text     String     @db.VarChar(500)
   type     ticketType @default(null)
 }
+
+//enums
 
 enum locations {
   access
@@ -156,5 +162,6 @@ enum department {
   standefer
   pikeville
   laser
+  internalorder
   undefined
 }

@@ -49,6 +49,7 @@ export default function FuzzyUserSearch() {
   return (
     <div className="flex justify-center items-center flex-col gap-4">
       <input
+        className="input input-primary"
         type="email"
         value={searchVal}
         onChange={(e) => setSearchVal(e.target.value)}

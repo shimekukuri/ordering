@@ -46,6 +46,7 @@ export default async function Page() {
           categoryId: cateogry as string,
           name: productName as string,
           image: url as string,
+          department: 'internalorder',
         },
       });
     } catch (err) {

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 const getItems = async () => {
-  return await prisma.item.findMany();
+  return await prisma.item.findMany({ where: { department: 'internalorder' } });
 };
 
 export default async function Home() {
@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <>
-      <main className="flex flex-wrap justify-center items-center p-4 gap-4">
+      <main className="flex flex-wrap justify-center items-center p-4 gap-4 w-screen">
         {items.map(({ name, description, image, id, categoryId }) => (
           <ProductCard
             key={id}
