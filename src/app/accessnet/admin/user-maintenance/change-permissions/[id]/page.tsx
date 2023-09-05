@@ -20,7 +20,7 @@ const changePermissions = async (data: FormData) => {
       }
       case '1': {
         //@ts-ignore
-        temp[m[0]] = m[1];
+        temp[m[0]] = 'true' === m[1];
         i++;
         break;
       }
