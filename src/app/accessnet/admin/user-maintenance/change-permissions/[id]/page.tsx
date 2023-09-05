@@ -58,6 +58,7 @@ const changePermissions = async (data: FormData) => {
     });
     console.log('Perm Exist', permExist);
     let updateUser = await prisma.user.update({
+      //@ts-expect-error
       data: { permissionsId: permExist.id },
       where: { id: usr?.id },
     });
