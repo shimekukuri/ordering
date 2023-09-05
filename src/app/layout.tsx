@@ -177,7 +177,33 @@ export default async function RootLayout({
         <footer className="footer p-10 bg-base-200 text-base-content">
           <div>
             <span className="footer-title">Services</span>
-            <a className="link link-hover">Branding</a>
+            <Link href={'./'} className="link link-hover">
+              Prescriptions
+            </Link>
+            <Link href={'./compounding'} className="link link-hover">
+              Compounding
+            </Link>
+            <Link
+              href={'./access-specialized-care'}
+              className="link link-hover"
+            >
+              Long Term Care
+            </Link>
+            <Link href={'./dme'} className="link link-hover">
+              Durable Medical Equipment
+            </Link>
+            <Link href={'./dme/personal-mobility'} className="link link-hover">
+              Personal Mobility
+            </Link>
+            <Link href={'./dme/cpap-oxygen'} className="link link-hover">
+              CPAP & Oxygen
+            </Link>
+            <Link href={'./dme/cpap-oxygen'} className="link link-hover">
+              Pink Petal Boutique
+            </Link>
+            <Link href={'./dme/cpap-oxygen'} className="link link-hover">
+              CPAP & Oxygen
+            </Link>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>

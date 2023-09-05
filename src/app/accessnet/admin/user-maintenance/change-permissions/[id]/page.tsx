@@ -7,19 +7,72 @@ const changePermissions = async (data: FormData) => {
   'use server';
   let temp: Permissions | {} = {};
   let i = 0;
+  console.log('1');
+
   //@ts-ignore
   for (let m of data.entries()) {
-    if (i === 0) {
-      i++;
-      continue;
-    }
     //@ts-ignore
-    temp[m[0]] = m[1];
-  }
-  //@ts-ignore
+    console.log(temp[m[0]], m[1]);
+    switch (`${i}`) {
+      case '0': {
+        i++;
+        break;
+      }
+      case '1': {
+        //@ts-ignore
+        temp[m[0]] = m[1];
+        i++;
+        break;
+      }
+      default: {
+        //@ts-ignore
+        temp[m[0]] = 'true' === m[1];
+      }
+    }
 
-  let usr = await prisma.user.findFirst({ where: { id: m[0] } });
-  // let permExist?
+    // if (i === 0) {
+    //   i++;
+    //   //@ts-ignore
+    // }
+
+    // if (i === 1) {
+    //   //@ts-ignore
+    //   temp[m[0]] = m[1];
+    // } else {
+    //   //@ts-ignore
+    //   temp[m[0]] = !!m[1];
+    // }
+  }
+  console.log('temp:', temp);
+  //@ts-ignore
+  let usr = await prisma.user.findFirst({ where: { id: temp[0] } });
+  console.log('before try');
+
+  try {
+    console.log('try fired');
+    //@ts-ignore
+    let { id, ...temp2 } = temp;
+    let permExist = await prisma.permissions.findFirst({
+      //@ts-ignore
+      where: temp,
+    });
+    console.log('Perm Exist', permExist);
+    let updateUser = await prisma.user.update({
+      data: { permissionsId: permExist.id },
+      where: { id: usr?.id },
+    });
+    console.log('try ended', updateUser);
+  } catch {
+    console.log('caught');
+    //@ts-ignore
+    let { id, ...temp2 } = temp;
+    let createPerm = await prisma.permissions.create({ data: temp2 });
+    let updateUser = await prisma.user.update({
+      data: { permissionsId: createPerm.id },
+      where: { id: usr?.id },
+    });
+    console.log('caught finished');
+  }
 
   //needed function params: userID, form submittion including the permissions
 
@@ -63,7 +116,6 @@ export default async function page({ params }: { params: { id: string } }) {
       <div className="flex-1 flex flex-col justify-center">
         <div className="bg-slate-200 rounded-2xl shadow-2xl p-4">
           {arr.map((x, i) => {
-            console.log(x);
             if (i === 0) {
               return (
                 <input
