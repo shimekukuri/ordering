@@ -156,8 +156,8 @@ export default async function RootLayout({
               {modal}
             </div>
           </div>
-          <div className="drawer-side">
-            <div className="w-full h-full bg-opacity-0">
+          <div className="drawer-side flex">
+            <div className="w-full h-full bg-opacity-0 flex flex-1">
               {/* Sidebar content here */}
               <NavMenu session={session} />
             </div>
