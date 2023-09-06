@@ -28,7 +28,17 @@ const submitForm = async (data: FormData) => {
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
-  let item = await prisma.item.findUnique({ where: { id: params.id } });
+  // let item = await prisma.item.findUnique({ where: { id: params.id } });
+
+  let item = {
+    name: 'meep',
+    image: 'yolo',
+    description: 'swag',
+    department: 'meep',
+    id: 'heh',
+    categoryId: 'kkkk',
+    tags: ['eee', 'fff'],
+  };
 
   return (
     <div className="flex justify-center items-center flex-1 p-4 w-screen shadow-2xl">
