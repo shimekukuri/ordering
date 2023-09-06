@@ -2,7 +2,7 @@ import { prisma } from '@/ulitiles/prisma/db';
 import { department } from '@prisma/client';
 import { redirect } from 'next/navigation';
 
-const submitForm = async (data: FormData) => {
+export const submitForm = async (data: FormData) => {
   'use server';
   const id = data.get('id') as string;
   const name = data.get('input-name') as string;
@@ -28,17 +28,7 @@ const submitForm = async (data: FormData) => {
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
-  // let item = await prisma.item.findUnique({ where: { id: params.id } });
-
-  let item = {
-    name: 'meep',
-    image: 'yolo',
-    description: 'swag',
-    department: 'meep',
-    id: 'heh',
-    categoryId: 'kkkk',
-    tags: ['eee', 'fff'],
-  };
+  let item = await prisma.item.findUnique({ where: { id: params.id } });
 
   return (
     <div className="flex justify-center items-center flex-1 p-4 w-screen shadow-2xl">
