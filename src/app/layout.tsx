@@ -9,6 +9,7 @@ import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/Logout
 import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
 import { Suspense } from 'react';
 import Loading from './loading';
+import NavMenu from '@/components/LayoutComponents/navMenue/NavMenu';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -156,22 +157,10 @@ export default async function RootLayout({
             </div>
           </div>
           <div className="drawer-side">
-            <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-80 h-full bg-base-200">
+            <div className="w-full h-full bg-opacity-0">
               {/* Sidebar content here */}
-              <li>
-                <Link href={'/shop'}>Shop</Link>
-              </li>
-              <li>
-                <Link href={'/accessnet/admin/it-ticket-open'}>It Tickets</Link>
-              </li>
-              <li>
-                <Link href={'/'}>Test</Link>
-              </li>
-              <li className="flex-1 flex-col-reverse justify-self-end p-4">
-                test
-              </li>
-            </ul>
+              <NavMenu session={session} />
+            </div>
           </div>
         </div>
         <footer className="footer p-10 bg-base-200 text-base-content">

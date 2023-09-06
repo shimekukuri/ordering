@@ -18,13 +18,18 @@ const submitForm = async (data: FormData) => {
   try {
     await prisma.item.update({
       where: { id: id },
-      data: { name: name, department: department, categoryId: categoryId },
+      data: {
+        name: name,
+        department: department,
+        categoryId: categoryId,
+        description: description,
+      },
     });
-
-    redirect('./success');
-  } catch {
-    redirect('./failure');
+  } catch (e) {
+    console.error(e);
+    return redirect('./failure');
   }
+  return redirect('./success');
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
