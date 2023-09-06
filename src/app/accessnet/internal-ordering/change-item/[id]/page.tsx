@@ -86,11 +86,8 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="flex flex-wrap gap-4">
             {item?.tags.map((x, i) => {
               return (
-                <span>
-                  <div
-                    key={x + i}
-                    className="badge badge-secondary p-2 flex justify-between"
-                  >
+                <span key={x + i}>
+                  <div className="badge badge-secondary p-2 flex justify-between">
                     {x}
                   </div>
                 </span>
