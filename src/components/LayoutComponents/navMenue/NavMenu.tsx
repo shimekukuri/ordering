@@ -35,10 +35,10 @@ export default async function NavMenu({
           title="Access Net"
           link="/accessnet"
         >
-          <NavMenuCardChild link="./accessnet" title="MEEP" />
-          <NavMenuCardChild link="./accessnet" title="YOLO" />
-          <NavMenuCardChild link="./accessnet" title="SWAG" />
-          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="MEEP" />
+          <NavMenuCardChild link="/accessnet" title="YOLO" />
+          <NavMenuCardChild link="/accessnet" title="SWAG" />
+          <NavMenuCardChild link="/accessnet" title="test" />
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
@@ -46,10 +46,10 @@ export default async function NavMenu({
           title="Access Net"
           link="/accessnet"
         >
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
@@ -57,10 +57,10 @@ export default async function NavMenu({
           title="Access Net"
           link="/accessnet"
         >
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
@@ -68,10 +68,10 @@ export default async function NavMenu({
           title="Access Net"
           link="/accessnet"
         >
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
-          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
         </NavMenuCard>
       </div>
     </Observer>

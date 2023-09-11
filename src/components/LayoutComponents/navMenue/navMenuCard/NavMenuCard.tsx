@@ -38,8 +38,11 @@ export function NavMenuCardChild({
 }) {
   return (
     <span className="rounded-full bg-blue-500 aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center">
-      <Link className="flex-1 flex justify-center items-center" href={link}>
-        {title}
+      <Link
+        className="flex-1 h-full w-full flex justify-center items-center"
+        href={link}
+      >
+        <div>{title}</div>
       </Link>
     </span>
   );
