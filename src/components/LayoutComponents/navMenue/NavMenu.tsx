@@ -4,6 +4,7 @@ import Observer from '@/components/utility/observer/Observer';
 import { Session } from 'next-auth';
 import Link from 'next/link';
 import { useRef } from 'react';
+import { NavMenuCard, NavMenuCardChild } from './navMenuCard/NavMenuCard';
 
 export default async function NavMenu({
   session,
@@ -12,14 +13,14 @@ export default async function NavMenu({
 }) {
   let ref = useRef<HTMLLabelElement | null>(null);
 
-  const closeDrawer = () => {
+  const handleCloseDrawer = () => {
     if (ref.current) {
       ref.current.click();
     }
   };
 
   return (
-    <Observer>
+    <Observer repeat={true}>
       <div className="flex flex-col items-center min-h-screen overflow-y-scroll no-scrollbar flex-1">
         <label
           ref={ref}
@@ -28,57 +29,50 @@ export default async function NavMenu({
         >
           Open drawer
         </label>
-        <Link
-          href={'/accessnet'}
-          className="w-full min-h-[25vh] bg-red-500 border-t-2 border-b-2 border-black opacity-0 group-[.inview]:animate-slidein-400 flex flex-wrap items-center md:flex-nowrap justify-around"
-          onClick={() => closeDrawer()}
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="group-[.inview]:animate-slidein-400"
+          title="Access Net"
+          link="/accessnet"
         >
-          <div className="flex-1 flex justify-center items-center">
-            Access Net
-          </div>
-          <div className="grid grid-cols-2 grid-rows-2 flex-1 justify-items-center items-center md:flex gap-4 h-full p-2">
-            <span className="rounded-full bg-blue-500 aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center ">
-              test
-            </span>
-            <span className="rounded-full bg-blue-500 aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center ">
-              test
-            </span>
-            <span className="rounded-full bg-blue-500 aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center ">
-              test
-            </span>
-            <span className="rounded-full bg-blue-500 aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center ">
-              test
-            </span>
-          </div>
-        </Link>
-        <Link
-          href={'/accessnet'}
-          className="w-full min-h-[25vh] bg-red-500 border-t-2 border-b-2 border-black opacity-0 group-[.inview]:animate-slidein-600 flex flex-wrap items-center md:flex-nowrap "
-          onClick={() => closeDrawer()}
+          <NavMenuCardChild link="./accessnet" title="MEEP" />
+          <NavMenuCardChild link="./accessnet" title="YOLO" />
+          <NavMenuCardChild link="./accessnet" title="SWAG" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+        </NavMenuCard>
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="group-[.inview]:animate-slidein-600"
+          title="Access Net"
+          link="/accessnet"
         >
-          <div>Access Net</div>
-        </Link>
-        <Link
-          href={'/accessnet'}
-          className="w-full min-h-[25vh] bg-red-500 border-t-2 border-b-2 border-black opacity-0 group-[.inview]:animate-slidein-800 flex flex-wrap items-center md:flex-nowrap"
-          onClick={() => closeDrawer()}
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+        </NavMenuCard>
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="group-[.inview]:animate-slidein-800"
+          title="Access Net"
+          link="/accessnet"
         >
-          <div>Access Net</div>
-        </Link>
-        <Link
-          href={'/accessnet'}
-          onClick={() => closeDrawer()}
-          className="w-full min-h-[25vh] bg-red-500 border-t-2 border-b-2 border-black opacity-0 group-[.inview]:animate-slidein-1000 flex flex-wrap items-center md:flex-nowrap"
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+        </NavMenuCard>
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="group-[.inview]:animate-slidein-1000"
+          title="Access Net"
+          link="/accessnet"
         >
-          <div>Access Net</div>
-        </Link>
-        <Link
-          href={'/accessnet'}
-          className="w-full min-h-[25vh] bg-red-500 border-t-2 border-b-2 border-black"
-          onClick={() => closeDrawer()}
-        >
-          <div>Access Net</div>
-        </Link>
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+          <NavMenuCardChild link="./accessnet" title="test" />
+        </NavMenuCard>
       </div>
     </Observer>
   );

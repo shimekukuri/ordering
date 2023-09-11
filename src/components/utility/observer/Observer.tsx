@@ -5,10 +5,12 @@ export default function Observer({
   children,
   className,
   key,
+  repeat = false,
 }: {
   children: ReactNode;
   className?: string;
   key?: string;
+  repeat?: boolean;
 }) {
   const [inView, setInView] = useState<boolean>(false);
   const observed = useRef(null);
@@ -43,7 +45,7 @@ export default function Observer({
     <div
       key={key}
       className={`flex-1 parent-flex flex ${className ? className : ''} ${
-        inView || once ? 'group inview' : ''
+        inView || (once && !repeat) ? 'group inview' : ''
       }`}
       ref={observed}
     >
