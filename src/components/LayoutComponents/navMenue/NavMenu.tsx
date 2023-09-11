@@ -22,13 +22,15 @@ export default async function NavMenu({
   return (
     <Observer repeat={true}>
       <div className="flex flex-col items-center min-h-screen overflow-y-scroll no-scrollbar flex-1">
-        <label
-          ref={ref}
-          htmlFor="my-drawer-3"
-          className="btn btn-primary drawer-button"
-        >
-          Open drawer
-        </label>
+        <div className="w-full bg-slate-200">
+          <label
+            ref={ref}
+            htmlFor="my-drawer-3"
+            className="btn btn-primary drawer-button justify-self-end self-end m-4"
+          >
+            Close
+          </label>
+        </div>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
           className="group-[.inview]:animate-slidein-400"
