@@ -1,8 +1,6 @@
 'use client';
-
 import Observer from '@/components/utility/observer/Observer';
 import { Session } from 'next-auth';
-import Link from 'next/link';
 import { useRef } from 'react';
 import { NavMenuCard, NavMenuCardChild } from './navMenuCard/NavMenuCard';
 
