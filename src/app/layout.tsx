@@ -152,8 +152,8 @@ export default async function RootLayout({
             </div>
             {/* Page content here */}
             <div className="min-h-screen flex flex-col">
-              <Suspense fallback={<Loading />}>{children}</Suspense>
               {modal}
+              <Suspense fallback={<Loading />}>{children}</Suspense>
             </div>
           </div>
           <div className="drawer-side flex">
