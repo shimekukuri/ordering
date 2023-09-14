@@ -4,12 +4,13 @@ export default async function Page({ params }: { params: { id: string } }) {
   const item = await prisma.item.findUnique({ where: { id: params.id } });
 
   return (
-    <div>
+    <div className="flex items-center justify-center flex-col max-w-[100vw]">
       <div>{item?.id}</div>
       <div>{item?.name}</div>
-      <div>{item?.image}</div>
+      <img src={item?.image} alt={item?.description} loading="lazy" />
       <div>{item?.description}</div>
       <div>{!item?.department ? item?.department : ''}</div>
+      <div>{item?.price}</div>
       <div>{item?.tags}</div>
     </div>
   );
