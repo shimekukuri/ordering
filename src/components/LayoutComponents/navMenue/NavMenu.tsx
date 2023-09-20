@@ -43,11 +43,11 @@ export default async function NavMenu({
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
           className="group-[.inview]:animate-slidein-600"
-          title="Access Net"
+          title="Access Durable Medical Equipment"
           link="/accessnet"
         >
-          <NavMenuCardChild link="/accessnet" title="test" />
-          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/dme" title="DME Home" />
+          <NavMenuCardChild link="/dme/shopping" title="Shopping" />
           <NavMenuCardChild link="/accessnet" title="test" />
           <NavMenuCardChild link="/accessnet" title="test" />
         </NavMenuCard>
