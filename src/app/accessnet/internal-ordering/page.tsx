@@ -33,7 +33,12 @@ export default async function page() {
         >
           Delete Item
         </Link>
-        <div>test</div>
+        <Link
+          href={'./internal-ordering/change-item'}
+          className="aspect-square w-full bg-red-500 rounded-2xl shadow-2xl text-3xl glass text-center flex justify-center items-center"
+        >
+          Change Item
+        </Link>
         <div>test</div>
       </div>
     </>

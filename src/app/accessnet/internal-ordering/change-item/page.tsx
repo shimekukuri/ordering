@@ -4,7 +4,7 @@ import { prisma } from '@/ulitiles/prisma/db';
 import { redirect } from 'next/navigation';
 
 const getItems = async () => {
-  return await prisma.item.findMany();
+  return await prisma.item.findMany({ where: { department: 'internalorder' } });
 };
 
 export default async function Home() {

@@ -9,26 +9,39 @@ const submitForm = async (data: FormData) => {
   const description = data.get('input-description') as string;
   const department = data.get('input-department') as department;
   const categoryId = data.get('input-category-id') as string;
+  const del = data.get('del') as string;
+
+  console.log(del);
 
   if (!id || !name || !description || !department || !categoryId) {
     console.log('missing field');
     return;
   }
 
-  try {
-    await prisma.item.update({
-      where: { id: id },
-      data: {
-        name: name,
-        department: department,
-        categoryId: categoryId,
-        description: description,
-      },
-    });
-  } catch (e) {
-    console.error(e);
-    return redirect('./failure');
+  if (del) {
+    try {
+      await prisma.item.delete({ where: { id: id } });
+    } catch (e) {
+      console.error(e);
+      return redirect('./failure');
+    }
+  } else {
+    try {
+      await prisma.item.update({
+        where: { id: id },
+        data: {
+          name: name,
+          department: department,
+          categoryId: categoryId,
+          description: description,
+        },
+      });
+    } catch (e) {
+      console.error(e);
+      return redirect('./failure');
+    }
   }
+
   return redirect('./success');
 };
 
@@ -87,6 +100,15 @@ export default async function Page({ params }: { params: { id: string } }) {
             className="input input-primary w-full text-center"
             defaultValue={item?.categoryId ?? ''}
           />
+          <label htmlFor="del" className="text-left w-full">
+            Delete?
+          </label>
+          <input
+            name="del"
+            id="del"
+            type="checkbox"
+            className="checkbox-primary"
+          />
           <h2 className="text-left text-2xl w-full">Tags:</h2>
           <div className="flex flex-wrap gap-4">
             {item?.tags.map((x, i) => {
@@ -99,6 +121,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               );
             })}
           </div>
+
           <div className="card-actions">
             <button type="submit" className="btn btn-primary">
               Submit Changes
