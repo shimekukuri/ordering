@@ -1,6 +1,7 @@
 import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
+import Link from 'next/link';
 
 interface ProductCardInterface {
   name: string;
@@ -70,7 +71,9 @@ export default async function ProductCard({
     <div className="card w-96 bg-base-100 shadow-xl p-4 relative">
       {/* <div className=" absolute right-0 left-0 bottom-0 top-0 bg-black bg-opacity-50"></div> */}
       <figure>
-        <img src={image} alt="Shoes" className="h-40" />
+        <Link href={`/item/${id}`}>
+          <img src={image} alt="Shoes" className="h-40" />
+        </Link>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>

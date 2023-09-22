@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           src={item?.image}
           alt={item?.description}
           loading="lazy"
-          className="rounded-2xl shadow-2xl w-[95%] md:w-auto md:max-w-3xl md:max-h-96"
+          className="rounded-2xl shadow-2xl w-[90%] md:w-auto md:max-w-3xl md:max-h-96"
         />
         <div className="flex flex-col gap-4">
           <div className="card-title justify-center">{item?.name}</div>
@@ -95,6 +95,16 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
       <div className="p-4 flex justify-center items-center">
         <div className="bg-red-200 rounded-2xl shadow-2xl flex-1 p-4 flex justify-between items-center max-w-4xl">
+          <div>{item?.description}</div>
+        </div>
+      </div>
+      <div className="p-4 flex justify-center items-center">
+        <div className="bg-blue-200 rounded-2xl shadow-2xl flex-1 p-4 flex justify-between items-center max-w-4xl">
+          <div>{item?.description}</div>
+        </div>
+      </div>
+      <div className="p-4 flex justify-center items-center">
+        <div className="bg-yellow-200 rounded-2xl shadow-2xl flex-1 p-4 flex justify-between items-center max-w-4xl">
           <div>{item?.description}</div>
         </div>
       </div>
