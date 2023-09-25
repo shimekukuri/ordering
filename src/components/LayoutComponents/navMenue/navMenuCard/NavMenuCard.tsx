@@ -16,7 +16,7 @@ export function NavMenuCard({
 }) {
   return (
     <div
-      className={`w-full min-h-[25vh] bg-red-500 border-t-2 border-b-2 border-black opacity-0 flex flex-wrap items-center md:flex-nowrap justify-around ${className}`}
+      className={`w-full min-h-[25vh] backdrop-blur-xl bg-yellow-100 bg-opacity-40 opacity-0 flex flex-wrap items-center md:flex-nowrap justify-around ${className}`}
       onClick={() => closeDrawer()}
     >
       <Link href={link} className="flex-1 flex justify-center items-center">

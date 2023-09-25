@@ -20,7 +20,7 @@ export default async function NavMenu({
   return (
     <Observer repeat={true}>
       <div className="flex flex-col items-center min-h-screen overflow-y-scroll no-scrollbar flex-1">
-        <div className="w-full bg-slate-200">
+        <div className="w-full bg-cyan-200 backdrop-blur-xl bg-opacity-10">
           <label
             ref={ref}
             htmlFor="my-drawer-3"
