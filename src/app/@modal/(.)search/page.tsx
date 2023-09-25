@@ -60,9 +60,10 @@ export default function Page() {
           className="input input-primary"
           value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
+          autoFocus
         />
         {loading ? (
-          <div>Loading</div>
+          <div className="loading-spinner loading self-center w-full"></div>
         ) : searchResults === undefined || searchResults.length === 0 ? (
           <div>No Result</div>
         ) : (
