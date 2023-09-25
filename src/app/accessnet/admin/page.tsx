@@ -1,3 +1,5 @@
+import Menu from '@/components/LayoutComponents/menu/Menu';
+import MenuCard from '@/components/LayoutComponents/menu/menuCard/MenuCard';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { redirect } from 'next/navigation';
 
@@ -8,5 +10,18 @@ export default async function AdminPage() {
     return redirect('/unauthorized');
   }
 
-  return <div>Admin page</div>;
+  return (
+    <Menu title="Adminstration">
+      <MenuCard title="User Maintenance" link="admin/user-maintenance" />
+      <MenuCard title="IT Tickets" link="admin/it-ticket-open" />
+      <MenuCard
+        title="Maintenance Tickets"
+        link="admin/maintenance-ticket-open"
+      />
+      <MenuCard
+        title="Universal Item Management"
+        link="admin/item-management/change-item"
+      />
+    </Menu>
+  );
 }

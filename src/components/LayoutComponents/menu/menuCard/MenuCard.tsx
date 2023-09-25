@@ -10,7 +10,7 @@ export default function MenuCard({
   link: string;
   title: string;
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <Link
