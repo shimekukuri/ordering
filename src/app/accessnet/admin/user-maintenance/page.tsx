@@ -38,8 +38,6 @@ export default async function page() {
         >
           Delete Item
         </Link>
-        <div>test</div>
-        <div>test</div>
       </div>
     </>
   );
