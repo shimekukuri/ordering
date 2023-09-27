@@ -1,6 +1,3 @@
-import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
-import { redirect } from 'next/navigation';
-import MenuCard from './menuCard/MenuCard';
 import { ReactNode } from 'react';
 
 export default async function Menu({
@@ -10,11 +7,6 @@ export default async function Menu({
   title: string;
   children: ReactNode;
 }) {
-  const permissionCheck = await getUserPermissions(['acessnet']);
-  if (!permissionCheck) {
-    return redirect('/unauthorized');
-  }
-
   return (
     <>
       <h1 className="text-3xl text-center p-4">{title}</h1>

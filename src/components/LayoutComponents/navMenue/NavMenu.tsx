@@ -55,14 +55,23 @@ export default function NavMenu({ session }: { session: Session | null }) {
           title="Access Net"
           link="/accessnet"
         >
-          <NavMenuCardChild link="/accessnet" title="MEEP" />
-          <NavMenuCardChild link="/accessnet" title="YOLO" />
-          <NavMenuCardChild link="/accessnet" title="SWAG" />
-          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild
+            link="/accessnet/internal-ordering"
+            title="Internal Ordering"
+          />
+          <NavMenuCardChild link="/accessnet/admin" title="Administration" />
+          <NavMenuCardChild
+            link="/accessnet/it-ticket/new-ticket"
+            title="IT Ticket"
+          />
+          <NavMenuCardChild
+            link="/accessnet/maintenance-ticket/new-ticket"
+            title="Maintenance Ticket"
+          />
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="group-[.inview]:animate-slidein-600 bg-gradient-to-r from-white text-center"
+          className="group-[.inview]:animate-slidein-600 bg-gradient-to-r from-white"
           title="Access Durable Medical Equipment"
           link="/accessnet"
         >
@@ -74,7 +83,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
           className="group-[.inview]:animate-slidein-800 bg-gradient-to-r from-white"
-          title="Access Net"
+          title="Access Laser Center"
           link="/accessnet"
         >
           <NavMenuCardChild link="/accessnet" title="test" />
@@ -85,7 +94,40 @@ export default function NavMenu({ session }: { session: Session | null }) {
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
           className="group-[.inview]:animate-slidein-1000 bg-gradient-to-r from-white"
-          title="Access Net"
+          title="Whitwell Pharmacy"
+          link="/accessnet"
+        >
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+        </NavMenuCard>
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="opacity-100 bg-gradient-to-r from-white"
+          title="Cates Street Pharmacy"
+          link="/accessnet"
+        >
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+        </NavMenuCard>
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="opacity-100 bg-gradient-to-r from-white"
+          title="Jasper Drugs"
+          link="/accessnet"
+        >
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+        </NavMenuCard>
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="opacity-100 bg-gradient-to-r from-white"
+          title="Standefer Drugs"
           link="/accessnet"
         >
           <NavMenuCardChild link="/accessnet" title="test" />
