@@ -40,16 +40,19 @@ export function NavMenuCard({
 export function NavMenuCardChild({
   title = '',
   link,
+  children,
 }: {
   title: string;
   link: string;
+  children?: ReactNode;
 }) {
   return (
-    <span className="rounded-full bg-black bg-opacity-60 backdrop-blur-3xl aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center">
+    <span className="rounded-full bg-zinc-300 bg-opacity-60 backdrop-blur-3xl aspect-square h-full md:h-auto md:w-[25%] flex justify-center items-center shadow-2xl">
       <Link
-        className="flex-1 h-full w-full flex justify-center items-center text-xs sm:text-base md:text-lg lg:text-2xl"
+        className="flex-1 h-full w-full flex justify-center items-center flex-col text-xs sm:text-base md:text-lg lg:text-2xl"
         href={link}
       >
+        {children}
         <div className="text-center">{title}</div>
       </Link>
     </span>
