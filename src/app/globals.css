@@ -47,3 +47,88 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+
+/*** Specialized Care ***/
+.hero-bg {
+  background-image: url('/specialized-care-images/hero-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+
+.overlay {
+  position: relative;
+}
+
+.hero-section .overlay::after {
+  background-color: rgba(65,105,79,.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: '';
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 1500px;
+}
+
+@media (min-width: 1000px) {
+  .hero-section .overlay::after {
+    position: absolute;
+    right: 600px;
+    left: auto;
+    width: 100vw;
+    height: 1500px;
+    position: absolute;
+    content: '';
+    top: 50%;
+    mix-blend-mode: multiply;
+    transform: translate(0,-30%) skew(-20deg);
+  }
+}
+
+.call-to-action {
+  background-image: url('/specialized-care-images/cta-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.call-to-action .overlay::after {
+  background-color: rgba(65,105,79,.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: '';
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+@media (min-width: 1000px) {
+  .call-to-action .overlay::after {
+    content: '';
+    position: absolute;
+    right: 400px;
+    left: auto;
+    bottom: 0;
+    width: 100vw;
+    height: 100%;
+    top: 30%;
+    mix-blend-mode: multiply;
+    transform: translate(0,-30%) skew(-20deg);
+    z-index: -1;
+  }
+}
+
+.cta-overlay {
+  background-color: rgba(65,105,79,.8);
+}
+
+.textShadow {
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+}
+
