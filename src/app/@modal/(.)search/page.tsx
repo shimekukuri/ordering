@@ -97,22 +97,3 @@ export default function Page() {
     </Modal>
   );
 }
-
-{
-  /* <div className="flex-1 max-h-full overflow-y-scroll rounded-2xl shadow-2xl bg-opacity-50 bg-white p-2">
-  <div className="p-2 flex flex-col gap-2">
-    {[...Array(40)].map((_, i) => {
-      return (
-        <div
-          key={i}
-          className="w-full flex-col-reverse h-32 lg:flex-row lg:h-16 flex items-center justify-between border rounded-lg px-2 shadow-md"
-        >
-          <div>Description</div>
-          <div>Product</div>
-          <div className="flex-1 md:flex-[0]">image</div>
-        </div>
-      );
-    })}
-  </div>
-</div>; */
-}

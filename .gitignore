@@ -41,3 +41,5 @@ next-env.d.ts
 /src/app/middleware.ts
 /src/app/test
 /src/app/test/**
+
+/src/ulitiles/vimtest/**
