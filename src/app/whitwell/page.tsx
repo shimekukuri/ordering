@@ -1,7 +1,9 @@
 import Observer from '@/components/utility/observer/Observer';
 import Maps from '@/components/whitwell/maps/Maps';
-import { Oswald as Oswald } from 'next/font/google';
+import { Allison as Title } from 'next/font/google';
+import { Oswald } from 'next/font/google';
 
+const title = Title({ weight: '400', subsets: ['latin'] });
 const oswald = Oswald({ weight: '700', subsets: ['latin'] });
 
 export default function Page() {
@@ -10,7 +12,19 @@ export default function Page() {
       <div className="max-w-[100vw] p-4 flex">
         <Observer className="">
           <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-4">
-            <div className="h-[45vh] lg:col-span-2 bg-red-300 shadow-2xl rounded-2xl group-[.inview]:animate-fade-in-200 opacity-0 overflow-clip">
+            <div className="h-[45vh] lg:col-span-2 bg-red-300 shadow-2xl rounded-2xl group-[.inview]:animate-fade-in-200 opacity-0 overflow-clip relative">
+              <div className="absolute w-full h-full bg-black bg-opacity-20 flex flex-col justify-between p-4">
+                <div
+                  className={`text-9xl md:text-9xl ${title.className} text-white`}
+                >
+                  Whitwell
+                </div>
+                <div
+                  className={`text-9xl md:text-9xl ${title.className} text-end text-white`}
+                >
+                  Pharmacy
+                </div>
+              </div>
               <img
                 src="https://assets.ruralindexingproject.com/photos/public/rural-indexing-project-image-cuA8lgKk-1-500.jpg"
                 alt="f"
@@ -33,7 +47,9 @@ export default function Page() {
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   />
                 </svg>
-                <div className={`w-full text-center ${oswald.className} pb-2`}>
+                <div
+                  className={`w-full text-center ${oswald.className} font-bold pb-2`}
+                >
                   Shopping
                 </div>
               </div>
