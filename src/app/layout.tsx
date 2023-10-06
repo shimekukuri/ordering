@@ -1,13 +1,13 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
-import { prisma } from '@/ulitiles/prisma/db';
-import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
-import { getServerSession, Session } from 'next-auth';
 import { OPTIONS } from './api/auth/[...nextauth]/route';
+import { prisma } from '@/ulitiles/prisma/db';
+import { getServerSession, Session } from 'next-auth';
+import { Suspense } from 'react';
+import Link from 'next/link';
+import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
 import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
 import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
-import { Suspense } from 'react';
 import Loading from './loading';
 import NavMenu from '@/components/LayoutComponents/navMenue/NavMenu';
 
