@@ -112,7 +112,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="group-[.inview]:animate-slidein-1200 bg-gradient-to-r from-white"
+          className="group-[.inview]:animate-slidein-1000 bg-gradient-to-r from-white"
           title="Access Specialized Care"
           link="/access-specialized-care"
         >
@@ -123,7 +123,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="group-[.inview]:animate-slidein-1000 bg-gradient-to-r from-white"
+          className="group-[.inview]:animate-slidein-1200 bg-gradient-to-r from-white"
           title="Whitwell Pharmacy"
           link="/whitwell"
         >
@@ -134,7 +134,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="opacity-100 bg-gradient-to-r from-white"
+          className="opacity-100 bg-gradient-to-r from-white group-[.inview]:animate-slidein-1400"
           title="Cates Street Pharmacy"
           link="/accessnet"
         >
@@ -145,7 +145,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="opacity-100 bg-gradient-to-r from-white"
+          className="opacity-100 bg-gradient-to-r from-white group-[.inview]:animate-slidein-1600"
           title="Jasper Drugs"
           link="/accessnet"
         >
@@ -156,7 +156,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="opacity-100 bg-gradient-to-r from-white"
+          className="opacity-100 bg-gradient-to-r from-white group-[.inview]:animate-slidein-1800"
           title="Standefer Drugs"
           link="/accessnet"
         >
