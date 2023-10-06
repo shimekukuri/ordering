@@ -74,6 +74,8 @@ export default async function RootLayout({
                 </Link>
               </div>
               <div className="flex-none">
+                {!session ? <LoginButton /> : ''}
+
                 {session ? (
                   <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -102,7 +104,7 @@ export default async function RootLayout({
                     </div>
                   </div>
                 ) : (
-                  <LoginButton />
+                  ''
                 )}
                 <div className="dropdown dropdown-end">
                   {session ? (
