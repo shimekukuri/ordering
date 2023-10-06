@@ -49,29 +49,44 @@ export default function NavMenu({ session }: { session: Session | null }) {
             Close
           </label>
         </div>
-        <NavMenuCard
-          closeDrawer={handleCloseDrawer}
-          className="group-[.inview]:animate-slidein-400 bg-gradient-to-r from-white"
-          title="Access Net"
-          link="/accessnet"
-        >
-          <NavMenuCardChild
-            link="/accessnet/internal-ordering"
-            title="Internal Ordering"
-          />
-          <NavMenuCardChild link="/accessnet/admin" title="Administration" />
-          <NavMenuCardChild
-            link="/accessnet/it-ticket/new-ticket"
-            title="IT Ticket"
-          />
-          <NavMenuCardChild
-            link="/accessnet/maintenance-ticket/new-ticket"
-            title="Maintenance Ticket"
-          />
-        </NavMenuCard>
+        {session ? (
+          <NavMenuCard
+            closeDrawer={handleCloseDrawer}
+            className="group-[.inview]:animate-slidein-400 bg-gradient-to-r from-white"
+            title="Access Net"
+            link="/accessnet"
+          >
+            <NavMenuCardChild
+              link="/accessnet/internal-ordering"
+              title="Internal Ordering"
+            />
+            <NavMenuCardChild link="/accessnet/admin" title="Administration" />
+            <NavMenuCardChild
+              link="/accessnet/it-ticket/new-ticket"
+              title="IT Ticket"
+            />
+            <NavMenuCardChild
+              link="/accessnet/maintenance-ticket/new-ticket"
+              title="Maintenance Ticket"
+            />
+          </NavMenuCard>
+        ) : (
+          ''
+        )}
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
           className="group-[.inview]:animate-slidein-600 bg-gradient-to-r from-white"
+          title="Access Laser Center"
+          link="/accessnet"
+        >
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+          <NavMenuCardChild link="/accessnet" title="test" />
+        </NavMenuCard>{' '}
+        <NavMenuCard
+          closeDrawer={handleCloseDrawer}
+          className="group-[.inview]:animate-slidein-800 bg-gradient-to-r from-white"
           title="Access Durable Medical Equipment"
           link="/accessnet"
         >
@@ -97,9 +112,9 @@ export default function NavMenu({ session }: { session: Session | null }) {
         </NavMenuCard>
         <NavMenuCard
           closeDrawer={handleCloseDrawer}
-          className="group-[.inview]:animate-slidein-800 bg-gradient-to-r from-white"
-          title="Access Laser Center"
-          link="/accessnet"
+          className="group-[.inview]:animate-slidein-1200 bg-gradient-to-r from-white"
+          title="Access Specialized Care"
+          link="/access-specialized-care"
         >
           <NavMenuCardChild link="/accessnet" title="test" />
           <NavMenuCardChild link="/accessnet" title="test" />
