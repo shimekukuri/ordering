@@ -2,9 +2,14 @@ import Observer from '@/components/utility/observer/Observer';
 import Maps from '@/components/whitwell/maps/Maps';
 import { Allison as Title } from 'next/font/google';
 import { Oswald } from 'next/font/google';
+import { Noto_Serif_Khitan_Small_Script } from 'next/font/google';
 
 const title = Title({ weight: '400', subsets: ['latin'] });
 const oswald = Oswald({ weight: '700', subsets: ['latin'] });
+const noto = Noto_Serif_Khitan_Small_Script({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export default function Page() {
   return (
@@ -28,7 +33,7 @@ export default function Page() {
               <img
                 src="https://assets.ruralindexingproject.com/photos/public/rural-indexing-project-image-cuA8lgKk-1-500.jpg"
                 alt="f"
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full after:bg-fuchsia-300 after:absolute after:top-0 after:right-0 after:content-[''] after:mix-blend-multiply after:w-full after:h-[1500px] after:overflow-hidden"
               />
             </div>
             <div className="h-[45vh] grid grid-cols-2 grid-rows-2 gap-4">
@@ -55,7 +60,14 @@ export default function Page() {
               </div>
               <Maps />
 
-              <div className="bg-green-300 rounded-bl-2xl shadow-2xl group-[.inview]:animate-fade-in-800 opacity-0"></div>
+              <div
+                className={`bg-green-300 rounded-bl-2xl shadow-2xl group-[.inview]:animate-fade-in-800 opacity-0 ${noto.className} text-center text-7xl p-2 flex flex-col justify-between`}
+              >
+                <div>RX</div>
+                <div className={`${oswald.className} font-bold text-base`}>
+                  Refill Prescriptions
+                </div>
+              </div>
               <div className="bg-purple-300 rounded-br-2xl shadow-2xl group-[.inview]:animate-fade-in-1000 opacity-0"></div>
             </div>
           </div>

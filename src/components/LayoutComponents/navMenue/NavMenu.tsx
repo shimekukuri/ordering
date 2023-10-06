@@ -110,7 +110,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
           closeDrawer={handleCloseDrawer}
           className="group-[.inview]:animate-slidein-1000 bg-gradient-to-r from-white"
           title="Whitwell Pharmacy"
-          link="/accessnet"
+          link="/whitwell"
         >
           <NavMenuCardChild link="/accessnet" title="test" />
           <NavMenuCardChild link="/accessnet" title="test" />
