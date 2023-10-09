@@ -30,7 +30,7 @@ export default function NavMenu({ session }: { session: Session | null }) {
   }, [router]);
 
   return (
-    <Observer repeat={true}>
+    <Observer repeat={true} className="z-50">
       <div className="flex flex-col items-center min-h-screen overflow-y-scroll no-scrollbar flex-1">
         <div className="w-full bg-gradient-to-r from-white backdrop-blur-xl bg-opacity-10 flex justify-center">
           <div className="flex-1 flex items-center justify-center px-4">
