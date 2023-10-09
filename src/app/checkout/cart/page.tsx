@@ -13,7 +13,7 @@ export default async function Page() {
             include: {
               items: {
                 include: {
-                  item: {},
+                  item: { include: { OrderItem: {} } },
                 },
               },
             },
@@ -27,8 +27,16 @@ export default async function Page() {
   const order = cart?.accounts[0].Order[0].items;
   console.log(cart);
 
+  if (!order?.[0]) {
+    return (
+      <div className="p-4 flex-1 flex">
+        <div className="flex-1 text-7xl">Cart Empty</div>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="p-4">
       {order?.map((x, i) => {
         return (
           <div key={x.id}>
