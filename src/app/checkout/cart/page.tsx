@@ -29,7 +29,7 @@ export default async function Page() {
   if (!order?.[0]) {
     return (
       <div className="p-4 flex-1 flex items-center justify-center text-center flex-col">
-        <div className="card w-96 bg-neutral text-neutral-content">
+        <div className="card w-96 bg-neutral text-neutral-content opacity-0 animate-fade-in-800">
           <div className="card-body items-center text-center">
             <h2 className="card-title">Cart Empty</h2>
             <p>Would you like to to go shopping? </p>
