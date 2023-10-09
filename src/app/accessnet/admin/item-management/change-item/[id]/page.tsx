@@ -1,9 +1,7 @@
-import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { prisma } from '@/ulitiles/prisma/db';
 import { department } from '@prisma/client';
-import { getServerSession } from 'next-auth';
-import { RedirectType, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 const submitForm = async (data: FormData) => {
   'use server';
@@ -27,7 +25,7 @@ const submitForm = async (data: FormData) => {
       await prisma.item.delete({ where: { id: id } });
     } catch (e) {
       console.error(e);
-      return redirect('./failure');
+      return redirect('/failure');
     }
   } else {
     try {
@@ -47,7 +45,7 @@ const submitForm = async (data: FormData) => {
     }
   }
 
-  return redirect('./success');
+  return redirect('/success');
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
