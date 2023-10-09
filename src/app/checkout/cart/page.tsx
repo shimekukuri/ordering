@@ -25,7 +25,7 @@ export default async function Page() {
       },
     },
   });
-
+  console.log('Cart:\n', cart);
   const order = cart?.accounts[0].Order[0]?.items;
 
   if (!order?.[0]) {
@@ -83,10 +83,10 @@ const CartCard = ({
 
   return (
     <div className="flex" key={key}>
-      <div>{name}</div>
-      <div>{price}</div>
-      <div>{quantity}</div>
-      <div>{total()}</div>
+      <div>Name: {name}</div>
+      <div>Price: {price}</div>
+      <div>Quantity: {quantity}</div>
+      <div>Total: {total()}</div>
     </div>
   );
 };
