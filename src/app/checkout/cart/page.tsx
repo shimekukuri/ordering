@@ -8,7 +8,18 @@ export default async function Page() {
     where: { email: session?.user?.email },
     include: {
       accounts: {
-        include: { Order: { include: { items: { include: { item: {} } } } } },
+        include: {
+          Order: {
+            include: {
+              items: {
+                include: {
+                  item: {},
+                },
+              },
+            },
+            where: { submited: false },
+          },
+        },
       },
     },
   });
