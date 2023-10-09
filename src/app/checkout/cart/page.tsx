@@ -24,8 +24,7 @@ export default async function Page() {
     },
   });
 
-  const order = cart?.accounts[0].Order[0].items;
-  console.log(cart);
+  const order = cart?.accounts[0].Order[0]?.items;
 
   if (!order?.[0]) {
     return (
