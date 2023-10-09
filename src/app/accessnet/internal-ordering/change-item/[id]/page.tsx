@@ -12,7 +12,7 @@ const submitForm = async (data: FormData) => {
   const price = data.get('input-price') as string;
   const del = data.get('del') as string;
 
-  console.log(del);
+  console.log(price);
 
   if (!id || !name || !description || !department || !categoryId || !price) {
     console.log('missing field');
@@ -71,6 +71,16 @@ export default async function Page({ params }: { params: { id: string } }) {
             name="input-name"
             className="input input-primary w-full text-center"
             defaultValue={item?.name}
+          />
+
+          <label htmlFor="input-price" className="text-left w-full">
+            Price
+          </label>
+          <input
+            id="input-price"
+            name="input-price"
+            className="input input-primary w-full text-center"
+            defaultValue={item?.price}
           />
           <label htmlFor="input-description" className="text-left w-full">
             Description:

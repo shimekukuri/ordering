@@ -12,11 +12,12 @@ const submitForm = async (data: FormData) => {
   const description = data.get('input-description') as string;
   const department = data.get('input-department') as department;
   const categoryId = data.get('input-category-id') as string;
+  const price = data.get('input-price') as string;
   const del = data.get('del') as string;
 
   console.log(del);
 
-  if (!id || !name || !description || !department || !categoryId) {
+  if (!id || !name || !description || !department || !categoryId || !price) {
     console.log('missing field');
     return;
   }
@@ -37,15 +38,16 @@ const submitForm = async (data: FormData) => {
           department: department,
           categoryId: categoryId,
           description: description,
+          price: price,
         },
       });
     } catch (e) {
       console.error(e);
-      return redirect('./failure');
+      return redirect('/failure');
     }
   }
 
-  return redirect('./success');
+  return redirect('/success');
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
