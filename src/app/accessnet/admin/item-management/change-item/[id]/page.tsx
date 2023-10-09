@@ -1,5 +1,8 @@
+import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
+import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { prisma } from '@/ulitiles/prisma/db';
 import { department } from '@prisma/client';
+import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 
 const submitForm = async (data: FormData) => {
@@ -47,6 +50,17 @@ const submitForm = async (data: FormData) => {
 
 export default async function Page({ params }: { params: { id: string } }) {
   let item = await prisma.item.findFirst({ where: { id: params.id } });
+
+  const permissionCheck = await getUserPermissions([
+    'acessnet',
+    'createItem',
+    'deleteItem',
+    'admin',
+  ]);
+
+  if (!permissionCheck) {
+    return redirect('/unauthorized');
+  }
 
   return (
     <div className="flex justify-center items-center flex-1 p-4 w-screen shadow-2xl">
