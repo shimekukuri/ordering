@@ -1,6 +1,8 @@
 import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import { prisma } from '@/ulitiles/prisma/db';
+import currency from 'currency.js';
 import { getServerSession } from 'next-auth';
+import { Key } from 'react';
 
 export default async function Page() {
   const session = await getServerSession(OPTIONS);
@@ -47,12 +49,39 @@ export default async function Page() {
     <div className="p-4">
       {order?.map((x, i) => {
         return (
-          <div key={x.id}>
-            <div>{x.item.id}</div>
-            <div>{x.item.name}</div>
-          </div>
+          <CartCard
+            name={x.item.name}
+            price={x.item.price}
+            key={x.item.id}
+            quantity={x.item.OrderItem[0].quantity.toString()}
+          />
         );
       })}
     </div>
   );
 }
+
+const CartCard = ({
+  name,
+  price,
+  key,
+  quantity,
+}: {
+  name: string;
+  price: string;
+  key: Key;
+  quantity: string;
+}) => {
+  const total = () => {
+    return currency(quantity).multiply(price).toString();
+  };
+
+  return (
+    <div className="flex" key={key}>
+      <div>{name}</div>
+      <div>{price}</div>
+      <div>{quantity}</div>
+      <div>{total()}</div>
+    </div>
+  );
+};
