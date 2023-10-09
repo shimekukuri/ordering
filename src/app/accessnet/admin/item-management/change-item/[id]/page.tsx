@@ -70,6 +70,13 @@ export default async function Page({ params }: { params: { id: string } }) {
             className="input input-primary w-full text-center"
             defaultValue={item?.name}
           />
+          <label htmlFor="input-price">Price</label>
+          <input
+            id="input-price"
+            name="input-price"
+            className="input input-primary w-full text-center"
+            defaultValue={item?.price}
+          />
           <label htmlFor="input-description" className="text-left w-full">
             Description:
           </label>
