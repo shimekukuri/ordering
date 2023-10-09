@@ -3,7 +3,7 @@ import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPerm
 import { prisma } from '@/ulitiles/prisma/db';
 import { department } from '@prisma/client';
 import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
+import { RedirectType, redirect } from 'next/navigation';
 
 const submitForm = async (data: FormData) => {
   'use server';
@@ -43,11 +43,11 @@ const submitForm = async (data: FormData) => {
       });
     } catch (e) {
       console.error(e);
-      return redirect('/failure');
+      return redirect('./failure');
     }
   }
 
-  return redirect('/success');
+  return redirect('./success');
 };
 
 export default async function Page({ params }: { params: { id: string } }) {
