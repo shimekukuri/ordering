@@ -76,6 +76,11 @@ const CartCard = ({
     return currency(quantity).multiply(price).toString();
   };
 
+  console.log('name', name);
+  console.log('price', price);
+  console.log('quantity', quantity);
+  console.log('total', total());
+
   return (
     <div className="flex" key={key}>
       <div>{name}</div>
