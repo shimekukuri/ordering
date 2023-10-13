@@ -1,4 +1,5 @@
 import LocationCard from '@/components/accessnet/admin/it-ticket-open/location-card/LocationCard';
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 import { prisma } from '@/ulitiles/prisma/db';
 import { ticketType } from '@prisma/client';
 
@@ -50,17 +51,20 @@ export default async function Page() {
   console.log(tickets);
 
   return (
-    <div className="flex-1 p-4 flex flex-wrap overflow-y-scroll gap-4 ">
-      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full">
-        {tickets.pharmacies.map((x) => {
-          return <LocationCard key={x[0].location} locationData={x} />;
-        })}
+    <>
+      <Breadcrumbs />
+      <div className="flex-1 p-4 flex flex-wrap overflow-y-scroll gap-4 ">
+        <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full">
+          {tickets.pharmacies.map((x) => {
+            return <LocationCard key={x[0].location} locationData={x} />;
+          })}
+        </div>
+        <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full">
+          {tickets.other.map((x) => {
+            return <LocationCard key={x[0].location} locationData={x} />;
+          })}
+        </div>
       </div>
-      <div className="grid md:grid-cols-2 md:grid-rows-2 w-full gap-4 h-full">
-        {tickets.other.map((x) => {
-          return <LocationCard key={x[0].location} locationData={x} />;
-        })}
-      </div>
-    </div>
+    </>
   );
 }

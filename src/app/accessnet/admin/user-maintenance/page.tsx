@@ -1,3 +1,4 @@
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -15,6 +16,7 @@ export default async function page() {
 
   return (
     <>
+      <Breadcrumbs />
       <h1 className="text-3xl text-center p-4">User Maintenance</h1>
       <div className="w-full flex items-center justify-center">
         <div className="divider w-3/4"></div>
