@@ -1,4 +1,5 @@
 import ProductCard from '@/components/productCard/ProductCard';
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { prisma } from '@/ulitiles/prisma/db';
 import Link from 'next/link';
@@ -18,6 +19,7 @@ export default async function Home() {
 
   return (
     <>
+      <Breadcrumbs />
       <main className="flex flex-wrap justify-center items-center p-4 gap-4 w-screen">
         {items.map(({ name, description, image, id, categoryId }) => (
           <ProductCard

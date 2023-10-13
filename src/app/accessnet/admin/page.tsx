@@ -11,17 +11,19 @@ export default async function AdminPage() {
   }
 
   return (
-    <Menu title="Adminstration">
-      <MenuCard title="User Maintenance" link="admin/user-maintenance" />
-      <MenuCard title="IT Tickets" link="admin/it-ticket-open" />
-      <MenuCard
-        title="Maintenance Tickets"
-        link="admin/maintenance-ticket-open"
-      />
-      <MenuCard
-        title="Universal Item Management"
-        link="admin/item-management/change-item"
-      />
-    </Menu>
+    <>
+      <Menu title="Adminstration">
+        <MenuCard title="User Maintenance" link="admin/user-maintenance" />
+        <MenuCard title="IT Tickets" link="admin/it-ticket-open" />
+        <MenuCard
+          title="Maintenance Tickets"
+          link="admin/maintenance-ticket-open"
+        />
+        <MenuCard
+          title="Universal Item Management"
+          link="admin/item-management/change-item"
+        />
+      </Menu>
+    </>
   );
 }

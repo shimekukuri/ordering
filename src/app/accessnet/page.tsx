@@ -1,5 +1,6 @@
 import Menu from '@/components/LayoutComponents/menu/Menu';
 import MenuCard from '@/components/LayoutComponents/menu/menuCard/MenuCard';
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { redirect } from 'next/navigation';
 
@@ -11,27 +12,30 @@ export default async function page() {
   }
 
   return (
-    <Menu title="Access Net">
-      <MenuCard
-        title="Order For Your Store"
-        link="./accessnet/internal-ordering"
-        className="bg-red-200"
-      />
-      <MenuCard
-        title="Administration"
-        link="./accessnet/admin"
-        className="bg-blue-200"
-      />
-      <MenuCard
-        title="New IT Ticket"
-        link="./accessnet/it-ticket/new-ticket"
-        className="bg-yellow-200"
-      />
-      <MenuCard
-        title="New Maintenance Ticket"
-        link="./accessnet/maintenance-ticket/new-ticket"
-        className="bg-green-200"
-      />
-    </Menu>
+    <>
+      <Breadcrumbs />
+      <Menu title="Access Net">
+        <MenuCard
+          title="Order For Your Store"
+          link="./accessnet/internal-ordering"
+          className="bg-red-200"
+        />
+        <MenuCard
+          title="Administration"
+          link="./accessnet/admin"
+          className="bg-blue-200"
+        />
+        <MenuCard
+          title="New IT Ticket"
+          link="./accessnet/it-ticket/new-ticket"
+          className="bg-yellow-200"
+        />
+        <MenuCard
+          title="New Maintenance Ticket"
+          link="./accessnet/maintenance-ticket/new-ticket"
+          className="bg-green-200"
+        />
+      </Menu>
+    </>
   );
 }

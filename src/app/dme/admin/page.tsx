@@ -1,3 +1,10 @@
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
+
 export default function Page() {
-  return <div>DME/ADMIN</div>;
+  return (
+    <div>
+      <Breadcrumbs />
+      <div>DME/ADMIN</div>
+    </div>
+  );
 }

@@ -2,6 +2,7 @@ import { prisma } from '@/ulitiles/prisma/db';
 import InputUrlValidator from '@/components/pageComponents/inputs/createItemUrlValidator/inputImageValidate';
 import { redirect } from 'next/navigation';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 
 async function getCategories() {
   const categories = await prisma.category.findMany();
@@ -59,43 +60,46 @@ export default async function Page() {
   };
 
   return (
-    <div className="flex-1 flex justify-center items-center p-4">
-      <form
-        className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
-        action={createItem}
-      >
-        <h1 className="text-3xl">Create New Item</h1>
-        <div className="divider"></div>
-        <input
-          required
-          type="text"
-          placeholder="Product Name"
-          name="productName"
-          className="input input-bordered input-primary w-full max-w-xs shadow-xl"
-        />
-        <input
-          required
-          type="text"
-          placeholder="Description"
-          name="description"
-          className="input input-bordered input-accent w-full max-w-xs shadow-xl"
-        />
-        <select
-          className="select select-secondary w-full max-w-xs shadow-xl"
-          name="category"
+    <>
+      <Breadcrumbs />
+      <div className="flex-1 flex justify-center items-center p-4">
+        <form
+          className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
+          action={createItem}
         >
-          <option disabled selected>
-            Please Select a Category
-          </option>
-          {categories.map((x) => (
-            <option key={x.category}>{x.category}</option>
-          ))}
-        </select>
-        <InputUrlValidator name={'url'} />
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+          <h1 className="text-3xl">Create New Item</h1>
+          <div className="divider"></div>
+          <input
+            required
+            type="text"
+            placeholder="Product Name"
+            name="productName"
+            className="input input-bordered input-primary w-full max-w-xs shadow-xl"
+          />
+          <input
+            required
+            type="text"
+            placeholder="Description"
+            name="description"
+            className="input input-bordered input-accent w-full max-w-xs shadow-xl"
+          />
+          <select
+            className="select select-secondary w-full max-w-xs shadow-xl"
+            name="category"
+          >
+            <option disabled selected>
+              Please Select a Category
+            </option>
+            {categories.map((x) => (
+              <option key={x.category}>{x.category}</option>
+            ))}
+          </select>
+          <InputUrlValidator name={'url'} />
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

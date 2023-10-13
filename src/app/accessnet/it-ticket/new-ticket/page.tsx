@@ -40,41 +40,43 @@ export default async function Page() {
   };
 
   return (
-    <div className="h-full flex-1 flex justify-center items-center p-4">
-      <form
-        className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
-        action={createTicket}
-      >
-        <h1 className="text-3xl text-center">Submit New IT Ticket</h1>
-        <div className="divider"></div>
-        <input
-          required
-          type="text"
-          placeholder="Subject"
-          name="subject"
-          className="input input-bordered input-primary w-full max-w-xs shadow-xl"
-        />
-        <select
-          className="select select-secondary w-full max-w-xs shadow-xl"
-          name="location"
+    <>
+      <div className="h-full flex-1 flex justify-center items-center p-4">
+        <form
+          className="h-full w-full lg:w-2/3 lg:h-2/3 flex flex-col justify-center items-center gap-4"
+          action={createTicket}
         >
-          <option>Please Select a location</option>
-          <option>access</option>
-          <option>whitwell</option>
-          <option>jasper</option>
-          <option>cates</option>
-          <option value={'uniformshop'}> Uniform Shop</option>
-        </select>
-        <textarea
-          required
-          placeholder="Description"
-          name="description"
-          className="textarea textarea-bordered textarea-accent w-full max-w-xs shadow-xl"
-        />
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+          <h1 className="text-3xl text-center">Submit New IT Ticket</h1>
+          <div className="divider"></div>
+          <input
+            required
+            type="text"
+            placeholder="Subject"
+            name="subject"
+            className="input input-bordered input-primary w-full max-w-xs shadow-xl"
+          />
+          <select
+            className="select select-secondary w-full max-w-xs shadow-xl"
+            name="location"
+          >
+            <option>Please Select a location</option>
+            <option>access</option>
+            <option>whitwell</option>
+            <option>jasper</option>
+            <option>cates</option>
+            <option value={'uniformshop'}> Uniform Shop</option>
+          </select>
+          <textarea
+            required
+            placeholder="Description"
+            name="description"
+            className="textarea textarea-bordered textarea-accent w-full max-w-xs shadow-xl"
+          />
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

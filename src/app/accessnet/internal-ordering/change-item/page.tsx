@@ -1,4 +1,5 @@
 import ProductCardChanger from '@/components/productCard/ProductCardChanger';
+import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { prisma } from '@/ulitiles/prisma/db';
 import { redirect } from 'next/navigation';
@@ -17,6 +18,7 @@ export default async function Home() {
 
   return (
     <>
+      <Breadcrumbs />
       <main className="flex flex-wrap justify-center items-center p-4 gap-4">
         {items.map(({ name, description, image, id, categoryId }) => (
           <ProductCardChanger
