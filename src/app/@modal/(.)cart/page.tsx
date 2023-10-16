@@ -124,7 +124,18 @@ export default function Page() {
             ''
           )}
         </div>
-        <div className="fixed join join-horizontal right-0 bottom-0 p-4">
+        <button
+          className={`btn join-item ${
+            cart.length > 0 && !isLoading && locationState !== 'Select'
+              ? 'btn-primary'
+              : 'btn-disabled'
+          }`}
+          onClick={() => router.push('/checkout/cart')}
+        >
+          Submit
+        </button>
+        {/* Code below is for internal ordering */}
+        {/* <div className="fixed join join-horizontal right-0 bottom-0 p-4">
           <select
             className="select-primary join-item px-4"
             value={locationState}
@@ -145,7 +156,7 @@ export default function Page() {
           >
             Submit
           </button>
-        </div>
+        </div> */}
       </div>
     </Modal>
   );
