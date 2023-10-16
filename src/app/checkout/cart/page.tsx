@@ -4,8 +4,6 @@ import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
 import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
 
-const lessQuantity = async () => {};
-
 export default async function Page() {
   const session = await getServerSession(OPTIONS);
   const order = await prisma.user.findFirst({
@@ -21,6 +19,12 @@ export default async function Page() {
       },
     },
   });
+
+  const total = () => {
+    return order?.accounts[0].Order[0].items.reduce((total: any, current) => {
+      return (total += current.quantity * Number.parseInt(current.item.price));
+    }, 0);
+  };
 
   console.log(order?.accounts[0].Order[0].items);
 
@@ -44,6 +48,12 @@ export default async function Page() {
   return (
     <>
       <Breadcrumbs />
+      <div className="fixed bottom-5 right-0 lg:right-5 join p-4 z-10">
+        <div className="join-item bg-slate-200 flex justify-center items-center h-12 px-12">
+          Total: {total()}
+        </div>
+        <button className="join-item btn btn-primary h-12">Checkout</button>
+      </div>
       <div className="p-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {order?.accounts[0].Order[0].items.map((x, i) => {
           return (
