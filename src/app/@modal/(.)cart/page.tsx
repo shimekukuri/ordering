@@ -127,9 +127,7 @@ export default function Page() {
         <div className="fixed right-9 bottom-0 p-4">
           <button
             className={`btn join-item ${
-              cart.length > 0 && !isLoading && locationState !== 'Select'
-                ? 'btn-primary'
-                : 'btn-disabled'
+              cart.length > 0 && !isLoading ? 'btn-primary' : 'btn-disabled'
             }`}
             onClick={() => router.push('/checkout/cart')}
           >
