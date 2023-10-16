@@ -124,16 +124,18 @@ export default function Page() {
             ''
           )}
         </div>
-        <button
-          className={`btn join-item ${
-            cart.length > 0 && !isLoading && locationState !== 'Select'
-              ? 'btn-primary'
-              : 'btn-disabled'
-          }`}
-          onClick={() => router.push('/checkout/cart')}
-        >
-          Submit
-        </button>
+        <div className="fixed right-9 bottom-0 p-4">
+          <button
+            className={`btn join-item ${
+              cart.length > 0 && !isLoading && locationState !== 'Select'
+                ? 'btn-primary'
+                : 'btn-disabled'
+            }`}
+            onClick={() => router.push('/checkout/cart')}
+          >
+            Submit
+          </button>
+        </div>
         {/* Code below is for internal ordering */}
         {/* <div className="fixed join join-horizontal right-0 bottom-0 p-4">
           <select
