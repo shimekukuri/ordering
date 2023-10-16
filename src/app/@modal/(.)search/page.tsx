@@ -19,7 +19,6 @@ export default function Page() {
 
   useEffect(() => {
     if (searchVal === undefined || searchVal === '') {
-      console.log('check fired');
       return;
     }
     setLoading(true);
@@ -37,11 +36,9 @@ export default function Page() {
         .then((res) => res.json())
         .then((x) => {
           if (x === undefined) {
-            console.log('udefined');
             setLoading(false);
             return;
           } else {
-            console.log(x.items);
             SetSearchResults(x.items);
             setLoading(false);
           }

@@ -49,7 +49,6 @@ export const sendOrderEmail = async (
   const body = await Promise.all(
     orderItems.map(async (x) => {
       const item = await prisma.item.findFirst({ where: { id: x.itemId } });
-      console.log('body item:', item);
       return { item: item?.name, quantity: x.quantity };
     })
   );
@@ -70,10 +69,8 @@ export const sendOrderEmail = async (
       // verify connection configuration
       transporter.verify(function (error, success) {
         if (error) {
-          console.log(error);
           reject(error);
         } else {
-          console.log('Server is ready to take our messages');
           resolve(success);
         }
       });
@@ -89,7 +86,6 @@ export const sendOrderEmail = async (
         console.error('Mailer ERROR', error);
         reject(error);
       }
-      console.log(info);
 
       await prisma.order.update({
         where: { id: orderId },
@@ -116,10 +112,8 @@ export const sendGenericEmail = async (
       // verify connection configuration
       transporter.verify(function (error, success) {
         if (error) {
-          console.log(error);
           reject(error);
         } else {
-          console.log('Server is ready to take our messages');
           resolve(success);
         }
       });
@@ -135,7 +129,6 @@ export const sendGenericEmail = async (
         console.error('Mailer ERROR', error);
         reject(error);
       }
-      console.log(info);
       resolve(true);
     });
   });

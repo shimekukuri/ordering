@@ -14,7 +14,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
   } else {
     const body = await request.json();
     const { user } = body;
-    console.log('user', user);
     if (user === undefined) {
       return NextResponse.json({ message: 'Bad Request', status: 400 });
     }
@@ -24,7 +23,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     });
 
     if (!found) {
-      console.log(found);
       return NextResponse.json({ found: undefined });
     }
 

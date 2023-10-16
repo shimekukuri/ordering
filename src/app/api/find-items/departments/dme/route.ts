@@ -10,7 +10,6 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest, response: NextResponse) {
   const body = await request.json();
   const { tags } = body;
-  console.log(tags);
 
   if (tags === undefined) {
     return NextResponse.json({ message: 'Bad Request', status: 400 });

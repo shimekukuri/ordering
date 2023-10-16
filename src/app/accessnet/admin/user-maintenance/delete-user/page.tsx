@@ -17,9 +17,7 @@ export default async function page() {
     'use server';
 
     try {
-      console.log('meep');
     } catch (error) {
-      console.log(error);
       redirect('./failure');
     }
     return redirect('./success');

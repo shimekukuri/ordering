@@ -13,10 +13,7 @@ const submitForm = async (data: FormData) => {
   const price = data.get('input-price') as string;
   const del = data.get('del') as string;
 
-  console.log(del);
-
   if (!id || !name || !description || !department || !categoryId || !price) {
-    console.log('missing field');
     return;
   }
 

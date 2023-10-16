@@ -43,8 +43,6 @@ export default async function RootLayout({
       return (t += c.quantity);
     }, 0) ?? 0;
 
-  console.log('This is the session', session);
-
   return (
     <html lang="en" data-theme="cupcake">
       <body className={`${inter.className}`}>

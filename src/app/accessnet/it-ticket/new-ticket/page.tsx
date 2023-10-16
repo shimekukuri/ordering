@@ -33,7 +33,6 @@ export default async function Page() {
         },
       });
     } catch (error) {
-      console.log(error);
       redirect('./failure');
     }
     redirect('./success');

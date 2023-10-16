@@ -40,6 +40,3 @@ export default function NewsFeed() {
     </>
   );
 }
-
-// let nodes = document.querySelectorAll('.newsCards');
-// console.log(nodes);

@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const POST = async (request: NextRequest, response: NextResponse) => {
   const req = await request.json();
-  console.log(req.orderId);
 
   try {
     const emailReponse = await sendOrderEmail(
@@ -11,7 +10,6 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
       req.orderId,
       req.location
     );
-    console.log('Send Order Email', emailReponse);
     return NextResponse.json('meep');
   } catch (error) {
     console.error(error);

@@ -18,7 +18,6 @@ export default async function page({
   const items = await prisma.item.findMany({
     where: { Category: { name: category } },
   });
-  console.log(items);
 
   return (
     <main className="flex flex-wrap justify-center items-center p-4 gap-4">

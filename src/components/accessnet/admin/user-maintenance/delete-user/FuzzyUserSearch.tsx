@@ -34,7 +34,6 @@ export default function FuzzyUserSearch() {
             setLoading(false);
             return;
           } else {
-            console.log(x.found);
             SetSearchResults(x.found);
             setLoading(false);
           }

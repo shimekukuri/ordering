@@ -10,7 +10,6 @@ export interface articles {
 
 export default function Articles({ articles }: { articles: articles[] }) {
   const arr = [1, 2, 3, 4, 5];
-  console.log(articles[0].image);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 p-4 w-full">

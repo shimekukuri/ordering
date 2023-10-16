@@ -75,10 +75,6 @@ export default function Page() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   return (
     <Modal>
       <div className="bg-white w-full rounded-2xl shadow-2xl h-[80vh] md:h-[50vh] p-4 overflow-y-scroll relative">

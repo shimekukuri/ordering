@@ -48,8 +48,6 @@ const getTicket = async () => {
 export default async function Page() {
   const tickets = await getTicket();
 
-  console.log(tickets);
-
   return (
     <>
       <Breadcrumbs />

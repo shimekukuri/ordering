@@ -7,12 +7,10 @@ const changePermissions = async (data: FormData) => {
   'use server';
   let temp: Permissions | {} = {};
   let i = 0;
-  console.log('1');
 
   //@ts-ignore
   for (let m of data.entries()) {
     //@ts-ignore
-    console.log(temp[m[0]], m[1]);
     switch (`${i}`) {
       case '0': {
         i++;
@@ -43,29 +41,23 @@ const changePermissions = async (data: FormData) => {
     //   temp[m[0]] = !!m[1];
     // }
   }
-  console.log('temp:', temp);
   //@ts-ignore
   let usr = await prisma.user.findFirst({ where: { id: temp[0] } });
-  console.log('before try');
 
   try {
-    console.log('try fired');
     //@ts-ignore
     let { id, ...temp2 } = temp;
     let permExist = await prisma.permissions.findFirst({
       //@ts-ignore
       where: temp,
     });
-    console.log('Perm Exist', permExist);
     let updateUser = await prisma.user.update({
       //@ts-expect-error
       data: { permissionsId: permExist.id },
       where: { id: usr?.id },
     });
-    console.log('try ended', updateUser);
     return redirect('./success');
   } catch {
-    console.log('caught');
     //@ts-ignore
     let { id, ...temp2 } = temp;
     let createPerm = await prisma.permissions.create({ data: temp2 });
@@ -73,9 +65,6 @@ const changePermissions = async (data: FormData) => {
       data: { permissionsId: createPerm.id },
       where: { id: usr?.id },
     });
-    console.log(createPerm);
-    console.log(updateUser);
-    console.log('caught finished');
     return redirect('./success');
   }
 
