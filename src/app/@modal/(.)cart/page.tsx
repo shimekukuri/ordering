@@ -67,6 +67,13 @@ export default function Page() {
       });
   };
 
+  const gotoCartPage = () => {
+    router.back();
+    setTimeout(() => {
+      router.push('/checkout/cart');
+    }, 250);
+  };
+
   useEffect(() => {
     fetch('api/cart')
       .then((response) => response.json())
@@ -129,7 +136,7 @@ export default function Page() {
             className={`btn join-item ${
               cart.length > 0 && !isLoading ? 'btn-primary' : 'btn-disabled'
             }`}
-            onClick={() => router.push('/checkout/cart')}
+            onClick={() => gotoCartPage()}
           >
             Submit
           </button>
