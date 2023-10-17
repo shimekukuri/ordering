@@ -1,5 +1,6 @@
 import { Key } from 'react';
 import QuantityButton from '../QuantityButton/QuantityButton';
+import RemoveButton from '../RemoveButton/RemoveButton';
 
 export default function CartCard({
   name,
@@ -40,22 +41,7 @@ export default function CartCard({
 
   return (
     <div className="card w-full bg-base-100 shadow-xl relative">
-      <div className="absolute top-0 right-0 p-4">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6 hover:scale-125"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </div>
+      <RemoveButton />
       <figure className="px-10 pt-10 ">
         <img src={item_image} alt="Shoes" className="rounded-xl" />
       </figure>

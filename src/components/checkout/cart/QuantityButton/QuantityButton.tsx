@@ -1,6 +1,6 @@
 'use client';
 
-import { UpdateCartSuccess } from '@/app/api/update-cart/route';
+import { UpdateCartSuccess } from '@/app/api/update-cart/change-quantity/route';
 import { useState } from 'react';
 
 export default function QuantityButton({
@@ -16,7 +16,7 @@ export default function QuantityButton({
   const updateQuantity = (orderItemId: string, quantity: number) => {
     setLoading(() => true);
     console.log('THIS', orderItemId);
-    return fetch('/api/update-cart', {
+    return fetch('/api/update-cart/change-quantity', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

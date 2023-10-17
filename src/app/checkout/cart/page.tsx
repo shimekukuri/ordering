@@ -21,9 +21,17 @@ export default async function Page() {
   });
 
   const total = () => {
-    return order?.accounts[0].Order[0].items.reduce((total: any, current) => {
-      return (total += current.quantity * Number.parseInt(current.item.price));
-    }, 0);
+    const totalInt = order?.accounts[0].Order[0].items.reduce(
+      (total: any, current) => {
+        return (total +=
+          current.quantity * Number.parseInt(current.item.price));
+      },
+      0
+    );
+
+    return `$${`${totalInt}`.slice(totalInt.length - 3)}.${`${totalInt}`.slice(
+      -2
+    )}`;
   };
 
   console.log(order?.accounts[0].Order[0].items);
