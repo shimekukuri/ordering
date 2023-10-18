@@ -63,7 +63,7 @@ export default async function Page() {
         <button className="join-item btn btn-primary h-12">Checkout</button>
       </div>
       <div className="p-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {order?.accounts[0].Order[0].items.map((x, i) => {
+        {order?.accounts[0].Order[0].items.map((x, _i) => {
           return (
             <CartCard
               id={x.id}

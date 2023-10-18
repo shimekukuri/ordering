@@ -1,21 +1,21 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
-import { OPTIONS } from './api/auth/[...nextauth]/route';
-import { prisma } from '@/ulitiles/prisma/db';
-import { getServerSession, Session } from 'next-auth';
-import { Suspense } from 'react';
-import Link from 'next/link';
-import CartCount from '@/components/LayoutComponents/mainlayout/CartCount';
-import LogoutButton from '@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton';
-import LoginButton from '@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton';
-import Loading from './loading';
-import NavMenu from '@/components/LayoutComponents/navMenue/NavMenu';
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { OPTIONS } from "./api/auth/[...nextauth]/route";
+import { prisma } from "@/ulitiles/prisma/db";
+import { getServerSession, Session } from "next-auth";
+import { Suspense } from "react";
+import Link from "next/link";
+import CartCount from "@/components/LayoutComponents/mainlayout/CartCount";
+import LogoutButton from "@/components/LayoutComponents/mainlayout/navbar/LogoutButton/LogoutButton";
+import LoginButton from "@/components/LayoutComponents/mainlayout/navbar/LoginButton/LoginButton";
+import Loading from "./loading";
+import NavMenu from "@/components/LayoutComponents/navMenue/NavMenu";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Access Pharm Ordering',
-  description: 'Inter orginizational ordering for Access Pharmacies',
+  title: "Access Pharm Ordering",
+  description: "Inter orginizational ordering for Access Pharmacies",
 };
 
 const getCart = async (session: Session | null) => {
@@ -67,12 +67,12 @@ export default async function RootLayout({
                 </svg>
               </label>
               <div className="flex-1">
-                <Link className="btn btn-ghost normal-case text-xl" href={'/'}>
+                <Link className="btn btn-ghost normal-case text-xl" href={"/"}>
                   ACCESS
                 </Link>
               </div>
               <div className="flex-none">
-                {!session ? <LoginButton /> : ''}
+                {!session ? <LoginButton /> : ""}
 
                 {session ? (
                   <div className="dropdown dropdown-end">
@@ -102,7 +102,7 @@ export default async function RootLayout({
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
                 <div className="dropdown dropdown-end">
                   {session ? (
@@ -115,13 +115,13 @@ export default async function RootLayout({
                           src={
                             session.user?.image
                               ? session.user.image
-                              : 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
+                              : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                           }
                         />
                       </div>
                     </label>
                   ) : (
-                    ''
+                    ""
                   )}
 
                   <ul
@@ -129,7 +129,7 @@ export default async function RootLayout({
                     className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                   >
                     <li>
-                      <Link href={'./profile'} className="justify-between">
+                      <Link href={"./profile"} className="justify-between">
                         Profile
                         <span className="badge">New</span>
                       </Link>
@@ -160,31 +160,31 @@ export default async function RootLayout({
         <footer className="footer p-10 bg-base-200 text-base-content">
           <div>
             <span className="footer-title">Services</span>
-            <Link href={'./'} className="link link-hover">
+            <Link href={"./"} className="link link-hover">
               Prescriptions
             </Link>
-            <Link href={'./compounding'} className="link link-hover">
+            <Link href={"./compounding"} className="link link-hover">
               Compounding
             </Link>
             <Link
-              href={'./access-specialized-care'}
+              href={"./access-specialized-care"}
               className="link link-hover"
             >
               Long Term Care
             </Link>
-            <Link href={'./dme'} className="link link-hover">
+            <Link href={"./dme"} className="link link-hover">
               Durable Medical Equipment
             </Link>
-            <Link href={'./dme/personal-mobility'} className="link link-hover">
+            <Link href={"./dme/personal-mobility"} className="link link-hover">
               Personal Mobility
             </Link>
-            <Link href={'./dme/cpap-oxygen'} className="link link-hover">
+            <Link href={"./dme/cpap-oxygen"} className="link link-hover">
               CPAP & Oxygen
             </Link>
-            <Link href={'./dme/cpap-oxygen'} className="link link-hover">
+            <Link href={"./dme/cpap-oxygen"} className="link link-hover">
               Pink Petal Boutique
             </Link>
-            <Link href={'./dme/cpap-oxygen'} className="link link-hover">
+            <Link href={"./dme/cpap-oxygen"} className="link link-hover">
               CPAP & Oxygen
             </Link>
             <a className="link link-hover">Design</a>
