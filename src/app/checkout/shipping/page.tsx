@@ -16,17 +16,7 @@ const handleShippingRequest = async (data: FormData) => {
   const postal_code = data.get("postal_code") as string;
   const state = data.get("state") as state;
   const session = await getServerSession(OPTIONS);
-  console.log(session);
   const session_email = session?.user?.email;
-  console.log(
-    email,
-    first_name,
-    last_name,
-    street_address,
-    city,
-    postal_code,
-    state,
-  );
 
   try {
     if (!session_email) {
@@ -66,22 +56,14 @@ const handleShippingRequest = async (data: FormData) => {
       },
       include: { ShippingAddressList: true },
     });
-
-    console.log(result);
+    return redirect("/checkout/payment");
   } catch (e) {
     console.error(e);
   }
-
-  let finalResult = await prisma.user.findFirst({
-    where: { email: session?.user?.email },
-    include: { ShippingAddressList: {} },
-  });
-
-  console.log('Final Result',finalResult);
 };
 
 export default async function Page() {
-  const permissionCheck = await getUserPermissions(["acessnet", "createItem"]);
+  const permissionCheck = await getUserPermissions([]);
   if (!permissionCheck) {
     return redirect("/");
   }
