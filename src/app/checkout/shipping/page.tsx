@@ -56,10 +56,11 @@ const handleShippingRequest = async (data: FormData) => {
       },
       include: { ShippingAddressList: true },
     });
-    return redirect("/checkout/payment");
   } catch (e) {
     console.error(e);
+    return redirect('failure');
   }
+  return redirect('/checkout/payment');
 };
 
 export default async function Page() {
