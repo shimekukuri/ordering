@@ -2,18 +2,22 @@ import { OPTIONS } from "@/app/api/auth/[...nextauth]/route";
 import Breadcrumbs from "@/components/utility/breadcumbs/BreadCrumbs";
 import { getUserPermissions } from "@/ulitiles/db/getUserPermissions/getUserPermissions";
 import { prisma } from "@/ulitiles/prisma/db";
+import { state } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 const handleShippingRequest = async (data: FormData) => {
   "use server";
-  const email = data.get("email");
-  const first_name = data.get("first_name");
-  const last_name = data.get("last_name");
-  const street_address = data.get("street_address");
-  const city = data.get("city");
-  const postal_code = data.get("postal_code");
-  const state = data.get("state");
+  const email = data.get("email") as string;
+  const first_name = data.get("first_name") as string;
+  const last_name = data.get("last_name") as string;
+  const street_address = data.get("street_address") as string;
+  const city = data.get("city") as string;
+  const postal_code = data.get("postal_code") as string;
+  const state = data.get("state") as state;
+  const session = await getServerSession(OPTIONS);
+  console.log(session);
+  const session_email = session?.user?.email;
   console.log(
     email,
     first_name,
@@ -23,16 +27,57 @@ const handleShippingRequest = async (data: FormData) => {
     postal_code,
     state,
   );
-  //prisma.user.update();
+
+  try {
+    if (!session_email) {
+      throw Error("No session_email");
+    }
+    let usr = await prisma.user.findFirst({
+      where: { email: session_email },
+      include: { ShippingAddressList: {} },
+    });
+
+    let result = await prisma.user.update({
+      where: { id: usr?.id },
+      data: {
+        ShippingAddressList: {
+          //@ts-ignore
+          upsert: {
+            update: {
+              email: email,
+              postal_code: postal_code,
+              state: state,
+              last_name: last_name,
+              first_name: first_name,
+              street_address: street_address,
+              town_city: city,
+            },
+            create: {
+              email: email,
+              postal_code: postal_code,
+              state: state,
+              last_name: last_name,
+              first_name: first_name,
+              street_address: street_address,
+              town_city: city,
+            },
+          },
+        },
+      },
+      include: { ShippingAddressList: true },
+    });
+
+    console.log(result);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-export default async  function Page() {
-   const permissionCheck = await getUserPermissions(['acessnet', 'createItem']);
+export default async function Page() {
+  const permissionCheck = await getUserPermissions(["acessnet", "createItem"]);
   if (!permissionCheck) {
-    return redirect('/');
+    return redirect("/");
   }
-   
-
 
   return (
     <>

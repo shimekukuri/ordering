@@ -1,7 +1,7 @@
-import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
-import { prisma } from '@/ulitiles/prisma/db';
-import { getServerSession } from 'next-auth';
-import Link from 'next/link';
+import { OPTIONS } from "@/app/api/auth/[...nextauth]/route";
+import { prisma } from "@/ulitiles/prisma/db";
+import { getServerSession } from "next-auth";
+import Link from "next/link";
 
 interface ProductCardInterface {
   name: string;
@@ -12,8 +12,8 @@ interface ProductCardInterface {
 }
 
 const addToCart = async (data: FormData) => {
-  'use server';
-  const id = data.get('id') as string;
+  "use server";
+  const id = data.get("id") as string;
   if (!id) {
     return;
   }
@@ -83,14 +83,14 @@ export default async function ProductCard({
           <form action={addToCart}>
             <input
               className="hidden"
-              type={'text'}
+              type={"text"}
               name="id"
               defaultValue={id}
             />
             <button
               type="submit"
               className={`btn ${
-                session ? 'btn-primary' : 'btn-disabled'
+                session ? "btn-primary" : "btn-disabled"
               } active:animate-none focus:animate-cart-confirm-200`}
             >
               Add To Cart
