@@ -73,11 +73,11 @@ const handleShippingRequest = async (data: FormData) => {
   }
 
   let finalResult = await prisma.user.findFirst({
-    where: { email: email },
+    where: { email: session?.user?.email },
     include: { ShippingAddressList: {} },
   });
 
-  console.log(finalResult);
+  console.log('Final Result',finalResult);
 };
 
 export default async function Page() {
