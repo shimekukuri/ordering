@@ -71,6 +71,13 @@ const handleShippingRequest = async (data: FormData) => {
   } catch (e) {
     console.error(e);
   }
+
+  let finalResult = await prisma.user.findFirst({
+    where: { email: email },
+    include: { ShippingAddressList: {} },
+  });
+
+  console.log(finalResult);
 };
 
 export default async function Page() {

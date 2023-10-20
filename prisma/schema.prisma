@@ -60,7 +60,6 @@ model ShippingAddress {
   town_city      String
   postal_code    String
   state          state
-  userId         String?
   User           User?
 }
 
