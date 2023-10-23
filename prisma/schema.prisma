@@ -52,7 +52,7 @@ model Order {
 }
 
 model ShippingAddress {
-  id             String  @id @default(uuid())
+  id             String @id @default(uuid())
   email          String
   first_name     String
   last_name      String
@@ -104,6 +104,8 @@ model User {
   permissionsId       String?
   ShippingAddressList ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
   shippingAddressId   String?          @unique()
+  token               String?
+  token_creation      DateTime         @default(now())
 }
 
 model VerificationToken {

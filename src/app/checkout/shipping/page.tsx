@@ -58,7 +58,6 @@ const handleShippingRequest = async (data: FormData) => {
     });
   } catch (e) {
     console.error(e);
-    return redirect('failure');
   }
   return redirect('/checkout/payment');
 };
