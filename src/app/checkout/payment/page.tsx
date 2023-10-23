@@ -1,8 +1,10 @@
 import { OPTIONS } from "@/app/api/auth/[...nextauth]/route";
 import Breadcrumbs from "@/components/utility/breadcumbs/BreadCrumbs";
+import { getUserPermissions } from "@/ulitiles/db/getUserPermissions/getUserPermissions";
 import { prisma } from "@/ulitiles/prisma/db";
 import { getServerSession } from "next-auth";
 import { Oswald } from "next/font/google";
+import { redirect } from "next/navigation";
 
 const oswald = Oswald({ subsets: ["latin"], weight: "700" });
 
@@ -12,6 +14,11 @@ const submitCard = async () => {
 
 export default async function Page() {
   let session = await getServerSession(OPTIONS);
+  const permissionCheck = await getUserPermissions([]);
+  if (!permissionCheck) {
+    return redirect("/");
+  }
+
   let usr = await prisma.user.findFirst({
     where: { email: session?.user?.email },
   });
