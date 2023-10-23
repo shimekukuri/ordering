@@ -1,10 +1,16 @@
 import { OPTIONS } from '@/app/api/auth/[...nextauth]/route';
 import CartCard from '@/components/checkout/cart/CartCard/CartCard';
 import Breadcrumbs from '@/components/utility/breadcumbs/BreadCrumbs';
+import { getUserPermissions } from '@/ulitiles/db/getUserPermissions/getUserPermissions';
 import { prisma } from '@/ulitiles/prisma/db';
 import { getServerSession } from 'next-auth';
+import { redirect } from 'next/dist/server/api-utils';
 
 export default async function Page() {
+  const permissionCheck = await getUserPermissions([]);
+  if (!permissionCheck) {
+    return redirect("/");
+  }
   const session = await getServerSession(OPTIONS);
   const order = await prisma.user.findFirst({
     where: { email: session?.user?.email },

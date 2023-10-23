@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 export default async function Page() {
   const permissionCheck = await getUserPermissions([]);
   if (!permissionCheck) {
-    return redirect("/");
+    return  redirect("/");
   }
 
   const session = await getServerSession(OPTIONS);
