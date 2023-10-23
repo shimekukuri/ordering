@@ -43,7 +43,7 @@ export default function CartCard({
     <div className="card w-full bg-base-100 shadow-xl relative">
       <RemoveButton />
       <figure className="px-10 pt-10 ">
-        <img src={item_image} alt="Shoes" className="rounded-xl" />
+        <img src={item_image} alt="Shoes" className="rounded-xl max-h-56" />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{name}</h2>
