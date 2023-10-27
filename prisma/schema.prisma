@@ -133,6 +133,14 @@ model Permissions {
   User          User[]
 }
 
+model QuickbookToken {
+  id              String @id @default(cuid())
+  refreshToken    String
+  refreshTokenExp String
+  accessToken     String
+  accessTokenExp  String
+}
+
 //Issue Ticket
 
 model Ticket {
