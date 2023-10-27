@@ -2,6 +2,7 @@ import { QuickbookToken } from "@prisma/client";
 import { prisma } from "../prisma/db";
 import Token from "./Token";
 import { URLSearchParams } from "url";
+import { randomBytes } from "crypto";
 
 export interface QbInterface {
   environment: string;
@@ -33,6 +34,7 @@ export class Quickbooks {
   private readonly redirectUri: string;
   private readonly token: Token;
   private readonly scopes: QbScopes[];
+  private readonly state: string;
   public static cacheId = "cacheId";
   public static authorizeEndpoint =
     "https://appcenter.intuit.com/connect/oauth2";
@@ -74,6 +76,7 @@ export class Quickbooks {
     this.redirectUri = config.redirectUri;
     this.token = config.token;
     this.scopes = config.scopes;
+    this.state = randomBytes(100).toString();
   }
 
   authorizeUri = () => {
@@ -90,9 +93,11 @@ export class Quickbooks {
     searchParams.append("response_type", "code");
     searchParams.append("redirect_uri", this.redirectUri);
     searchParams.append("client_id", this.clientId);
+    searchParams.append("state", this.state);
     searchParams.append(
       "scope",
       this.scopes.length > 1 ? this.scopes.join(" ") : this.scopes[0],
     );
+   baseUrl.search = searchParams.toString(); 
   };
 }
