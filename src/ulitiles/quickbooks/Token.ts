@@ -3,7 +3,7 @@ export interface Token_params {
   token_type: Token_type | undefined;
   access_token: string | undefined;
   refresh_token: string | undefined;
-  expires_in: string | undefined;
+  expires_in: number | undefined;
   x_refresh_token_expires_in: number | undefined;
   id_token: string | undefined;
   latency: number | undefined;
@@ -14,13 +14,13 @@ export type Token_type = "access_token" | "refresh_token" | "";
 
 export default class Token {
   private realmId: string | undefined;
-  private token_type: Token_type| undefined;
-  private access_token: string| undefined;
-  private refresh_token: string| undefined;
-  private expires_in: string| undefined;
-  private x_refresh_token_expires_in: number| undefined;
-  private id_token: string| undefined;
-  private latency: number| undefined;
+  private token_type: Token_type | undefined;
+  private access_token: string | undefined;
+  private refresh_token: string | undefined;
+  private expires_in: number | undefined;
+  private x_refresh_token_expires_in: number | undefined;
+  private id_token: string | undefined;
+  private latency: number | undefined;
   private createdAt: number | undefined;
 
   constructor(params: Token_params | undefined) {
@@ -55,11 +55,23 @@ export default class Token {
     return this.refresh_token;
   };
 
+  expired = () => {
+    if (!this.expires_in || !this.createdAt) {
+      return true;
+    }
+
+    if (this.expires_in + this.createdAt > Date.now()) {
+      return true;
+    }
+
+    return false;
+  };
+
   clearInstance = () => {
-    this.realmId = undefined; 
+    this.realmId = undefined;
     this.token_type = undefined;
-    this.access_token = undefined; 
-    this.refresh_token = undefined; 
+    this.access_token = undefined;
+    this.refresh_token = undefined;
     this.expires_in = undefined;
     this.x_refresh_token_expires_in = undefined;
     this.id_token = undefined;
