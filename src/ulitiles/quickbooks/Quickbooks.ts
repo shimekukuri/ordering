@@ -1,6 +1,4 @@
-import { QuickbookToken } from "@prisma/client";
-import { prisma } from "../prisma/db";
-import Token from "./Token";
+import Token, { Token_params } from "./Token";
 import { URLSearchParams } from "url";
 import { randomBytes } from "crypto";
 
@@ -9,7 +7,6 @@ export interface QbInterface {
   clientId: string;
   clientSecret: string;
   redirectUri: string;
-  token: Token;
   scopes: QbScopes[];
 }
 
@@ -32,7 +29,7 @@ export class Quickbooks {
   private readonly clientId: string;
   private readonly clientSecret: string;
   private readonly redirectUri: string;
-  private readonly token: Token;
+  private token: Token | undefined;
   private readonly scopes: QbScopes[];
   private readonly state: string;
   public static cacheId = "cacheId";
@@ -74,16 +71,16 @@ export class Quickbooks {
     this.clientId = config.clientId;
     this.clientSecret = config.clientSecret;
     this.redirectUri = config.redirectUri;
-    this.token = config.token;
     this.scopes = config.scopes;
     this.state = randomBytes(100).toString();
+    this.token = new Token(undefined);
   }
 
-  authorizeUri = () => {
+  authorizeUri = (): URL | undefined => {
     if (
       !this.redirectUri.length ||
       !this.clientId.length ||
-      this.scopes.length
+      !this.scopes.length
     ) {
       return undefined;
     }
@@ -96,8 +93,74 @@ export class Quickbooks {
     searchParams.append("state", this.state);
     searchParams.append(
       "scope",
-      this.scopes.length > 1 ? this.scopes.join(" ") : this.scopes[0],
+      this.scopes.length > 1
+        ? this.scopes.map((x) => Quickbooks.scopes[x]).join(" ")
+        : Quickbooks.scopes[this.scopes[0]],
     );
-   baseUrl.search = searchParams.toString(); 
+    baseUrl.search = searchParams.toString();
+    console.log(searchParams.get("scope"));
+    return baseUrl;
+  };
+
+  createToken = async ({
+    realmId,
+    code,
+  }: {
+    realmId: string;
+    state: string | undefined;
+    code: string;
+  }) => {
+    if (!realmId || !code) {
+      return undefined;
+    }
+    let searchParams = new URLSearchParams();
+    searchParams.append("grant_type", "authorization_code");
+    searchParams.append("code", code);
+    searchParams.append("redirect_uri", this.redirectUri);
+
+    let response = await fetch(Quickbooks.tokenEndpoint, {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${this.generateAuthHeader()}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
+      },
+      body: searchParams,
+    });
+    try {
+      if (response.status !== 200) {
+        throw new Error("Malformed request");
+      }
+      let data = await response.json();
+      this.token?.setToken(data);
+      return this.token;
+    } catch (e) {
+      console.error(e);
+      return undefined;
+    }
+  };
+
+  getToken = () => {
+    return this.token;
+  };
+
+  setToken = (param: Token_params): Token | undefined => {
+    if (
+      !param ||
+      !param.createdAt ||
+      !param.expires_in ||
+      !param.token_type ||
+      !param[param.token_type] ||
+      !param.token_type.length
+    ) {
+      return undefined;
+    }
+    this.token = new Token(param);
+    return this.token;
+  };
+
+  private generateAuthHeader = () => {
+    const apiKey = `${this.clientId}:${this.clientSecret}`;
+    return btoa(apiKey);
   };
 }

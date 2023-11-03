@@ -1,48 +1,48 @@
 export interface Token_params {
   realmId: string | undefined;
-  token_type: Token_type;
-  access_token: string;
-  refresh_token: string;
-  expires_in: string;
-  x_refresh_token_expires_in: number;
-  id_token: string;
-  latency: number;
-  createdAt: Date ;
+  token_type: Token_type | undefined;
+  access_token: string | undefined;
+  refresh_token: string | undefined;
+  expires_in: string | undefined;
+  x_refresh_token_expires_in: number | undefined;
+  id_token: string | undefined;
+  latency: number | undefined;
+  createdAt: number | undefined;
 }
 
-export type Token_type = "access" | "refresh" | "";
+export type Token_type = "access_token" | "refresh_token" | "";
 
 export default class Token {
   private realmId: string | undefined;
-  private token_type: Token_type;
-  private access_token: string;
-  private refresh_token: string;
-  private expires_in: string;
-  private x_refresh_token_expires_in: number;
-  private id_token: string;
-  private latency: number;
-  private createdAt: Date | '';
+  private token_type: Token_type| undefined;
+  private access_token: string| undefined;
+  private refresh_token: string| undefined;
+  private expires_in: string| undefined;
+  private x_refresh_token_expires_in: number| undefined;
+  private id_token: string| undefined;
+  private latency: number| undefined;
+  private createdAt: number | undefined;
 
-  constructor(params: Token_params) {
-    this.realmId = params.realmId || "";
-    this.token_type = params.token_type || "";
-    this.access_token = params.access_token || "";
-    this.refresh_token = params.refresh_token || "";
-    this.expires_in = params.expires_in || "";
-    this.x_refresh_token_expires_in = params.x_refresh_token_expires_in || 0;
-    this.id_token = params.id_token || "";
-    this.latency = params.latency || 0;
-    this.createdAt = params.createdAt || Date.now();
+  constructor(params: Token_params | undefined) {
+    this.realmId = params?.realmId || undefined;
+    this.token_type = params?.token_type || undefined;
+    this.access_token = params?.access_token || undefined;
+    this.refresh_token = params?.refresh_token || undefined;
+    this.expires_in = params?.expires_in || undefined;
+    this.x_refresh_token_expires_in = params?.x_refresh_token_expires_in || 0;
+    this.id_token = params?.id_token || undefined;
+    this.latency = params?.latency || 0;
+    this.createdAt = params?.createdAt || undefined;
   }
 
   setToken = (param: Token_params) => {
-    this.realmId = param.realmId || "";
-    this.token_type = param.token_type || "";
-    this.access_token = param.access_token || "";
-    this.refresh_token = param.refresh_token || "";
-    this.expires_in = param.expires_in || "";
+    this.realmId = param.realmId || undefined;
+    this.token_type = param.token_type || undefined;
+    this.access_token = param.access_token || undefined;
+    this.refresh_token = param.refresh_token || undefined;
+    this.expires_in = param.expires_in || undefined;
     this.x_refresh_token_expires_in = param.x_refresh_token_expires_in || 0;
-    this.id_token = param.id_token || "";
+    this.id_token = param.id_token || undefined;
     this.latency = param.latency || 0;
     this.createdAt = param.createdAt || Date.now();
   };
@@ -56,14 +56,14 @@ export default class Token {
   };
 
   clearInstance = () => {
-    this.realmId = ''; 
-    this.token_type = '';
-    this.access_token = ''; 
-    this.refresh_token = ''; 
-    this.expires_in = '';
-    this.x_refresh_token_expires_in = 0;
-    this.id_token = '';
+    this.realmId = undefined; 
+    this.token_type = undefined;
+    this.access_token = undefined; 
+    this.refresh_token = undefined; 
+    this.expires_in = undefined;
+    this.x_refresh_token_expires_in = undefined;
+    this.id_token = undefined;
     this.latency = 0;
-    this.createdAt = '';
+    this.createdAt = undefined;
   };
 }

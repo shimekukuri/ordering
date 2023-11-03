@@ -1,7 +1,8 @@
-import { prisma } from "@/ulitiles/prisma/db";
+import { EncryptionService } from "@/ulitiles/encyption/EncyptionService";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
+  let encrypt = new EncryptionService();
 }
 
 export async function POST(request: NextRequest, response: NextResponse) {
