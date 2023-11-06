@@ -15,7 +15,7 @@ export default async function Page({
 
   if (token) {
     let oldToken = await prisma.quickbookToken.findFirst({where: {refreshToken: {}}});
-    
+        
     };
   return <div>test</div>;
 }
