@@ -1,0 +1,26 @@
+.cta {
+    background-image: url('/specialized-care-images/cta-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .overlay {
+    position: relative;
+  }
+
+  .cta .overlay::after {
+    background-color: rgba(65,105,79,.8);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    content: '';
+    mix-blend-mode: multiply;
+    width: 100vw;
+    height: 350px;
+  }
