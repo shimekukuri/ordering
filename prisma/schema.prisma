@@ -139,6 +139,7 @@ model QuickbookToken {
   refreshTokenExp String
   accessToken     String
   accessTokenExp  String
+  realmId         String @default("")
 }
 
 //Issue Ticket
