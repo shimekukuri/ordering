@@ -21,6 +21,10 @@ module.exports = {
           '0%': { transform: 'translate(0px, 50px)' },
           '100%': { opacity: '1', transform: 'translate(0px, 0px)' }
         },
+        fadeIn50: {
+          '0%': { transform: 'translate(0px, 50px)' },
+          '100%': { opacity: '0.5', transform: 'translate(0px, 0px)' }
+        },
         scaleUpThing: {
           '0%': { transform: 'scale(1.0, 1.0)' },
           '100%': { transform: 'scale(1.1, 1.1)' }
@@ -31,6 +35,8 @@ module.exports = {
         },
       },
       animation: {
+        
+        'fade-opacity-50-600': 'fadeIn50 600ms ease-in-out forwards',
         'scale-200': 'scaleUpThing 200ms ease-in-out forwards',
         'cart-confirm-200': 'cartConfirm 200ms ease-in-out forwards',
         'fade-in-200': 'fadeIn 200ms ease-in-out forwards',
