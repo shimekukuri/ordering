@@ -18,19 +18,20 @@ module.exports = {
           '100%': { backgroundColor: '#7CFC00' },
         },
         fadeIn: {
-          '0%': {transform: 'translate(0px, 50px)'},
-          '100%': {opacity: '1', transform: 'translate(0px, 0px)'}
+          '0%': { transform: 'translate(0px, 50px)' },
+          '100%': { opacity: '1', transform: 'translate(0px, 0px)' }
         },
-        scale: {
-          '0%': { transform: 'scale(1.0)' },
-          '100%': {transform: 'scale(1.1)'}
+        scaleUpThing: {
+          '0%': { transform: 'scale(1.0, 1.0)' },
+          '100%': { transform: 'scale(1.1, 1.1)' }
         },
         slidein: {
           '0%': { transform: 'translate(-500px, 0px)' },
-          '100%': {transform: 'translate(0px, 0px)', opacity: '1'}
+          '100%': { transform: 'translate(0px, 0px)', opacity: '1' }
         },
       },
       animation: {
+        'scale-200': 'scaleUpThing 200ms ease-in-out forwards',
         'cart-confirm-200': 'cartConfirm 200ms ease-in-out forwards',
         'fade-in-200': 'fadeIn 200ms ease-in-out forwards',
         'fade-in-300': 'fadeIn 300ms ease-in-out forwards',
@@ -53,7 +54,6 @@ module.exports = {
         'fade-in-2000': 'fadeIn 2000ms ease-in-out forwards',
         'fade-in-2100': 'fadeIn 2100ms ease-in-out forwards',
         'fade-in-2200': 'fadeIn 2200ms ease-in-out forwards',
-        'scale-200': 'scale 200ms ease-in-out forwards',
         'pulse-400': 'pulse 400ms cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'pulse-600': 'pulse 600ms cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'pulse-800': 'pulse 800ms cubic-bezier(0.4, 0, 0.6, 1) infinite',

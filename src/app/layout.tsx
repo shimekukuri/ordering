@@ -187,6 +187,9 @@ export default async function RootLayout({
             <Link href={"./dme/cpap-oxygen"} className="link link-hover">
               CPAP & Oxygen
             </Link>
+            <Link href={"./the-uniform-shop"} className="link link-hover">
+              The Uniform Shop 
+            </Link>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>

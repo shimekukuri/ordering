@@ -13,15 +13,15 @@ export interface Token_params {
 export type Token_type = "access_token" | "refresh_token" | "";
 
 export default class Token {
-  private realmId: string | undefined;
-  private token_type: Token_type | undefined;
-  private access_token: string | undefined;
-  private refresh_token: string | undefined;
-  private expires_in: number | undefined;
-  private x_refresh_token_expires_in: number | undefined;
-  private id_token: string | undefined;
-  private latency: number | undefined;
-  private createdAt: number | undefined;
+  realmId: string | undefined;
+  token_type: Token_type | undefined;
+  access_token: string | undefined;
+  refresh_token: string | undefined;
+  expires_in: number | undefined;
+  x_refresh_token_expires_in: number | undefined;
+  id_token: string | undefined;
+  latency: number | undefined;
+  createdAt: number | undefined;
 
   constructor(params: Token_params | undefined) {
     this.realmId = params?.realmId || undefined;
@@ -45,14 +45,6 @@ export default class Token {
     this.id_token = param.id_token || undefined;
     this.latency = param.latency || 0;
     this.createdAt = param.createdAt || Date.now();
-  };
-
-  getAccessToken = () => {
-    return this.access_token;
-  };
-
-  getRefreshToken = () => {
-    return this.refresh_token;
   };
 
   expired = () => {
