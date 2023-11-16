@@ -12,11 +12,13 @@ export default function TusHeader() {
       <div
         className={`h-full w-full absolute text-center flex justify-center items-center`}
       >
-        <h1
-          className={`${abril_fatface.className} text-fuchsia-400 text-4xl lg:text-9xl text-center`}
+        <div
+          className={`${abril_fatface.className} text-fuchsia-400 text-4xl lg:text-9xl text-center flex`}
         >
-          The Uniform Shop
-        </h1>
+          <div className="opacity-0 animate-fade-in-600">The&nbsp;</div>
+          <div className="opacity-0 animate-fade-in-800">Uniform&nbsp;</div>
+          <div className="opacity-0 animate-fade-in-1000">Shop</div>
+        </div>
       </div>
       <video
         className="object-cover h-full overflow-clip w-full"

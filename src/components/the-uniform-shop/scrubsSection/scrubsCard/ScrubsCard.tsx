@@ -23,8 +23,8 @@ export default function ScrubsCard({imgUrl, title, navigation}:{imgUrl?: string;
       <div className={`absolute bottom-16 left-0 right-0 text-5xl text-white text-center ${titleFont.className}`}>
         <h2>{`${title ? title : 'interesting title'}`}</h2>
         <div className="flex justify-around items-center ">
-          {navigation ? navigation.map(({title, href}) => {
-            return(<Link href={href} key={href} className="underline text-white hover:scale-105 text-2xl">{title}</Link>);
+          {navigation ? navigation.map(({title, href}, i) => {
+            return(<Link href={href} key={href + i} className="underline text-white hover:scale-105 text-2xl">{title}</Link>);
             }) : ''}
         </div>
       </div>
